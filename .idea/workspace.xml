@@ -9,7 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin" />
+    <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/model/DomainException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/model/Team.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/service/DbException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/useroverview.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/RegisterTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/SeleniumWorksWellTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -52,9 +66,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\java" />
-      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\java\Controller" />
       <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\webapp" />
+      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\test\java" />
+      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\java\domain\service" />
+      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\java\domain\model" />
+      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Controller" />
@@ -112,7 +128,7 @@
       <workItem from="1663598034386" duration="1273000" />
       <workItem from="1663612561153" duration="1930000" />
       <workItem from="1663675126612" duration="3884000" />
-      <workItem from="1664184004040" duration="525000" />
+      <workItem from="1664184004040" duration="1329000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>
