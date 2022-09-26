@@ -3,12 +3,12 @@
 <html>
 <head>
     <title>JSP - Hello World</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
 <jsp:include page="nav.jsp"/>
+<h1>Index</h1>
+<p>peepeepoopoo</p>
 </body>
 
 </html>

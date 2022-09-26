@@ -1,7 +1,5 @@
 package Controller;
 
-import Controller.RequestHandler;
-
 public class HandlerFactory {
 
     public RequestHandler getHandler(String command) {

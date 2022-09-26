@@ -10,15 +10,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/HandlerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/RequestHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/nav.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/web3/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/HandlerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/HandlerFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/index.jsp" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,11 +52,21 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../UCLL21-22 Full/UCLL21-22 Herexamens/Web2_Herexamen" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\java" />
+      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\java\Controller" />
+      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\webapp" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Controller" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.582" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.582" ALTERNATIVE_JRE_ENABLED="false">
@@ -112,6 +120,7 @@
       <workItem from="1663598034386" duration="1273000" />
       <workItem from="1663612561153" duration="1930000" />
       <workItem from="1663675126612" duration="3884000" />
+      <workItem from="1664184004040" duration="339000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>
