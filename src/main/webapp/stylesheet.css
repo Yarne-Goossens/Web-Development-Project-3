@@ -1,0 +1,57 @@
+*{
+
+}
+
+body{
+    background-color: navajowhite;
+}
+
+nav{
+    border: solid;
+}
+
+nav ul{
+    list-style: none;
+    font-size: 2rem;
+
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+
+}
+
+nav li{
+
+}
+
+a{
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    padding: 1em 2em 1em 2em;
+    margin: -2em;
+
+}
+
+nav a:link{
+    text-decoration: none;
+    color: black;
+}
+
+nav a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+nav a:hover{
+    text-decoration: underline;
+    background-color: gray;
+    color: black;
+}
+
+nav a:active{
+    text-decoration: none;
+    color: black;
+}
