@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Home</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 	<div id="container">
@@ -14,13 +14,7 @@
 			<h1>
 				<span>XXX</span>
 			</h1>
-			<nav>
-				<ul>
-					<li id="actual"><a href="Controller">Home</a></li>
-					<li><a href="Controller?command=Overview">Overview</a></li>
-					<li><a href="Controller?command=Register">Register</a></li>
-				</ul>
-			</nav>
+			<jsp:include page="nav.jsp"/>
 			<h2>Home</h2>
 
 		</header>

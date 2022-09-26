@@ -6,19 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta charset="UTF-8">
 <title>Sign Up</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
 <div id="container">
 <header>
 <h1><span>XXX</span></h1>
-<nav>
-<ul>
-<li><a href="Controller">Home</a></li>
-<li><a href="Controller?command=Overview">Overview</a></li>
-<li id="actual"><a href="Controller?command=Register">Register</a></li>
-</ul>
-</nav>
+    <jsp:include page="nav.jsp"/>
 <h2>
 Register
 </h2>
