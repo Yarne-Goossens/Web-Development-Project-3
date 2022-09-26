@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,17 +17,40 @@ User Overview
 </h2>
 
 </header><main>
-<table>
-<tr>
-<th>E-mail</th>
-<th>First Name</th>
-<th>Last Name</th>
-</tr>
-<tr>
-<td>jan.janssens@hotmail.com</td><td>Jan</td><td>Janssens</td>
-</tr>
+    <main>
+        <table>
+            <c:choose>
+                <c:when test="${not empty useroverview}">
+                    <h2>Look at your planets</h2>
+                    <tr>
+                        <th>id</th>
+                        <th>email</th>
+                        <th>firstname</th>
+                        <th>name</th>
+                        <th>team</th>
 
-<caption>Users Overview</caption>
+                    </tr>
+
+                    <c:forEach var="user" items="${useroverview}">
+                        <tr>
+                            <td>${user.userid}
+                            </td>
+                            <td>${user.email}
+                            </td>
+                            <td>${user.firstName}
+                            </td>
+                            <td>${user.lastName}
+                            </td>
+                            <td>${user.team}
+                            </td>
+                        </tr>
+                    </c:forEach>
+
+                </c:when>
+                <c:otherwise>
+                    <p>There are no planets to show </p>
+                </c:otherwise>
+            </c:choose>
 </table>
 </main>
 <footer>

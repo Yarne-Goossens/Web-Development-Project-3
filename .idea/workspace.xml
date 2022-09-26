@@ -10,20 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Register.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Web3_war.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Web3_war.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/artifacts/Web3_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Web3_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Web3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Overview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Overview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/overview.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/db/UserDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/db/UserDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/useroverview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/useroverview.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/WEB-INF/classes/Controller/Overview.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/WEB-INF/classes/Controller/Overview.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/nav.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Controller/Overview.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Controller/Overview.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +123,7 @@
       <workItem from="1663675126612" duration="3884000" />
       <workItem from="1664184004040" duration="2026000" />
       <workItem from="1664186158334" duration="1000" />
-      <workItem from="1664186683134" duration="532000" />
+      <workItem from="1664186683134" duration="2104000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>
