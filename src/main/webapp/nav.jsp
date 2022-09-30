@@ -1,9 +1,9 @@
 
 <nav>
     <ul>
-        <li><a href="index.jsp">index</a></li>
-        <li><a href="Controller?command=Login">login</a></li>
-        <li><a href="Controller?command=Overview">overview</a></li>
-        <li><a href="Controller?command=Register">register</a></li>
+        <li><a href="index.jsp">Home</a></li>
+        <li><a href="Controller?command=Overview">Users</a></li>
+        <li><a href="Controller?command=Register">Register</a></li>
+        <li><a href="Controller?command=Login">Login</a></li>
     </ul>
 </nav>

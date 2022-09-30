@@ -10,7 +10,6 @@ public class Overview extends RequestHandler {
     UserDB userDB=new UserDB();
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-
         request.setAttribute("useroverview",userDB.getAlle());
         return "useroverview.jsp";
     }

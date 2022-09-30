@@ -18,8 +18,13 @@ public class UserDB {
     }
 
     public void voegToe(User user) {
-        if (user == null) throw new DomainException("geen geldige planeet");
-
+        if (user == null) throw new DomainException("geen geldige user");
+        for (User u : users)
+        {
+            if (user.getEmail().compareTo(u.getEmail()) == 0) {
+                throw new DomainException("Geen duplicaat emails mogelijk.");
+            }
+        }
         this.sequence++;
         users.add(user);
     }
