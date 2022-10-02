@@ -44,6 +44,15 @@ Register
         <p><label for="password">Password</label>
             <input type="password" id="password"  name="password" required> </p>
 
+        <label for="typeSuns">Team</label>
+        <select name="typeOfSuns" id="typeSuns">
+            <option value="alpha">alpha</option>
+            <option value="beta">beta</option>
+            <option value="gamma">gamma</option>
+            <option value="delta">delta</option>
+            <option value="epsilon">epsilon</option>
+        </select>
+
         <p><input id = "submit" type = "submit" value="Registreer"></p>
         
     </form>
