@@ -34,6 +34,11 @@ public class UserService {
         if (users.containsKey(user.getUserid())) {
             throw new DbException("User already exists");
         }
+        for (User u : this.getAll()) {
+            if(u.getEmail().compareTo(user.getEmail())==0){
+                throw new DbException("No duplicate emails");
+            };
+        }
         user.setUserid(userid);   // user toevoegen geeft altijd nieuw userid
         users.put(user.getUserid(), user);
         userid++;
