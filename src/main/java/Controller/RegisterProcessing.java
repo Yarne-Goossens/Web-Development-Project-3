@@ -1,10 +1,8 @@
 package Controller;
 
-import domain.model.DomainException;
 import domain.model.Role;
 import domain.model.User;
 import domain.service.DbException;
-import domain.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -10,13 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginProcessing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/HandlerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/HandlerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Overview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Overview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegisterProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/RegisterProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RequestHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/RequestHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +123,7 @@
       <workItem from="1664186683134" duration="2204000" />
       <workItem from="1664532656615" duration="7933000" />
       <workItem from="1664705630326" duration="5399000" />
-      <workItem from="1664786457021" duration="3446000" />
+      <workItem from="1664786457021" duration="4477000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>

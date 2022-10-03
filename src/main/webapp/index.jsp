@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,8 +11,16 @@
 <body>
 	<div id="container">
 		<header>
+			<c:choose>
+				<c:when test="${not empty loggedin}">
+					<p>${user.name}</p>
+				</c:when>
+				<c:otherwise>
+					<p>You are not logged in.</p>
+				</c:otherwise>
+			</c:choose>
 			<h1>
-				<span>XXX</span>
+				<span></span>
 			</h1>
 			<jsp:include page="nav.jsp"/>
 			<h2>Home</h2>
