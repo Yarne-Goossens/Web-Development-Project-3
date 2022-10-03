@@ -8,6 +8,6 @@ public class Login extends RequestHandler {
 
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        return "login.jsp";
+        return "index.jsp";
     }
 }

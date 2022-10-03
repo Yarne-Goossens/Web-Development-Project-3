@@ -28,7 +28,7 @@ public class LoginProcessing extends RequestHandler {
             errors.add(e.getMessage());
         }
         request.setAttribute("errors", errors);
-        return "login.jsp";
+        return "index.jsp";
 
     }
 }

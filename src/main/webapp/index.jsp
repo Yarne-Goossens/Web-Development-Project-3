@@ -1,31 +1,55 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Home</title>
-	<link rel="stylesheet" href="stylesheet.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>Login</title>
+    <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-	<div id="container">
-		<header>
-			<h2>
-				<jsp:include page="loginStatus.jsp"/>
-			</h2>
-			<jsp:include page="nav.jsp"/>
-			<h2>Home</h2>
+<div id="container">
+    <header>
+        <h2>
+            <jsp:include page="loginStatus.jsp"/>
+        </h2>
 
-		</header>
-		<main> Sed ut perspiciatis unde omnis iste natus error sit
-		voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
-		ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
-		dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-		aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
-		qui ratione voluptatem sequi nesciunt. </main>
+        <jsp:include page="nav.jsp"/>
+        <h2>
+            Login
+        </h2>
+    </header>
+    <c:if test="${not empty errors}">
+    <div id="error" class="alert alert-danger">
+        <ul>
+            <c:forEach items="${errors}" var="error">
+                <li>${error}</li>
+            </c:forEach>
+        </ul>
+        </c:if>
+    <c:choose>
+        <c:when test="${empty loginUserSession}">
 
-	</div>
-	<footer> &copy; Webontwikkeling 3, UC Leuven-Limburg </footer>
+    <form name="login" method="POST" action="Controller?command=LoginProcessing" novalidate>
+
+        <label for="email">Email: </label>
+        <input type="text" id="email" name="email" placeholder="Jan.Janssens@gmail.com">
+
+        <label for="password">Wachtwoord: </label>
+        <input type="password" id="password" name="password">
+
+        <input id="submit" type="submit" name="command" value="login">
+    </form>
+        </c:when>
+        <c:otherwise>
+            <p>Welcome, ${loginUserSession.firstName}!</p>
+            <form name="logout" method="POST" action="Controller?command=LogoutProcessing" novalidate>
+                <input id="submitLogout" type="submit" name="command" value="logout">
+            </form>
+        </c:otherwise>
+    </c:choose>
+</div>
+<footer> &copy; Webontwikkeling 3, UC Leuven-Limburg</footer>
 </body>
 </html>
