@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,22 +11,44 @@
 <body>
 <div id="container">
     <header>
-        <h1><span>XXX</span></h1>
+        <h2>
+            <jsp:include page="loginStatus.jsp"/>
+        </h2>
+
         <jsp:include page="nav.jsp"/>
         <h2>
             Login
         </h2>
     </header>
-    <form name="formulier" method="POST" action="Controller?command=LoginProcessing" novalidate>
+    <c:if test="${not empty errors}">
+    <div id="error" class="alert alert-danger">
+        <ul>
+            <c:forEach items="${errors}" var="error">
+                <li>${error}</li>
+            </c:forEach>
+        </ul>
+        </c:if>
+    <c:choose>
+        <c:when test="${empty loginUserSession}">
 
-        <label for="name">Naam: </label>
-        <input type="text" id="name" name="name" placeholder="Jan Janssens">
+    <form name="login" method="POST" action="Controller?command=LoginProcessing" novalidate>
 
-        <label for="name">Wachtwoord: </label>
+        <label for="email">Naam: </label>
+        <input type="text" id="email" name="email" placeholder="Jan Janssens">
+
+        <label for="password">Wachtwoord: </label>
         <input type="password" id="password" name="password">
 
         <input id="submit" type="submit" name="command" value="login">
     </form>
+        </c:when>
+        <c:otherwise>
+            <p>Welcome, ${loginUserSession.firstName}!</p>
+            <form name="logout" method="POST" action="Controller?command=LogoutProcessing" novalidate>
+                <input id="submitLogout" type="submit" name="command" value="logout">
+            </form>
+        </c:otherwise>
+    </c:choose>
 </div>
 <footer> &copy; Webontwikkeling 3, UC Leuven-Limburg</footer>
 </body>

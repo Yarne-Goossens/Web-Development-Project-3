@@ -11,17 +11,9 @@
 <body>
 	<div id="container">
 		<header>
-			<c:choose>
-				<c:when test="${not empty loggedin}">
-					<p>${user.name}</p>
-				</c:when>
-				<c:otherwise>
-					<p>You are not logged in.</p>
-				</c:otherwise>
-			</c:choose>
-			<h1>
-				<span></span>
-			</h1>
+			<h2>
+				<jsp:include page="loginStatus.jsp"/>
+			</h2>
 			<jsp:include page="nav.jsp"/>
 			<h2>Home</h2>
 

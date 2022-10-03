@@ -11,7 +11,10 @@
 <body>
 <div id="container">
 <header>
-<h1><span>XXX</span></h1>
+    <h2>
+        <jsp:include page="loginStatus.jsp"/>
+    </h2>
+
     <jsp:include page="nav.jsp"/>
 <h2>
 Register

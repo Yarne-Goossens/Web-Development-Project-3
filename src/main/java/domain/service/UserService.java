@@ -59,6 +59,17 @@ public class UserService {
         users.remove(userid);   // userid gaat verloren, maar wordt niet ingenomen door eventuele nieuwe user
     }
 
+    public User checkRealUserAndPassword(String email,String password){
+        for (User u : this.getAll()) {
+            if (u.getEmail().compareTo(email)==0){
+                if(u.isCorrectPassword(password)){
+                    return u;
+                }
+            }
+        }
+        throw new DbException("No valid email/password");
+    }
+
     public int getNumberOfUsers() {
         return users.size();
     }
