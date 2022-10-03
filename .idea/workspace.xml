@@ -13,7 +13,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/Overview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/Overview.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegisterProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/RegisterProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/db/UserDB.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +122,8 @@
       <workItem from="1664186158334" duration="1000" />
       <workItem from="1664186683134" duration="2204000" />
       <workItem from="1664532656615" duration="7933000" />
-      <workItem from="1664705630326" duration="4792000" />
+      <workItem from="1664705630326" duration="5399000" />
+      <workItem from="1664786457021" duration="797000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>

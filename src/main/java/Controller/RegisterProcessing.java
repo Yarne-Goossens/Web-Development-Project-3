@@ -1,6 +1,5 @@
 package Controller;
 
-import domain.db.UserDB;
 import domain.model.DomainException;
 import domain.model.User;
 import domain.service.DbException;
@@ -50,7 +49,7 @@ public class RegisterProcessing extends RequestHandler {
         try {
             request.setAttribute("firstnamePreviousValue", firstName);
             u.setFirstName(firstName);
-        } catch (DbException exc) {
+        } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             firstnameHasErrors = true;
         } finally {
@@ -64,7 +63,7 @@ public class RegisterProcessing extends RequestHandler {
         try {
             request.setAttribute("namePreviousValue", name);
             u.setLastName(name);
-        } catch (DbException exc) {
+        } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             nameHasErrors = true;
         } finally {
@@ -78,7 +77,7 @@ public class RegisterProcessing extends RequestHandler {
         try {
             request.setAttribute("emailPreviousValue", name);
             u.setEmail(name);
-        } catch (DbException exc) {
+        } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             emailHasErrors = true;
         } finally {
@@ -92,7 +91,7 @@ public class RegisterProcessing extends RequestHandler {
         try {
             request.setAttribute("passwordPreviousValue", name);
             u.setPassword(name);
-        } catch (DbException exc) {
+        } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             passwordHasErrors = true;
         } finally {
@@ -106,7 +105,7 @@ public class RegisterProcessing extends RequestHandler {
         try {
             request.setAttribute("teamPreviousValue", name);
             u.setTeam(name);
-        } catch (DbException exc) {
+        } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             teamHasErrors = true;
         } finally {

@@ -44,8 +44,8 @@ Register
         <p><label for="password">Password</label>
             <input type="password" id="password"  name="password" required> </p>
 
-        <label for="typeSuns">Team</label>
-        <select name="typeOfSuns" id="typeSuns">
+        <label for="team">Team</label>
+        <select name="team" id="team">
             <option value="alpha">alpha</option>
             <option value="beta">beta</option>
             <option value="gamma">gamma</option>
