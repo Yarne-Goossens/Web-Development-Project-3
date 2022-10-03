@@ -11,7 +11,7 @@ import java.util.Map;
 
 public class UserService {
     private final Map<Integer, User> users = new HashMap<Integer, User>();
-    private int userid = 1;    // als je later werkt met externe databank, wordt dit userid automatisch gegenereerd
+    private int userid = 1;    // als je later werkt jmet externe databank, wordt dit userid automatisch gegenereerd
 
     public UserService() {
         User director = new User("director@ucll.be", "t", "Ad", "Director", Team.ALPHA);

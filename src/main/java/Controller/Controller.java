@@ -1,5 +1,7 @@
 package Controller;
 
+import domain.service.UserService;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,7 +14,7 @@ import java.io.IOException;
 public class Controller extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private HandlerFactory handlerFactory = new HandlerFactory();
-
+    private UserService service = new UserService();
     public Controller() {
         super();
     }
@@ -30,7 +32,7 @@ public class Controller extends HttpServlet {
         String command = request.getParameter("command");
 
         if (command != null) {
-            RequestHandler handler = handlerFactory.getHandler(command);
+            RequestHandler handler = handlerFactory.getHandler(command,service);
             destination = handler.handleRequest(request, response);
         }
 

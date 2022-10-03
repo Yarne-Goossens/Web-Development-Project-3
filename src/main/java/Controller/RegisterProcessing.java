@@ -1,6 +1,7 @@
 package Controller;
 
 import domain.model.DomainException;
+import domain.model.Role;
 import domain.model.User;
 import domain.service.DbException;
 import domain.service.UserService;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
 public class RegisterProcessing extends RequestHandler {
-    private final UserService db = new UserService();
+
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         ArrayList<String>errors=new ArrayList<String>();
@@ -24,14 +25,10 @@ public class RegisterProcessing extends RequestHandler {
 
         if(errors.size()==0) {
             try {
-                db.add(user);
-                request.setAttribute("useroverview",db.getAll());
+                user.setRole(Role.DIRECTOR);
+                service.add(user);
+                request.setAttribute("useroverview", service.getAll());
                 return "useroverview.jsp";
-            } catch (DomainException d) {
-                errors.add(d.getMessage());
-            }
-            catch (IllegalArgumentException d) {
-                errors.add(d.getMessage());
             }
             catch (DbException d) {
                 errors.add(d.getMessage());
@@ -40,8 +37,6 @@ public class RegisterProcessing extends RequestHandler {
         request.setAttribute("errors", errors);
         return "register.jsp";
     }
-
-
 
     private void setFirstName(User u, HttpServletRequest request, ArrayList<String> errors) {
         String firstName = request.getParameter("firstName");
