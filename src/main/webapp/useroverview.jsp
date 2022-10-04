@@ -43,7 +43,7 @@ User Overview
                             <td>${user.team}</td>
                             <td>CEO</td>
                             <td>edit</td>
-                            <td>x</td>
+                            <td><a href="Controller?command=DeleteConfirm&userid=${user.userid}">Delete</a></td>
                         </tr>
                     </c:forEach>
 

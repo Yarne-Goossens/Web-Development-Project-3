@@ -10,18 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/loginStatus.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/DeleteConfirm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/DeleteProcessing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/deleteConfirm.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LoginProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/LoginProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/login.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/nav.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/nav.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/useroverview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/useroverview.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/Web3-1.0-SNAPSHOT/login.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,11 +49,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/caspe/Documents/Git/Web3Right/web3-project-groep2-14"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\webapp" />
@@ -146,6 +141,7 @@
       <workItem from="1664705630326" duration="5399000" />
       <workItem from="1664786457021" duration="4821000" />
       <workItem from="1664799537139" duration="2283000" />
+      <workItem from="1664887049699" duration="1158000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>
