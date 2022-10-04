@@ -10,11 +10,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/DeleteConfirm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/DeleteProcessing.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/deleteConfirm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/EditForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/EditProcessing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/editForm.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/stylesheet.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/useroverview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/useroverview.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Jsp File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -141,7 +140,7 @@
       <workItem from="1664705630326" duration="5399000" />
       <workItem from="1664786457021" duration="4821000" />
       <workItem from="1664799537139" duration="2283000" />
-      <workItem from="1664887049699" duration="1158000" />
+      <workItem from="1664887049699" duration="4931000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>
