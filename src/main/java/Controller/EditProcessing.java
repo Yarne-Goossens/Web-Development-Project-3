@@ -21,15 +21,14 @@ public class EditProcessing extends RequestHandler {
         request.setAttribute("userid",id);
         request.setAttribute("tobeEdited",edited);
 
-        User user= new User();
-        setFirstName(user,request,errors);
-        setLastName(user,request,errors);
-        setEmail(user,request,errors);
-        setTeam(user,request,errors);
+        setFirstName(edited,request,errors);
+        setLastName(edited,request,errors);
+        setEmail(edited,request,errors);
+        setTeam(edited,request,errors);
 
         if(errors.size()==0) {
             try {
-                service.update(user);
+                service.update(edited);
 
                 request.setAttribute("useroverview", service.getAll());
                 return "useroverview.jsp";
