@@ -11,6 +11,6 @@ public class DeleteProcessing extends RequestHandler {
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int deleteId=Integer.parseInt(request.getParameter("userid"));
         service.delete(deleteId);
-        return "useroverview.jsp";
+        return "Controller?command=Overview";
     }
 }

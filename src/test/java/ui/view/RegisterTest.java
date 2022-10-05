@@ -43,12 +43,15 @@ public class RegisterTest {
 		registerPage.setLastName("Janssens");
 		registerPage.setEmail("jan.janssens@hotmail.com");
 		registerPage.setPassword("1234");
+		registerPage.setRole("user");
+		registerPage.setTeam("alpha");
 
 		registerPage.add();
 
 		OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
 		assertEquals("Users", overviewPage.getTitle());
 		assertTrue(overviewPage.containsUserWithName("Jan"));
+		assertTrue(overviewPage.containsUserWithRole("Jan","EMPLOYEE"));
 	}
 
 	@Test
@@ -58,25 +61,133 @@ public class RegisterTest {
 		registerPage.setLastName("Janssens");
 		registerPage.setEmail("jan.janssens@hotmail.com");
 		registerPage.setPassword("1234");
+		registerPage.setRole("user");
+		registerPage.setTeam("alpha");
 
 		registerPage.add();
 
-		/*assertEquals("No firstname given", registerPage.getTitle());
-		assertTrue(registerPage.hasEmptyName());
-		assertTrue(addPage.hasErrorMessage("Geen geldige naam"));
-		assertTrue(addPage.hasStickyType("Vis"));
-		assertTrue(addPage.hasStickyFood("3"));*/
+		assertEquals("Register", registerPage.getTitle());
+		assertTrue(registerPage.hasEmptyFirstName());
+		assertTrue(registerPage.hasErrorMessage("No firstname given"));
+		/***
+		 *
+		 * checken of data in fields blijft
+		 *
+		 * ***/
+	}
+
+	@Test
+	public void test_Register_LastNameNotFilledIn_ErrorMessageGivenForLastNameAndOtherFieldsValueKept(){
+		RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
+		registerPage.setFirstName("Jan");
+		registerPage.setLastName("");
+		registerPage.setEmail("jan.janssens@hotmail.com");
+		registerPage.setPassword("1234");
+		registerPage.setRole("user");
+		registerPage.setTeam("alpha");
+
+		registerPage.add();
+
+		assertEquals("Register", registerPage.getTitle());
+		assertTrue(registerPage.hasEmptyLastName());
+		assertTrue(registerPage.hasErrorMessage("No last name given"));
+		/***
+		 *
+		 * checken of data in fields blijft
+		 *
+		 * ***/
+	}
+
+	@Test
+	public void test_Register_EmailNotFilledIn_ErrorMessageGivenForEmailAndOtherFieldsValueKept(){
+		RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
+		registerPage.setFirstName("Jan");
+		registerPage.setLastName("Janssens");
+		registerPage.setEmail("");
+		registerPage.setPassword("1234");
+		registerPage.setRole("user");
+		registerPage.setTeam("alpha");
+
+		registerPage.add();
+
+		assertEquals("Register", registerPage.getTitle());
+		assertTrue(registerPage.hasEmptyEmail());
+		assertTrue(registerPage.hasErrorMessage("No email given"));
+		/***
+		 *
+		 * checken of data in fields blijft
+		 *
+		 * ***/
+	}
+
+	@Test
+	public void test_Register_PasswordNotFilledIn_ErrorMessageGivenForEmailAndOtherFieldsValueKept(){
+		RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
+		registerPage.setFirstName("Jan");
+		registerPage.setLastName("Janssens");
+		registerPage.setEmail("jan.janssens@hotmail.com");
+		registerPage.setPassword("");
+		registerPage.setRole("user");
+		registerPage.setTeam("alpha");
+
+		registerPage.add();
+
+		assertEquals("Register", registerPage.getTitle());
+		assertTrue(registerPage.hasEmptyPassword());
+		assertTrue(registerPage.hasErrorMessage("No password given"));
+		/***
+		 *
+		 * checken of data in fields blijft
+		 *
+		 * ***/
+	}
+
+	@Test
+	public void test_Register_UserAlreadyExists_ErrorMessageGiven(){
+		RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
+		registerPage.setFirstName("Pieter");
+		registerPage.setLastName("Pieters");
+		registerPage.setEmail("pieter.pieters@hotmail.com");
+		registerPage.setPassword("1234");
+		registerPage.setRole("user");
+		registerPage.setTeam("alpha");
+
+		registerPage.add();
+
+		/***
+		 *
+		 * dupe werkt nog niet
+		 * moet terug gaan naar register maar blijft op overview
+		 *
+		 * ***/
+		registerPage.setFirstName("Pieter");
+		registerPage.setLastName("Pieters");
+		registerPage.setEmail("pieter.pieters@hotmail.com");
+		registerPage.setPassword("1234");
+		registerPage.setRole("user");
+		registerPage.setTeam("alpha");
+
+		registerPage.add();
+
+
+		assertEquals("Register", registerPage.getTitle());
+		assertTrue(registerPage.hasErrorMessage("No duplicate emails"));
+		/***
+		 *
+		 * checken of data in fields blijft
+		 *
+		 * ***/
 	}
 
 	/*@Test
 	public void test_Register_AllFieldsFilledInCorrectly_UserIsRegistered_and_RoleIsEmployee() {
 		submitForm("Jan", "Janssens", "jan.janssens@hotmail.com" , "1234");
-		
+
 		String title = driver.getTitle();
 		assertEquals("Overview",title);
-		
+
 		driver.get(path+"?command=Overview");
-		
+
 		ArrayList<WebElement> listItems=(ArrayList<WebElement>) driver.findElements(By.cssSelector("table tr"));
 		boolean found=false;
 		for (WebElement listItem:listItems) {

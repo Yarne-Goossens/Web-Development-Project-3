@@ -26,14 +26,14 @@ public class RegisterProcessing extends RequestHandler {
             try {
                 service.add(user);
                 request.setAttribute("useroverview", service.getAll());
-                return "useroverview.jsp";
+                return "Controller?command=Overview";
             }
             catch (DbException d) {
                 errors.add(d.getMessage());
             }
         }
         request.setAttribute("errors", errors);
-        return "register.jsp";
+        return "Controller?command=Register";
     }
 
     private void setFirstName(User u, HttpServletRequest request, ArrayList<String> errors) {

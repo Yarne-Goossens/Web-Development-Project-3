@@ -5,6 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 
 public class RegisterPage extends Page {
 
@@ -19,6 +20,9 @@ public class RegisterPage extends Page {
 
     @FindBy(id = "password")
     private WebElement passwordField;
+
+    @FindBy(id = "role")
+    private WebElement roleField;
 
     @FindBy(id = "team")
     private WebElement teamField;
@@ -46,6 +50,16 @@ public class RegisterPage extends Page {
         emailField.sendKeys(email);
     }
 
+    public void setRole(String role) {
+        Select dropdown = new Select(roleField);
+        dropdown.selectByVisibleText(role);
+    }
+
+    public void setTeam(String team) {
+        Select dropdown = new Select(teamField);
+        dropdown.selectByVisibleText(team);
+    }
+
     public void setPassword(String password) {
         passwordField.clear();
         passwordField.sendKeys(password);
@@ -71,6 +85,15 @@ public class RegisterPage extends Page {
     public boolean hasEmptyLastName() {
         return lastNameField.getAttribute("value").isEmpty();
     }
+
+    public boolean hasEmptyEmail() {
+        return emailField.getAttribute("value").isEmpty();
+    }
+
+    public boolean hasEmptyPassword() {
+        return passwordField.getAttribute("value").isEmpty();
+    }
+
 
 }
 
