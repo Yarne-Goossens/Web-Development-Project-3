@@ -38,13 +38,13 @@
         <form name="formulier" method="POST" action="Controller?command=EditProcessing&userid=${tobeEdited.userid}" novalidate>
 
             <p><label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" required value=""> </p>
+                <input type="text" id="firstName" name="firstName" required value="${firstnamePreviousValue}"> </p>
 
             <p><label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required> </p>
+                <input type="text" id="lastName" name="lastName" required value="${namePreviousValue}"> </p>
 
             <p><label for="email">Email</label>
-                <input type="email" id="email" name="email" required></p>
+                <input type="email" id="email" name="email" required value="${emailPreviousValue}"></p>
 
             <label for="role">Role</label>
             <select name="role" id="role">

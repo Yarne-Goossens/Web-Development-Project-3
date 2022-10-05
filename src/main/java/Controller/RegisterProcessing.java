@@ -21,6 +21,7 @@ public class RegisterProcessing extends RequestHandler {
         setPassword(user,request,errors);
         setTeam(user,request,errors);
         setRole(user,request,errors);
+
         if(errors.size()==0) {
             try {
                 service.add(user);
