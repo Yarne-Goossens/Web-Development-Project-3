@@ -20,10 +20,9 @@ public class RegisterProcessing extends RequestHandler {
         setEmail(user,request,errors);
         setPassword(user,request,errors);
         setTeam(user,request,errors);
-
+        setRole(user,request,errors);
         if(errors.size()==0) {
             try {
-                user.setRole(Role.DIRECTOR);
                 service.add(user);
                 request.setAttribute("useroverview", service.getAll());
                 return "useroverview.jsp";
@@ -103,6 +102,21 @@ public class RegisterProcessing extends RequestHandler {
             teamHasErrors = true;
         } finally {
             request.setAttribute("teamHasErrors", teamHasErrors);
+        }
+    }
+
+    private void setRole(User u, HttpServletRequest request, ArrayList<String> errors) {
+        String r = request.getParameter("role");
+
+        boolean roleHasErrors = false;
+        try {
+            request.setAttribute("rolePreviousValue", r);
+            u.setRole(r);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            roleHasErrors = true;
+        } finally {
+            request.setAttribute("roleHasErrors", roleHasErrors);
         }
     }
 

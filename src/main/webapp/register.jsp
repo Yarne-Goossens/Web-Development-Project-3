@@ -47,6 +47,13 @@ Register
         <p><label for="password">Password</label>
             <input type="password" id="password"  name="password" required> </p>
 
+        <label for="role">Role</label>
+        <select name="role" id="role">
+            <option value="employee">user</option>
+            <option value="teamleader">coordinator</option>
+            <option value="director">admin</option>
+        </select>
+
         <label for="team">Team</label>
         <select name="team" id="team">
             <option value="alpha">alpha</option>

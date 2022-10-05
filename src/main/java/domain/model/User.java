@@ -121,6 +121,13 @@ public class User {
         this.role = role;
     }
 
+    public void setRole(String role) {
+        try {
+            this.role = Role.valueOf(role.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new DomainException("There is no role with value " + role);
+        }
+    }
     @Override
     public String toString() {
         return getFirstName() + " " + getLastName() + ": " + getUserid() + ", " + getEmail() + ", " + getRole() + ", " + getTeam();

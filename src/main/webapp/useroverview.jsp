@@ -41,7 +41,7 @@ User Overview
                             <td>${user.firstName}</td>
                             <td>${user.lastName}</td>
                             <td>${user.team}</td>
-                            <td>CEO</td>
+                            <td>${user.role}</td>
                             <td><a href="Controller?command=EditForm&userid=${user.userid}">Edit</a></td>
                             <td><a href="Controller?command=DeleteConfirm&userid=${user.userid}">Delete</a></td>
                         </tr>

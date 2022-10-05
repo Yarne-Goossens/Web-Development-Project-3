@@ -25,6 +25,7 @@ public class EditProcessing extends RequestHandler {
         setLastName(edited,request,errors);
         setEmail(edited,request,errors);
         setTeam(edited,request,errors);
+        setRole(edited,request,errors);
 
         if(errors.size()==0) {
             try {
@@ -103,21 +104,19 @@ public class EditProcessing extends RequestHandler {
         }
     }
 
-    /*private void setRole(User u, HttpServletRequest request, ArrayList<String> errors) {
+    private void setRole(User u, HttpServletRequest request, ArrayList<String> errors) {
         String r = request.getParameter("role");
-        Role role=Role.valueOf(r);
-
 
         boolean roleHasErrors = false;
         try {
-            request.setAttribute("rolePreviousValue", role);
-            u.setRole(role);
+            request.setAttribute("rolePreviousValue", r);
+            u.setRole(r);
         } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             roleHasErrors = true;
         } finally {
             request.setAttribute("roleHasErrors", roleHasErrors);
         }
-    }*/
+    }
 
 }
