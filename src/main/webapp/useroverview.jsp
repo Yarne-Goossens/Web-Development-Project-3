@@ -1,23 +1,15 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Users</title>
-    <link rel="stylesheet" href="stylesheet.css">
-</head>
-<body>
-<header>
-    <h2>
-        <jsp:include page="loginStatus.jsp"/>
-    </h2>
+
+    <jsp:include page="headPlusLoginStatus.jsp"/>
     <jsp:include page="nav.jsp"/>
+
 <h2>
 User Overview
 </h2>
 
-</header><main>
+</header>
     <main>
         <table>
             <c:choose>
