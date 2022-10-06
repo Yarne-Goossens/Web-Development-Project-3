@@ -11,7 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/EditProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/EditProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegisterProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/RegisterProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/editForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +163,9 @@
       <workItem from="1664786457021" duration="4821000" />
       <workItem from="1664799537139" duration="2283000" />
       <workItem from="1664887049699" duration="8815000" />
-      <workItem from="1665046529848" duration="534000" />
+      <workItem from="1665046529848" duration="1932000" />
+      <workItem from="1665048708509" duration="601000" />
+      <workItem from="1665056779663" duration="1354000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>

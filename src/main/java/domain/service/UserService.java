@@ -19,7 +19,6 @@ public class UserService {
         director.setRole(Role.DIRECTOR);
         user.setRole(Role.EMPLOYEE);
         add(director);
-        add(user);
     }
 
     public User get(int userid) {
@@ -56,7 +55,7 @@ public class UserService {
             throw new DbException("No user found");
         }
         for (User u : this.getAll()) {
-            if(u.getEmail().compareTo(user.getEmail())==0) {
+            if(u.getEmail().compareTo(user.getEmail())==0&&u.getUserid()!=user.getUserid()) {
                 throw new DbException("No duplicate emails");
             }
         }

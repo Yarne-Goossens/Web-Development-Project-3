@@ -20,12 +20,11 @@ public class EditProcessing extends RequestHandler {
 
         request.setAttribute("userid",id);
         request.setAttribute("tobeEdited",edited);
-
-        setFirstName(edited,request,errors);
-        setLastName(edited,request,errors);
-        setEmail(edited,request,errors);
-        setTeam(edited,request,errors);
-        setRole(edited,request,errors);
+        edited.setFirstNameRequest(request,errors);
+        edited.setLastNameRequest(request,errors);
+        edited.setEmailRequest(request,errors);
+        edited.setTeamRequest(request,errors);
+        edited.setRoleRequest(request,errors);
 
         if(errors.size()==0) {
             try {
@@ -41,82 +40,20 @@ public class EditProcessing extends RequestHandler {
                 errors.add(n.getMessage());
             }
         }
-
         request.setAttribute("errors", errors);
         return "editForm.jsp";
     }
 
 
-    private void setFirstName(User u, HttpServletRequest request, ArrayList<String> errors) {
-        String firstName = request.getParameter("firstName");
-        boolean firstnameHasErrors = false;
-        try {
-            request.setAttribute("firstnamePreviousValue", firstName);
-            u.setFirstName(firstName);
-        } catch (IllegalArgumentException exc) {
-            errors.add(exc.getMessage());
-            firstnameHasErrors = true;
-        } finally {
-            request.setAttribute("firstnameHasErrors", firstnameHasErrors);
-        }
-    }
-
-    private void setLastName(User u, HttpServletRequest request, ArrayList<String> errors) {
-        String name = request.getParameter("lastName");
-        boolean nameHasErrors = false;
-        try {
-            request.setAttribute("namePreviousValue", name);
-            u.setLastName(name);
-        } catch (IllegalArgumentException exc) {
-            errors.add(exc.getMessage());
-            nameHasErrors = true;
-        } finally {
-            request.setAttribute("nameHasErrors", nameHasErrors);
-        }
-    }
-
-    private void setEmail(User u, HttpServletRequest request, ArrayList<String> errors) {
-        String name = request.getParameter("email");
-        boolean emailHasErrors = false;
-        try {
-            request.setAttribute("emailPreviousValue", name);
-            u.setEmail(name);
-        } catch (IllegalArgumentException exc) {
-            errors.add(exc.getMessage());
-            emailHasErrors = true;
-        } finally {
-            request.setAttribute("emailHasErrors", emailHasErrors);
-        }
-    }
 
 
-    private void setTeam(User u, HttpServletRequest request, ArrayList<String> errors) {
-        String name = request.getParameter("team");
-        boolean teamHasErrors = false;
-        try {
-            request.setAttribute("teamPreviousValue", name);
-            u.setTeam(name);
-        } catch (IllegalArgumentException exc) {
-            errors.add(exc.getMessage());
-            teamHasErrors = true;
-        } finally {
-            request.setAttribute("teamHasErrors", teamHasErrors);
-        }
-    }
 
-    private void setRole(User u, HttpServletRequest request, ArrayList<String> errors) {
-        String r = request.getParameter("role");
 
-        boolean roleHasErrors = false;
-        try {
-            request.setAttribute("rolePreviousValue", r);
-            u.setRole(r);
-        } catch (IllegalArgumentException exc) {
-            errors.add(exc.getMessage());
-            roleHasErrors = true;
-        } finally {
-            request.setAttribute("roleHasErrors", roleHasErrors);
-        }
-    }
+
+
+
+
+
+
 
 }

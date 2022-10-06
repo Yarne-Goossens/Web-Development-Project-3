@@ -47,21 +47,47 @@ Register
         <p><label for="password">Password</label>
             <input type="password" id="password"  name="password" required> </p>
 
-        <label for="role">Role</label>
-        <select name="role" id="role">
-            <option value="employee">user</option>
-            <option value="teamleader">coordinator</option>
-            <option value="director">admin</option>
-        </select>
+        <c:choose>
+            <c:when test="${not empty teamPreviousValue}">
+                <label for="role">Role</label>
+                <select name="role" id="role">
+                    <option value="${rolePreviousValue}">${rolePreviousValue}</option>
+                    <option value="employee">employee</option>
+                    <option value="teamleader">teamleader</option>
+                    <option value="director">director</option>
+                </select>
 
-        <label for="team">Team</label>
-        <select name="team" id="team">
-            <option value="alpha">alpha</option>
-            <option value="beta">beta</option>
-            <option value="gamma">gamma</option>
-            <option value="delta">delta</option>
-            <option value="epsilon">epsilon</option>
-        </select>
+                <label for="team">Team</label>
+                <select name="team" id="team">
+                    <option value="${teamPreviousValue}">${teamPreviousValue}</option>
+                    <option value="alpha">alpha</option>
+                    <option value="beta">beta</option>
+                    <option value="gamma">gamma</option>
+                    <option value="delta">delta</option>
+                    <option value="epsilon">epsilon</option>
+                </select>
+
+            </c:when>
+            <c:otherwise>
+                <label for="role">Role</label>
+                <select name="role" id="role">
+                    <option value="employee">employee</option>
+                    <option value="teamleader">teamleader</option>
+                    <option value="director">director</option>
+                </select>
+
+                <label for="team">Team</label>
+                <select name="team" id="team">
+                    <option value="alpha">alpha</option>
+                    <option value="beta">beta</option>
+                    <option value="gamma">gamma</option>
+                    <option value="delta">delta</option>
+                    <option value="epsilon">epsilon</option>
+                </select>
+            </c:otherwise>
+        </c:choose>
+
+
 
         <p><input id = "submit" type = "submit" value="Registreer"></p>
         

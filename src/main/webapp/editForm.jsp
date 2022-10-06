@@ -38,24 +38,26 @@
         <form name="formulier" method="POST" action="Controller?command=EditProcessing&userid=${tobeEdited.userid}" novalidate>
 
             <p><label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" required value="${firstnamePreviousValue}"> </p>
+                <input type="text" id="firstName" name="firstName" required value="${tobeEdited.firstName}"> </p>
 
             <p><label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required value="${namePreviousValue}"> </p>
+                <input type="text" id="lastName" name="lastName" required value="${tobeEdited.lastName}"> </p>
 
             <p><label for="email">Email</label>
-                <input type="email" id="email" name="email" required value="${emailPreviousValue}"></p>
+                <input type="email" id="email" name="email" required value="${tobeEdited.email}"></p>
 
             <label for="role">Role</label>
             <select name="role" id="role">
-                <option value="employee">user</option>
-                <option value="teamleader">coordinator</option>
-                <option value="director">admin</option>
+                <option value="${tobeEdited.role}">${tobeEdited.role}</option>
+                <option value="employee">employee</option>
+                <option value="teamleader">teamleader</option>
+                <option value="director">director</option>
             </select>
 
 
             <label for="team">Team</label>
             <select name="team" id="team">
+                <option value="${tobeEdited.team}">${tobeEdited.team}</option>
                 <option value="alpha">alpha</option>
                 <option value="beta">beta</option>
                 <option value="gamma">gamma</option>

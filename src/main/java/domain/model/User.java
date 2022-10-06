@@ -1,5 +1,7 @@
 package domain.model;
 
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -52,6 +54,19 @@ public class User {
         this.email = email;
     }
 
+    public void setEmailRequest(HttpServletRequest request, ArrayList<String> errors) {
+        String name = request.getParameter("email");
+        boolean emailHasErrors = false;
+        try {
+            request.setAttribute("emailPreviousValue", name);
+            this.setEmail(name);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            emailHasErrors = true;
+        } finally {
+            request.setAttribute("emailHasErrors", emailHasErrors);
+        }
+    }
 
     public String getEmail() {
         return email;
@@ -75,6 +90,21 @@ public class User {
         this.password = password;
     }
 
+    //Wordt gecalled in processing classes.
+    public void setPasswordRequest(HttpServletRequest request, ArrayList<String> errors) {
+        String name = request.getParameter("password");
+        boolean passwordHasErrors = false;
+        try {
+            request.setAttribute("passwordPreviousValue", name);
+            this.setPassword(name);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            passwordHasErrors = true;
+        } finally {
+            request.setAttribute("passwordHasErrors", passwordHasErrors);
+        }
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -86,6 +116,20 @@ public class User {
         this.firstName = firstName;
     }
 
+    public void setFirstNameRequest(HttpServletRequest request, ArrayList<String> errors) {
+        String firstName = request.getParameter("firstName");
+        boolean firstnameHasErrors = false;
+        try {
+            request.setAttribute("firstnamePreviousValue", firstName);
+            this.setFirstName(firstName);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            firstnameHasErrors = true;
+        } finally {
+            request.setAttribute("firstnameHasErrors", firstnameHasErrors);
+        }
+    }
+
     public String getLastName() {
         return lastName;
     }
@@ -95,6 +139,20 @@ public class User {
             throw new IllegalArgumentException("No last name given");
         }
         this.lastName = lastName;
+    }
+
+    public void setLastNameRequest(HttpServletRequest request, ArrayList<String> errors) {
+        String name = request.getParameter("lastName");
+        boolean nameHasErrors = false;
+        try {
+            request.setAttribute("namePreviousValue", name);
+            this.setLastName(name);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            nameHasErrors = true;
+        } finally {
+            request.setAttribute("nameHasErrors", nameHasErrors);
+        }
     }
 
     public Team getTeam() {
@@ -113,6 +171,20 @@ public class User {
         }
     }
 
+    public void setTeamRequest(HttpServletRequest request, ArrayList<String> errors) {
+        String name = request.getParameter("team");
+        boolean teamHasErrors = false;
+        try {
+            request.setAttribute("teamPreviousValue", name);
+            this.setTeam(name);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            teamHasErrors = true;
+        } finally {
+            request.setAttribute("teamHasErrors", teamHasErrors);
+        }
+    }
+
     public Role getRole() {
         return this.role;
     }
@@ -120,6 +192,22 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
+
+    public void setRoleRequest(HttpServletRequest request, ArrayList<String> errors) {
+        String r = request.getParameter("role");
+
+        boolean roleHasErrors = false;
+        try {
+            request.setAttribute("rolePreviousValue", r);
+            this.setRole(r);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            roleHasErrors = true;
+        } finally {
+            request.setAttribute("roleHasErrors", roleHasErrors);
+        }
+    }
+
 
     public void setRole(String role) {
         try {
