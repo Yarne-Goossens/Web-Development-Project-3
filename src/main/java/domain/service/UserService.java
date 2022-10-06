@@ -15,8 +15,11 @@ public class UserService {
 
     public UserService() {
         User director = new User("director@ucll.be", "t", "Ad", "Director", Team.ALPHA);
+        User user = new User("cas.olijslalers@gmaile.com", "t", "AB", "USER", Team.ALPHA);
         director.setRole(Role.DIRECTOR);
+        user.setRole(Role.EMPLOYEE);
         add(director);
+        add(user);
     }
 
     public User get(int userid) {
@@ -51,6 +54,11 @@ public class UserService {
         }
         if (!users.containsKey(user.getUserid())) {
             throw new DbException("No user found");
+        }
+        for (User u : this.getAll()) {
+            if(u.getEmail().compareTo(user.getEmail())==0) {
+                throw new DbException("No duplicate emails");
+            }
         }
         users.put(user.getUserid(), user); // user updaten: userid blijft behouden
     }

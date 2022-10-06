@@ -11,9 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegisterProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/RegisterProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,12 +45,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/caspe/Documents/Git/Web3Right/web3-project-groep2-14"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/caspe/Documents/Git/Web3Right/web3-project-groep2-14&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\webapp" />
@@ -65,7 +63,22 @@
       <recent name="Controller" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.582">
+    <configuration name="RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Web3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ui.view" />
+      <option name="MAIN_CLASS_NAME" value="ui.view.RegisterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 9.0.582" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.582" ALTERNATIVE_JRE_ENABLED="false">
       <deployment>
         <artifact name="Web3:war exploded">
@@ -119,6 +132,11 @@
         </option>
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.RegisterTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -139,7 +157,8 @@
       <workItem from="1664705630326" duration="5399000" />
       <workItem from="1664786457021" duration="4821000" />
       <workItem from="1664799537139" duration="2283000" />
-      <workItem from="1664887049699" duration="8144000" />
+      <workItem from="1664887049699" duration="8815000" />
+      <workItem from="1665046529848" duration="534000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>
