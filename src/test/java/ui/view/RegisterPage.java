@@ -74,9 +74,22 @@ public class RegisterPage extends Page {
         return (message.equals(errorMsg.getText()));
     }
 
-    public boolean hasStickyType(String type) {
+    public boolean hasStickyFirstName(String type) {
+        return type.equals(firstNameField.getAttribute("value"));
+    }
+    public boolean hasStickyLastName(String type) {
+        return type.equals(lastNameField.getAttribute("value"));
+    }
+    public boolean hasStickyEmail(String type) {
+        return type.equals(emailField.getAttribute("value"));
+    }
+    public boolean hasStickyRole(String type) {
+        return type.equals(roleField.getAttribute("value"));
+    }
+    public boolean hasStickyTeam(String type) {
         return type.equals(teamField.getAttribute("value"));
     }
+
 
     public boolean hasEmptyFirstName() {
         return firstNameField.getAttribute("value").isEmpty();
