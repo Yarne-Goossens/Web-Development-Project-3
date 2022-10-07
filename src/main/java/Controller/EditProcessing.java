@@ -14,7 +14,10 @@ public class EditProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int id =Integer.parseInt(request.getParameter("userid"));
+        User reset=service.get(id);
         User edited=service.get(id);
+
+        System.out.print(edited);
 
         ArrayList<String> errors=new ArrayList<String>();
 
@@ -39,7 +42,15 @@ public class EditProcessing extends RequestHandler {
             catch (NumberFormatException n) {
                 errors.add(n.getMessage());
             }
+
+            edited.setFirstName(reset.getFirstName());
+            edited.setLastName(reset.getLastName());
+            edited.setEmail(reset.getEmail());
+            edited.setTeam(reset.getTeam());
+            edited.setRole(reset.getRole());
+            service.update(edited);
         }
+
         request.setAttribute("errors", errors);
         return "editForm.jsp";
     }

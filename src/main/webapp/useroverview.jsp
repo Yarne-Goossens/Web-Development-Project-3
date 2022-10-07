@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 
+    <title>Users</title>
     <jsp:include page="headPlusLoginStatus.jsp"/>
     <jsp:include page="nav.jsp"/>
 
@@ -34,8 +35,8 @@ User Overview
                             <td>${user.lastName}</td>
                             <td>${user.team}</td>
                             <td>${user.role}</td>
-                            <td><a href="Controller?command=EditForm&userid=${user.userid}">Edit</a></td>
-                            <td><a href="Controller?command=DeleteConfirm&userid=${user.userid}">Delete</a></td>
+                            <td><a id="edit" href="Controller?command=EditForm&userid=${user.userid}">Edit</a></td>
+                            <td><a id="delete" href="Controller?command=DeleteConfirm&userid=${user.userid}">Delete</a></td>
                         </tr>
                     </c:forEach>
 

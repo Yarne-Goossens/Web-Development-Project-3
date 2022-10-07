@@ -50,8 +50,7 @@ public class RegisterTest {
 
 		OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
 		assertEquals("Users", overviewPage.getTitle());
-		assertTrue(overviewPage.containsUserWithName("Jan"));
-		assertTrue(overviewPage.containsUserWithRole("Jan","EMPLOYEE"));
+		assertTrue(overviewPage.containsUserWithSpecified("Jan","EMPLOYEE"));
 	}
 
 	@Test

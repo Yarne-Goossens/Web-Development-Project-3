@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 
+    <title>Register</title>
     <jsp:include page="headPlusLoginStatus.jsp"/>
     <jsp:include page="nav.jsp"/>
 
@@ -10,7 +11,7 @@
 Register
 </h2>
 
-</header><main>
+<main>
     <div>
         <c:if test="${not empty errors}">
         <div id="error" class="alert alert-danger">

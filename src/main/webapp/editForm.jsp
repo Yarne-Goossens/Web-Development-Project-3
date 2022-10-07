@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-
+    <title>Edit</title>
     <jsp:include page="headPlusLoginStatus.jsp"/>
     <jsp:include page="nav.jsp"/>
 
