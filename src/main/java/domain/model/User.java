@@ -28,6 +28,15 @@ public class User {
         this.setUserid(userid);
     }
 
+    public User(int userid, String email, String firstName, String lastName, Team team,Role role) {
+        setUserid(userid);
+        setEmail(email);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setTeam(team);
+        setRole(role);
+    }
+
     public User() {
     }
 

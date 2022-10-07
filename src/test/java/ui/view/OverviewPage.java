@@ -59,6 +59,12 @@ public class OverviewPage extends Page {
     @FindBy(id = "delete")
     private WebElement deleteButton;
 
+    @FindBy(id = "submitJa")
+    private WebElement submitJaButton;
+
+    @FindBy(id = "submitNee")
+    private WebElement submitNeeButton;
+
     public void setFirstName(String firstName) {
         firstNameField.clear();
         firstNameField.sendKeys(firstName);
@@ -94,13 +100,26 @@ public class OverviewPage extends Page {
         }
     }
 
-    public void delete() {
-        deleteButton = driver.findElement(By.id("delete"));
-        deleteButton.click();
+    public void delete(String name) {
+        ArrayList<WebElement> listItems = (ArrayList<WebElement>) this.driver.findElements(By.cssSelector("tr"));
+        for (WebElement listItem : listItems) {
+            if (listItem.getText().contains(name)) {
+                deleteButton = listItem.findElement(By.id("delete"));
+                deleteButton.click();
+            }
+        }
     }
 
     public void submit() {
         submitButton.click();
+    }
+
+    public void submitJa() {
+        submitJaButton.click();
+    }
+
+    public void submitNee() {
+        submitNeeButton.click();
     }
 
     public boolean hasErrorMessage(String message) {

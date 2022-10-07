@@ -78,6 +78,12 @@ public class OverviewTest {
 
         assertTrue(registerPage.hasErrorMessage("No firstname given"));
 
+        assertTrue(registerPage.hasStickyFirstName("Nazrin"));
+        assertTrue(registerPage.hasStickyLastName("Mouse"));
+        assertTrue(registerPage.hasStickyEmail("nazrin.mouse@hotmail.com"));
+        assertTrue(registerPage.hasStickyRole("TEAMLEADER"));
+        assertTrue(registerPage.hasStickyTeam("EPSILON"));
+
         overviewPage = PageFactory.initElements(driver, OverviewPage.class);
         assertTrue(overviewPage.containsUserWithSpecified("Nazrin","nazrin.mouse@hotmail.com"));
         assertFalse(overviewPage.containsUserWithSpecified("Suika","suika.ibuki@hotmail.com"));
@@ -108,7 +114,16 @@ public class OverviewTest {
 
         overviewPage.submit();
 
-        assertTrue(registerPage.hasErrorMessage("No lastname given"));
+        assertTrue(registerPage.hasErrorMessage("No last name given"));
+
+        assertTrue(registerPage.hasStickyFirstName("Saul"));
+        assertTrue(registerPage.hasStickyLastName("Goodman"));
+        assertTrue(registerPage.hasStickyEmail("saul.goodman@hotmail.com"));
+        assertTrue(registerPage.hasStickyRole("TEAMLEADER"));
+        assertTrue(registerPage.hasStickyTeam("DELTA"));
+
+        overviewPage = PageFactory.initElements(driver, OverviewPage.class);
+
         assertTrue(overviewPage.containsUserWithSpecified("Saul","saul.goodman@hotmail.com"));
         assertFalse(overviewPage.containsUserWithSpecified("Sol","sol.badguy@hotmail.com"));
     }
@@ -132,14 +147,68 @@ public class OverviewTest {
 
         overviewPage.setFirstName("Reimu");
         overviewPage.setLastName("Hakurei");
-        overviewPage.setEmail("reimu.hakurei@hotmail.com");
+        overviewPage.setEmail("");
         overviewPage.setRole("employee");
         overviewPage.setTeam("beta");
 
         overviewPage.submit();
 
         assertTrue(registerPage.hasErrorMessage("No email given"));
+
+        assertTrue(registerPage.hasStickyFirstName("Cirno"));
+        assertTrue(registerPage.hasStickyLastName("Nineball"));
+        assertTrue(registerPage.hasStickyEmail("cirno.nineball@hotmail.com"));
+        assertTrue(registerPage.hasStickyRole("DIRECTOR"));
+        assertTrue(registerPage.hasStickyTeam("GAMMA"));
+
+        overviewPage = PageFactory.initElements(driver, OverviewPage.class);
+
         assertTrue(overviewPage.containsUserWithSpecified("Cirno","cirno.nineball@hotmail.com"));
         assertFalse(overviewPage.containsUserWithSpecified("Reimu","reimu.hakurei@hotmail.com"));
+    }
+
+    @Test
+    public void test_Delete_User_And_Confirm(){
+        RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
+        registerPage.setFirstName("Astolfo");
+        registerPage.setLastName("Rider");
+        registerPage.setEmail("astolfo.rider@hotmail.com");
+        registerPage.setPassword("1234");
+        registerPage.setRole("director");
+        registerPage.setTeam("gamma");
+
+        registerPage.add();
+
+        OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
+
+        overviewPage.delete("Astolfo");
+        assertEquals("Delete", overviewPage.getTitle());
+
+        overviewPage.submitJa();
+
+        assertFalse(overviewPage.containsUserWithSpecified("Astolfo","astolfo.rider@hotmail.com"));
+    }
+
+    @Test
+    public void test_Delete_User_And_Cancel(){
+        RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
+        registerPage.setFirstName("Mutsuki");
+        registerPage.setLastName("California");
+        registerPage.setEmail("mutsuki.california@hotmail.com");
+        registerPage.setPassword("1234");
+        registerPage.setRole("employee");
+        registerPage.setTeam("gamma");
+
+        registerPage.add();
+
+        OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
+        assertEquals("Users", overviewPage.getTitle());
+
+        overviewPage.delete("Mutsuki");
+        assertEquals("Delete", overviewPage.getTitle());
+
+        overviewPage.submitNee();
+
+        assertTrue(overviewPage.containsUserWithSpecified("Mutsuki","mutsuki.california@hotmail.com"));
     }
 }

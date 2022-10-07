@@ -8,39 +8,37 @@ import domain.service.UserService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 
 public class EditProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        int id =Integer.parseInt(request.getParameter("userid"));
-        User edited=service.get(id);
+        int id = Integer.parseInt(request.getParameter("userid"));
+        User editUser = service.get(id);
+        User edit = new User(editUser.getUserid(),editUser.getEmail(), editUser.getFirstName(), editUser.getLastName(), editUser.getTeam(),editUser.getRole());
 
-        ArrayList<String> errors=new ArrayList<String>();
+        ArrayList<String> errors = new ArrayList<String>();
 
-        request.setAttribute("userid",id);
-        request.setAttribute("tobeEdited",edited);
+        request.setAttribute("userid", id);
+        request.setAttribute("tobeEdited", editUser);
 
-        setEmailRequest(edited,request,errors);
-        setFirstNameRequest(edited,request,errors);
-        setLastNameRequest(edited,request,errors);
-        setRoleRequest(edited,request,errors);
-        setTeamRequest(edited,request,errors);
+        setEmailRequest(edit, request, errors);
+        setFirstNameRequest(edit, request, errors);
+        setLastNameRequest(edit, request, errors);
+        setRoleRequest(edit, request, errors);
+        setTeamRequest(edit, request, errors);
 
-        if(errors.size()==0) {
+        if (errors.size() == 0) {
             try {
-                service.update(edited);
-
+                service.update(edit,id);
                 request.setAttribute("useroverview", service.getAll());
                 return "useroverview.jsp";
-            }
-            catch (DbException d) {
+            } catch (DbException d) {
                 errors.add(d.getMessage());
-            }
-            catch (NumberFormatException n) {
+            } catch (NumberFormatException n) {
                 errors.add(n.getMessage());
-            }
-            catch (IllegalArgumentException n) {
+            } catch (IllegalArgumentException n) {
                 errors.add(n.getMessage());
             }
         }
@@ -48,7 +46,7 @@ public class EditProcessing extends RequestHandler {
         return "editForm.jsp";
     }
 
-    private void setEmailRequest(User u,HttpServletRequest request, ArrayList<String> errors) {
+    private void setEmailRequest(User u, HttpServletRequest request, ArrayList<String> errors) {
         String name = request.getParameter("email");
         boolean emailHasErrors = false;
         try {
@@ -62,7 +60,7 @@ public class EditProcessing extends RequestHandler {
         }
     }
 
-    private void setFirstNameRequest(User u,HttpServletRequest request, ArrayList<String> errors) {
+    private void setFirstNameRequest(User u, HttpServletRequest request, ArrayList<String> errors) {
         String firstName = request.getParameter("firstName");
         boolean firstnameHasErrors = false;
         try {
@@ -76,7 +74,7 @@ public class EditProcessing extends RequestHandler {
         }
     }
 
-    private void setLastNameRequest(User u,HttpServletRequest request, ArrayList<String> errors) {
+    private void setLastNameRequest(User u, HttpServletRequest request, ArrayList<String> errors) {
         String name = request.getParameter("lastName");
         boolean nameHasErrors = false;
         try {
@@ -90,7 +88,7 @@ public class EditProcessing extends RequestHandler {
         }
     }
 
-    private void setTeamRequest(User u,HttpServletRequest request, ArrayList<String> errors) {
+    private void setTeamRequest(User u, HttpServletRequest request, ArrayList<String> errors) {
         String name = request.getParameter("team");
         boolean teamHasErrors = false;
         try {
@@ -104,7 +102,7 @@ public class EditProcessing extends RequestHandler {
         }
     }
 
-    private void setRoleRequest(User u,HttpServletRequest request, ArrayList<String> errors) {
+    private void setRoleRequest(User u, HttpServletRequest request, ArrayList<String> errors) {
         String r = request.getParameter("role");
 
         boolean roleHasErrors = false;
@@ -118,17 +116,6 @@ public class EditProcessing extends RequestHandler {
             request.setAttribute("roleHasErrors", roleHasErrors);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

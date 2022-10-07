@@ -47,7 +47,7 @@ public class UserService {
         userid++;
     }
 
-    public void update(User user) {
+    public void update(User user,int id) {
         if (user == null) {
             throw new DbException("No user given");
         }
@@ -59,7 +59,7 @@ public class UserService {
                 throw new DbException("No duplicate emails");
             }
         }
-        users.put(user.getUserid(), user); // user updaten: userid blijft behouden
+        users.put(id, user); // user updaten: userid blijft behouden
     }
 
     public void delete(int userid) {
