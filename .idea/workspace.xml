@@ -11,12 +11,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/deleteConfirm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/deleteConfirm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/editForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/editForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/loginStatus.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/headPlusLoginStatus.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/register.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/register.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/useroverview.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/useroverview.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/EditProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/EditProcessing.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,12 +45,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/caspe/Documents/Git/Web3Right/web3-project-groep2-14&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/caspe/Documents/Git/Web3Right/web3-project-groep2-14"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\webapp" />
@@ -79,6 +76,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="ui.view" />
       <option name="MAIN_CLASS_NAME" value="ui.view.RegisterTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SeleniumWorksWellTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Web3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="ui.view" />
+      <option name="MAIN_CLASS_NAME" value="ui.view.SeleniumWorksWellTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -140,6 +152,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.RegisterTest" />
+        <item itemvalue="JUnit.SeleniumWorksWellTest" />
       </list>
     </recent_temporary>
   </component>
@@ -165,7 +178,8 @@
       <workItem from="1664887049699" duration="8815000" />
       <workItem from="1665046529848" duration="1932000" />
       <workItem from="1665048708509" duration="601000" />
-      <workItem from="1665056779663" duration="4725000" />
+      <workItem from="1665056779663" duration="4811000" />
+      <workItem from="1665144256734" duration="5404000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>
