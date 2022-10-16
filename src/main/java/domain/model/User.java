@@ -14,18 +14,13 @@ public class User {
     private Team team;
     private Role role;
 
-    public User(String email, String password, String firstName, String lastName, Team team) {
+    public User(String email, String password, String firstName, String lastName, Team team,Role role) {
         setEmail(email);
         setPassword(password);
         setFirstName(firstName);
         setLastName(lastName);
         setTeam(team);
-        setRole(Role.EMPLOYEE);
-    }
-
-    public User(int userid, String email, String password, String firstName, String lastName, Team team) {
-        this(email, password, firstName, lastName, team);
-        this.setUserid(userid);
+        setRole(role);
     }
 
     public User(int userid, String email, String firstName, String lastName, Team team,Role role) {

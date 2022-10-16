@@ -14,10 +14,8 @@ public class UserService {
     private int userid = 1;    // als je later werkt jmet externe databank, wordt dit userid automatisch gegenereerd
 
     public UserService() {
-        User director = new User("director@ucll.be", "t", "Ad", "Director", Team.ALPHA);
-        User user = new User("cas.olijslalers@gmaile.com", "t", "AB", "USER", Team.ALPHA);
-        director.setRole(Role.DIRECTOR);
-        user.setRole(Role.EMPLOYEE);
+        User director = new User("director@ucll.be", "t", "Ad", "Director", Team.ALPHA,Role.DIRECTOR);
+        User user = new User("cas.olijslalers@gmaile.com", "t", "AB", "USER", Team.ALPHA,Role.TEAMLEADER);
         add(director);
     }
 

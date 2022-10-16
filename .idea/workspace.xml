@@ -10,8 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/view/AnimalView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/view/Credentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ui/view/Secret.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Web3_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Web3_war_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_8_0.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Web3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Web3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/EditProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/EditProcessing.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,27 +54,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/caspe/Documents/Git/Web3Right/web3-project-groep2-14"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/caspe/Documents/Git/Web3Right/web3-project-groep2-14/src/main/java/view&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\caspe\Documents\Git\Web3Right\web3-project-groep2-14\src\main\java\view" />
       <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\webapp" />
       <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\test\java" />
       <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\java\domain\service" />
       <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14\src\main\java\domain\model" />
-      <recent name="C:\Users\caspe\Documents\Git\Web3\web3-project-groep2-14" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Controller" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.582">
+  <component name="RunManager" selected="Application.ui.view.AnimalView">
+    <configuration name="AnimalView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="view.AnimalView" />
+      <module name="Web3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ui.view.AnimalView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ui.view.AnimalView" />
+      <module name="Web3" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ui.view.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RegisterTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Web3" />
       <extension name="coverage">
@@ -151,6 +186,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ui.view.AnimalView" />
+        <item itemvalue="Application.AnimalView" />
         <item itemvalue="JUnit.RegisterTest" />
         <item itemvalue="JUnit.SeleniumWorksWellTest" />
       </list>
@@ -180,6 +217,11 @@
       <workItem from="1665048708509" duration="601000" />
       <workItem from="1665056779663" duration="4811000" />
       <workItem from="1665144256734" duration="5404000" />
+      <workItem from="1665395955118" duration="29000" />
+      <workItem from="1665395993060" duration="1798000" />
+      <workItem from="1665756944277" duration="1516000" />
+      <workItem from="1665758752921" duration="1842000" />
+      <workItem from="1665920099019" duration="1569000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>
