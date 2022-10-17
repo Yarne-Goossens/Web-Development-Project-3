@@ -37,31 +37,35 @@ public class AnimalView {
         try (Connection connection = DriverManager.getConnection(url, properties)) {
 
             // add an animal
-            String query = String.format("insert into %groep214.user (name,type,food) values (?,?,?)", schema);
+            String query = String.format("insert into groep214.user (email,firstname,lastname,team,role,password) values (?,?,?,?,?,?)", schema);
 
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, "Maxxx");
-            preparedStatement.setString(2, "Hond");
-            preparedStatement.setInt(3, 3);
+            preparedStatement.setString(1, "casper.olijslagers@gmail.com");
+            preparedStatement.setString(2, "firstname");
+            preparedStatement.setString(3, "lastname");
+            preparedStatement.setString(4, "ALPHA");
+            preparedStatement.setString(5, "DIRECTOR");
+            preparedStatement.setString(6, "paswoord");
+
+
             preparedStatement.execute();
 
             //get all animals
-            query = String.format("SELECT * FROM %groep214.user;", schema);
+            query = String.format("SELECT * FROM groep214.user;", schema);
             PreparedStatement statementInsert = connection.prepareStatement(query);
             ResultSet resultSet = statementInsert.executeQuery();
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
-                String email = resultSet.getString("name");
-                String password = resultSet.getString("type");
-                String firstName = resultSet.getString("firstName");
-                String lastName = resultSet.getString("lastName");
+                String email = resultSet.getString("email");
+                String firstName = resultSet.getString("firstname");
+                String lastName = resultSet.getString("lastname");
                 Team team = Team.valueOf(resultSet.getString("team"));
                 Role role = Role.valueOf(resultSet.getString("role"));
+                String password = resultSet.getString("password");
 
                 User user = new User(email, password, firstName, lastName, team, role);
                 User user1 = new User();
                 System.out.println(user.toString());
-                System.out.println("de verbinding werkt");
 
             }
         }
