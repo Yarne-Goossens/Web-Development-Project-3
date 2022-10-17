@@ -2,7 +2,7 @@
 
 
 
-.idea/*
+.idea\*
 
 .idea
 
@@ -13,4 +13,4 @@ target/
 out/
 
 
-workspace.xml
+*\workspace.xml
