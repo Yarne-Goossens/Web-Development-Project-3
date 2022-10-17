@@ -24,7 +24,7 @@ public class AnimalView {
         // set user and password
         try {
             Class.forName("ui.view.Secret"); // check if Secret does exist
-            Credentials.setPass(properties);
+            Secret.setPass(properties);
         } catch (ClassNotFoundException e) {
             System.out.println("Class ui.view.Secret with credentials not found");
         }
@@ -58,13 +58,14 @@ public class AnimalView {
                 Team team = Team.valueOf(resultSet.getString("team"));
                 Role role = Role.valueOf(resultSet.getString("role"));
 
-                User user = new User(email,password,firstName,lastName,team,role);
-                User user1=new User();
+                User user = new User(email, password, firstName, lastName, team, role);
+                User user1 = new User();
                 System.out.println(user.toString());
+                System.out.println("de verbinding werkt");
 
             }
-
-        } catch (SQLException throwables) {
+        }
+        catch (SQLException throwables) {
             throwables.printStackTrace();
             System.out.println("Connection no succes");
         }

@@ -8,7 +8,7 @@ exclude Secret form GitHub
  */
 public abstract class Credentials {
     static public void setPass(Properties dbProperties) {
-        dbProperties.setProperty("user", "local_r0887747");
-        dbProperties.setProperty("password", "V7X7ryy9O0§1b!");
+        dbProperties.setProperty("user", "");
+        dbProperties.setProperty("password", "");
     }
 }
