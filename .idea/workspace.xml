@@ -10,17 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d0d4af8-438d-4990-8275-b7ac55b1c2b2" name="Changes" comment="begin">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/view/AnimalView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/view/Credentials.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ui/view/Secret.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Web3_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Web3_war_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_checkerframework_checker_qual_3_8_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Web3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Web3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/EditProcessing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/EditProcessing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/domain/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ui/view/AnimalView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ui/view/AnimalView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -221,7 +213,8 @@
       <workItem from="1665395993060" duration="1798000" />
       <workItem from="1665756944277" duration="1516000" />
       <workItem from="1665758752921" duration="1842000" />
-      <workItem from="1665920099019" duration="1569000" />
+      <workItem from="1665920099019" duration="1903000" />
+      <workItem from="1665996208260" duration="840000" />
     </task>
     <task id="LOCAL-00001" summary="begin">
       <created>1663613432788</created>

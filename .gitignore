@@ -2,12 +2,12 @@
 
 
 
-.idea/
+.idea/*
 
+.idea
 
 
 target/
-
 
 
 out/

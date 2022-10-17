@@ -37,13 +37,13 @@ public class AnimalView {
         try (Connection connection = DriverManager.getConnection(url, properties)) {
 
             // add an animal
-            String query = String.format("insert into %s.animal (name,type,food) values (?,?,?)", schema);
-            /*
+            String query = String.format("insert into %groep214.user (name,type,food) values (?,?,?)", schema);
+
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, "Maxxx");
             preparedStatement.setString(2, "Hond");
             preparedStatement.setInt(3, 3);
-            preparedStatement.execute();*/
+            preparedStatement.execute();
 
             //get all animals
             query = String.format("SELECT * FROM %groep214.user;", schema);
