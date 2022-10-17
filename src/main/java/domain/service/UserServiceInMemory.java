@@ -2,14 +2,13 @@ package domain.service;
 
 import java.util.ArrayList;
 
-import domain.model.Animal;
 
-public class AnimalServiceInMemory implements AnimalService {
+public class UserServiceInMemory implements UserService {
     private int id = 0;
 
     private final ArrayList<Animal> animals = new ArrayList<>();
 
-    public AnimalServiceInMemory() {
+    public UserServiceInMemory() {
         this.addAnimal(new Animal(id, "Witje", "Kat", 3));
         this.addAnimal(new Animal(id, "Zwartje", "Konijn", 1));
     }
