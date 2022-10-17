@@ -1,8 +1,9 @@
-package ui.view;
+package util;
 
 import domain.model.Role;
 import domain.model.Team;
 import domain.model.User;
+import util.Secret;
 
 import java.sql.*;
 import java.util.Properties;
@@ -23,10 +24,10 @@ public class AnimalView {
 
         // set user and password
         try {
-            Class.forName("ui.view.Secret"); // check if Secret does exist
+            Class.forName("util.Secret"); // check if Secret does exist
             Secret.setPass(properties);
         } catch (ClassNotFoundException e) {
-            System.out.println("Class ui.view.Secret with credentials not found");
+            System.out.println("Class util.Secret with credentials not found");
         }
 
         properties.setProperty("ssl", "true");
