@@ -1,39 +1,51 @@
 package domain.service;
 
+import domain.model.Role;
+import domain.model.Team;
+import domain.model.User;
+
 import java.util.ArrayList;
 
 
-public class UserServiceInMemory implements UserService {
+public class UserServiceInMemory  {
     private int id = 0;
 
-    private final ArrayList<Animal> animals = new ArrayList<>();
+    private final ArrayList<User> users = new ArrayList<>();
 
     public UserServiceInMemory() {
-        this.addAnimal(new Animal(id, "Witje", "Kat", 3));
-        this.addAnimal(new Animal(id, "Zwartje", "Konijn", 1));
+        User director = new User("director@ucll.be", "t", "Ad", "Director", Team.ALPHA, Role.DIRECTOR);
+        User user = new User("cas.olijslalers@gmaile.com", "t", "AB", "USER", Team.ALPHA,Role.TEAMLEADER);
+        //addUser(director);
     }
 
-    public void addAnimal(Animal animal) {
-        if (animal == null)
-            throw new IllegalArgumentException("Geef een bestaand dier");
-        if (findAnimalWithName(animal.getName()) != null)
-            throw new IllegalArgumentException("Je mag een dier maar één keer toevoegen");
-        animals.add(animal);
-        id++;
+    /*public void addUser(User user) {
+        if (user == null) {
+            throw new DbException("No user given");
+        }
+        if (users.(user.getUserid())) {
+            throw new DbException("User already exists");
+        }
+        for (User u : this.getAll()) {
+            if(u.getEmail().compareTo(user.getEmail())==0){
+                throw new DbException("No duplicate emails");
+            };
+        }
+
+        user.setUserid(userid);   // user toevoegen geeft altijd nieuw userid
+        users.put(user.getUserid(), user);
+        userid++;
     }
 
-    public Animal findAnimalWithName(String naam) {
-        if (naam == null || naam.isEmpty())
-            throw new IllegalArgumentException("Naam mag niet leeg zijn");
-        for (Animal dier : animals) {
-            if (dier.getName().equals(naam))
-                return dier;
+    public User getUserWithId(int id) {
+        for (User user : users) {
+            if (user.getUserid()==id)
+                return user;
         }
         return null;
-    }
+    */
 
-    public ArrayList<Animal> getAllAnimals() {
-        return animals;
+    public ArrayList<User> getAllUsers() {
+        return users;
     }
 
 

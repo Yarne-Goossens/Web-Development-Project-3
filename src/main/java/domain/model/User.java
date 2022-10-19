@@ -32,6 +32,16 @@ public class User {
         setRole(role);
     }
 
+    public User(int userid, String email, String firstName, String lastName, Team team,Role role,String password) {
+        setUserid(userid);
+        setEmail(email);
+        setFirstName(firstName);
+        setLastName(lastName);
+        setTeam(team);
+        setRole(role);
+        setPassword(password);
+    }
+
     public User() {
     }
 
@@ -76,7 +86,7 @@ public class User {
         return email;
     }
 
-    private String getPassword() {
+    public String getPassword() {
         return password;
     }
 

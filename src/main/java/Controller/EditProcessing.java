@@ -19,7 +19,6 @@ public class EditProcessing extends RequestHandler {
         request.setAttribute("userid", id);
         request.setAttribute("tobeEdited", editUser);
 
-
         edit.setEmailRequest( request, errors);
         edit.setFirstNameRequest( request, errors);
         edit.setLastNameRequest( request, errors);
