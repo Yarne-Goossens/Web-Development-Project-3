@@ -89,19 +89,14 @@ public class UserServiceDBSQL implements UserService {
 
     @Override
     public User checkRealUserAndPassword(String email, String password) {
-        User gebruiker = new User();
-        System.out.println(email);
-        System.out.println(password);
-        try {
-            for (User user : this.getAllUsers()) {
-                if (user.getEmail() == email && user.isCorrectPassword(password) == true) {
-                    gebruiker = user;
+        for (User u : this.getAllUsers()) {
+            if (u.getEmail().compareTo(email)==0){
+                if(u.isCorrectPassword(password)){
+                    return u;
                 }
             }
-        } catch (IllegalArgumentException e) {
-            throw new IllegalArgumentException(e.getMessage());
         }
-        return gebruiker;
+        throw new DbException("No valid email/password");
     }
 
     @Override
@@ -120,7 +115,6 @@ public class UserServiceDBSQL implements UserService {
                 Team team = Team.valueOf(result.getString("team").toUpperCase());
                 Role role = Role.valueOf(result.getString("role").toUpperCase());
                 String password = result.getString("password");
-
 
                 user.add(new User(id, email, firstName, lastName, team, role, password));
             }

@@ -11,15 +11,6 @@ public class User {
     private Team team;
     private Role role;
 
-    public User(String email, String password, String firstName, String lastName, Team team,Role role) {
-        setEmail(email);
-        setPassword(password);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setTeam(team);
-        setRole(role);
-    }
-
     public User(int userid, String email, String firstName, String lastName, Team team,Role role,String password) {
         setUserid(userid);
         setEmail(email);
