@@ -8,7 +8,7 @@ import util.DbConnectionService;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class UserServiceDBSQL implements UserService  {
+public class UserServiceDBSQL implements UserService {
     private final Connection connection;
     private final String schema;
 
@@ -45,12 +45,12 @@ public class UserServiceDBSQL implements UserService  {
     }
 
     @Override
-    public void deleteUser(int id){
+    public void deleteUser(int id) {
         String query = String.format
                 ("delete from groep214.user where id=?", schema);
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             preparedStatement.execute();
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
@@ -58,7 +58,7 @@ public class UserServiceDBSQL implements UserService  {
     }
 
     @Override
-    public void updateUser(int id,User user){
+    public void updateUser(int id, User user) {
         String query = String.format
                 ("update groep214.user set email=?,firstname=?,lastname=?,team=?,role=? where id=?", schema);
         try {
@@ -72,19 +72,36 @@ public class UserServiceDBSQL implements UserService  {
             preparedStatement.setInt(6, id);
 
             preparedStatement.execute();
-        }catch(SQLException e){
+        } catch (SQLException e) {
             throw new DbException(e.getMessage());
         }
     }
 
     @Override
     public User getUserWithId(int id) {
-        for (User user : this.getAllUsers()){
-            if(user.getUserid()==id){
+        for (User user : this.getAllUsers()) {
+            if (user.getUserid() == id) {
                 return user;
             }
         }
         return null;
+    }
+
+    @Override
+    public User checkRealUserAndPassword(String email, String password) {
+        User gebruiker = new User();
+        System.out.println(email);
+        System.out.println(password);
+        try {
+            for (User user : this.getAllUsers()) {
+                if (user.getEmail() == email && user.isCorrectPassword(password) == true) {
+                    gebruiker = user;
+                }
+            }
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage());
+        }
+        return gebruiker;
     }
 
     @Override
@@ -114,7 +131,7 @@ public class UserServiceDBSQL implements UserService  {
     }
 
     /**
-     * Check the connection and reconnect when necessery
+     * Check the connection and reconnect when necessary
      *
      * @return the connection with the db, if there is one
      */

@@ -1,7 +1,9 @@
 package domain.service;
 
 import domain.model.User;
+import org.postgresql.jdbc.PreferQueryMode;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 
 public class AppService {
@@ -23,7 +25,9 @@ public class AppService {
         return userDB.getUserWithId(id);
     }
 
-
+    public User checkRealUserAndPassword(String email, String password) {
+        return userDB.checkRealUserAndPassword(email, password);
+    }
 
     public ArrayList<User> getAllUsers() {
         return userDB.getAllUsers();

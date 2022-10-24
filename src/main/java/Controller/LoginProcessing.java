@@ -16,11 +16,11 @@ public class LoginProcessing extends RequestHandler {
         try {
             String email = request.getParameter("email");
             String password = request.getParameter("password");
-            //User loginUser = service.checkRealUserAndPassword(email, password);
+            User loginUser = service.checkRealUserAndPassword(email, password);
 
-            //request.setAttribute("loginUser",loginUser);
+            request.setAttribute("loginUser",loginUser);
             HttpSession session = request.getSession();
-            //session.setAttribute("loginUserSession", loginUser);
+            session.setAttribute("loginUserSession", loginUser);
 
             return "index.jsp";
         }
