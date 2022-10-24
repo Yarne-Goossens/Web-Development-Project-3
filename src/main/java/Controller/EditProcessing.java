@@ -12,7 +12,7 @@ public class EditProcessing extends RequestHandler {
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("userid"));
         User editUser = service.getUserWithId(id);
-        User edit = new User(editUser.getUserid(),editUser.getEmail(), editUser.getFirstName(), editUser.getLastName(), editUser.getTeam(),editUser.getRole());
+        User edit = new User();
 
         ArrayList<String> errors = new ArrayList<String>();
 
@@ -28,8 +28,10 @@ public class EditProcessing extends RequestHandler {
         if (errors.size() == 0) {
             try {
                 //service.update(edit,id);
-                //request.setAttribute("useroverview", service.getAll());
-                return "useroverview.jsp";
+                //
+                service.updateUser(id,edit);
+
+                return "Controller?command=Overview";
             } catch (DbException d) {
                 errors.add(d.getMessage());
             } catch (NumberFormatException n) {

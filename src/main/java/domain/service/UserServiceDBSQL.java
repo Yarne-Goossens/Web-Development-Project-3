@@ -8,7 +8,7 @@ import util.DbConnectionService;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class UserServiceDBSQL implements UserService {
+public class UserServiceDBSQL implements UserService  {
     private final Connection connection;
     private final String schema;
 
@@ -58,8 +58,23 @@ public class UserServiceDBSQL implements UserService {
     }
 
     @Override
-    public void editUser(int id){
+    public void updateUser(int id,User user){
+        String query = String.format
+                ("update groep214.user set email=?,firstname=?,lastname=?,team=?,role=? where id=?", schema);
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
 
+            preparedStatement.setString(1, user.getEmail());
+            preparedStatement.setString(2, user.getFirstName());
+            preparedStatement.setString(3, user.getLastName());
+            preparedStatement.setString(4, user.getTeam().getStringValue());
+            preparedStatement.setString(5, user.getRole().getStringValue());
+            preparedStatement.setInt(6, id);
+
+            preparedStatement.execute();
+        }catch(SQLException e){
+            throw new DbException(e.getMessage());
+        }
     }
 
     @Override
@@ -86,7 +101,6 @@ public class UserServiceDBSQL implements UserService {
                 String firstName = result.getString("firstname");
                 String lastName = result.getString("lastname");
                 Team team = Team.valueOf(result.getString("team").toUpperCase());
-
                 Role role = Role.valueOf(result.getString("role").toUpperCase());
                 String password = result.getString("password");
 

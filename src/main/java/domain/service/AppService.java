@@ -15,6 +15,10 @@ public class AppService {
         userDB.deleteUser(id);
     }
 
+    public void updateUser(int id,User user) {
+        userDB.updateUser(id,user);
+    }
+
     public User getUserWithId(int id) {
         return userDB.getUserWithId(id);
     }

@@ -7,25 +7,13 @@ import java.util.regex.Pattern;
 
 public class User {
     private int userid;
-    private String email;
-    private String password;
-    private String firstName;
-    private String lastName;
+    private String email,password,firstName,lastName;
     private Team team;
     private Role role;
 
     public User(String email, String password, String firstName, String lastName, Team team,Role role) {
         setEmail(email);
         setPassword(password);
-        setFirstName(firstName);
-        setLastName(lastName);
-        setTeam(team);
-        setRole(role);
-    }
-
-    public User(int userid, String email, String firstName, String lastName, Team team,Role role) {
-        setUserid(userid);
-        setEmail(email);
         setFirstName(firstName);
         setLastName(lastName);
         setTeam(team);
