@@ -8,7 +8,7 @@ import util.DbConnectionService;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class UserServiceDBSQL implements UserServiceI {
+public class UserServiceDBSQL implements UserService {
     private final Connection connection;
     private final String schema;
 

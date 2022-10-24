@@ -10,7 +10,7 @@ public class EditForm extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int id =Integer.parseInt(request.getParameter("userid"));
-        User tobeEdited=service.get(id);
+        User tobeEdited=service.getUserWithId(id);
         request.setAttribute("tobeEdited",tobeEdited);
 
         return "editForm.jsp";

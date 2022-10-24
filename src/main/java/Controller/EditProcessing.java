@@ -11,7 +11,7 @@ public class EditProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("userid"));
-        User editUser = service.get(id);
+        User editUser = service.getUserWithId(id);
         User edit = new User(editUser.getUserid(),editUser.getEmail(), editUser.getFirstName(), editUser.getLastName(), editUser.getTeam(),editUser.getRole());
 
         ArrayList<String> errors = new ArrayList<String>();
@@ -27,8 +27,8 @@ public class EditProcessing extends RequestHandler {
 
         if (errors.size() == 0) {
             try {
-                service.update(edit,id);
-                request.setAttribute("useroverview", service.getAll());
+                //service.update(edit,id);
+                //request.setAttribute("useroverview", service.getAll());
                 return "useroverview.jsp";
             } catch (DbException d) {
                 errors.add(d.getMessage());

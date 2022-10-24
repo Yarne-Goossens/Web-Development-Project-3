@@ -5,7 +5,7 @@ import domain.model.User;
 import java.util.ArrayList;
 
 public class AppService {
-    private UserServiceI users = new UserServiceDBSQL();
+    private UserService users = new UserServiceDBSQL();
 
     public void addUser(User user) {
         users.addUser(user);

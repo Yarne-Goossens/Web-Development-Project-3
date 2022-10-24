@@ -24,8 +24,9 @@ public class RegisterProcessing extends RequestHandler {
 
         if(errors.size()==0) {
             try {
-                service.add(user);
-                request.setAttribute("useroverview", service.getAll());
+                service.addUser(user);
+
+                request.setAttribute("useroverview",service.getAllUsers());
                 return "Controller?command=Overview";
             }
             catch (DbException d) {

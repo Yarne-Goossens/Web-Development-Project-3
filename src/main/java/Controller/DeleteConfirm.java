@@ -10,7 +10,7 @@ public class DeleteConfirm extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int id =Integer.parseInt(request.getParameter("userid"));
-        User tobeDeleted=service.get(id);
+        User tobeDeleted=service.getUserWithId(id);
         request.setAttribute("tobeDeleted",tobeDeleted);
 
         return "deleteConfirm.jsp";
