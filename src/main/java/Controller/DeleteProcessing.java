@@ -8,7 +8,7 @@ public class DeleteProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int deleteId=Integer.parseInt(request.getParameter("userid"));
-        //service.delete(deleteId);
+        service.deleteUser(deleteId);
         return "Controller?command=Overview";
     }
 }

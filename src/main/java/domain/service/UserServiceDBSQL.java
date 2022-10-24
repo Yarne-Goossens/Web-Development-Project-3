@@ -47,8 +47,19 @@ public class UserServiceDBSQL implements UserService {
     @Override
     public void deleteUser(int id){
         String query = String.format
-                ("insert into groep214.user (email,firstname,lastname,team,role,password) values (?,?,?,?,?,?)", schema);
-        
+                ("delete from groep214.user where id=?", schema);
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1,id);
+            preparedStatement.execute();
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        }
+    }
+
+    @Override
+    public void editUser(int id){
+
     }
 
     @Override

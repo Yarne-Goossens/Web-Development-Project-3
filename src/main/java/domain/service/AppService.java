@@ -5,18 +5,24 @@ import domain.model.User;
 import java.util.ArrayList;
 
 public class AppService {
-    private UserService users = new UserServiceDBSQL();
+    private UserServiceDBSQL userDB = new UserServiceDBSQL();
 
     public void addUser(User user) {
-        users.addUser(user);
+        userDB.addUser(user);
     }
 
-    //public User findAnimalWithName(String naam) {
-    //return users.findUserWithName(naam);
-    //}
+    public void deleteUser(int id) {
+        userDB.deleteUser(id);
+    }
+
+    public User getUserWithId(int id) {
+        return userDB.getUserWithId(id);
+    }
+
+
 
     public ArrayList<User> getAllUsers() {
-        return users.getAllUsers();
+        return userDB.getAllUsers();
     }
 
 }

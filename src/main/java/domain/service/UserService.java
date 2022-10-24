@@ -12,6 +12,8 @@ public interface UserService {
 
     void deleteUser(int id);
 
+    void editUser(int id);
+
     User getUserWithId(int id);
 
     ArrayList<User> getAllUsers();

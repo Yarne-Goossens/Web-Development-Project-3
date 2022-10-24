@@ -1,5 +1,6 @@
 package Controller;
 
+import domain.service.AppService;
 import domain.service.UserServiceDBSQL;
 
 import javax.servlet.RequestDispatcher;
@@ -14,7 +15,7 @@ import java.io.IOException;
 public class Controller extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private HandlerFactory handlerFactory = new HandlerFactory();
-    private UserServiceDBSQL service = new UserServiceDBSQL();
+    private AppService service = new AppService();
     public Controller() {
         super();
     }

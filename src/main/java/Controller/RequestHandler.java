@@ -1,21 +1,20 @@
 package Controller;
 
 
-import domain.service.UserServiceDBSQL;
-import domain.service.UserService;
+import domain.service.AppService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public abstract class RequestHandler {
-    protected UserServiceDBSQL service;
+    protected AppService service;
     public abstract String handleRequest (HttpServletRequest request, HttpServletResponse response);
 
-    public UserServiceDBSQL getService() {
+    public AppService getService() {
         return service;
     }
 
-    public void setService(UserServiceDBSQL service) {
+    public void setService(AppService service) {
         this.service = service;
     }
 }

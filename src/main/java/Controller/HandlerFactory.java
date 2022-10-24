@@ -1,11 +1,12 @@
 package Controller;
 
+import domain.service.AppService;
 import domain.service.UserServiceDBSQL;
 import domain.service.UserService;
 
 public class HandlerFactory {
 
-    public RequestHandler getHandler(String command, UserServiceDBSQL service) {
+    public RequestHandler getHandler(String command, AppService service) {
         RequestHandler handler = null;
         try {
             Class handlerClass = Class.forName("Controller." + command);
