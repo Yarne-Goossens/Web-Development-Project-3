@@ -19,6 +19,7 @@ public class UserServiceDBSQL implements UserService {
 
     @Override
     public void addUser(User user) {
+        System.out.println(user.getTeam().getStringValue());
         String query = String.format
                 ("insert into groep214.user (email,firstname,lastname,team,role,password) values (?,?,?,?,?,?)", schema);
         try {
@@ -29,23 +30,36 @@ public class UserServiceDBSQL implements UserService {
             preparedStatement.setString(3, user.getLastName());
             preparedStatement.setString(4, user.getTeam().getStringValue());
             preparedStatement.setString(5, user.getRole().getStringValue());
-            preparedStatement.setString(6,user.getPassword());
+            preparedStatement.setString(6, user.getPassword());
 
+            for (User u : this.getAllUsers()) {
+                if (u.getEmail().compareTo(user.getEmail()) == 0 && u.getUserid() != user.getUserid()) {
+                    throw new DbException("No duplicate emails");
+                }
+            }
             preparedStatement.execute();
+
+
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
         }
-
     }
+
+    //public void deleteUser();
 
     @Override
     public User getUserWithId(int id) {
+        for (User user : this.getAllUsers()){
+            if(user.getUserid()==id){
+                return user;
+            }
+        }
         return null;
     }
 
     @Override
     public ArrayList<User> getAllUsers() {
-        ArrayList<User> animals = new ArrayList<>();
+        ArrayList<User> user = new ArrayList<>();
         String sql = String.format("SELECT * from groep214.user", schema);
         try {
             PreparedStatement statement = getConnection().prepareStatement(sql);
@@ -56,29 +70,28 @@ public class UserServiceDBSQL implements UserService {
                 String email = result.getString("email");
                 String firstName = result.getString("firstname");
                 String lastName = result.getString("lastname");
-                Team team = Team.valueOf(result.getString("team"));
-                Role role = Role.valueOf(result.getString("role"));
+                Team team = Team.valueOf(result.getString("team").toUpperCase());
+
+                Role role = Role.valueOf(result.getString("role").toUpperCase());
                 String password = result.getString("password");
 
 
-                animals.add(new User(id,email,firstName,lastName,team,role,password));
+                user.add(new User(id, email, firstName, lastName, team, role, password));
             }
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
         }
-        return animals;
+        return user;
     }
 
     /**
      * Check the connection and reconnect when necessery
+     *
      * @return the connection with the db, if there is one
      */
     private Connection getConnection() {
         return this.connection;
     }
-
-
-
 
 
 }
