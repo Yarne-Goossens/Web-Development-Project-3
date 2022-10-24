@@ -46,11 +46,12 @@ public class UserServiceDBSQL implements UserService {
     @Override
     public ArrayList<User> getAllUsers() {
         ArrayList<User> animals = new ArrayList<>();
-        String sql = String.format("SELECT * from %s.animal", schema);
+        String sql = String.format("SELECT * from groep214.user", schema);
         try {
             PreparedStatement statement = getConnection().prepareStatement(sql);
             ResultSet result = statement.executeQuery();
             while (result.next()) {
+
                 int id = result.getInt("id");
                 String email = result.getString("email");
                 String firstName = result.getString("firstname");
