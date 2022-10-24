@@ -10,7 +10,7 @@ public interface UserService {
 
     //User checkRealUserAndPassword(String email,String password);
 
-    void delete(int id);
+    void deleteUser(int id);
 
     User getUserWithId(int id);
 

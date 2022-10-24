@@ -19,7 +19,6 @@ public class UserServiceDBSQL implements UserService {
 
     @Override
     public void addUser(User user) {
-        System.out.println(user.getTeam().getStringValue());
         String query = String.format
                 ("insert into groep214.user (email,firstname,lastname,team,role,password) values (?,?,?,?,?,?)", schema);
         try {
@@ -45,7 +44,12 @@ public class UserServiceDBSQL implements UserService {
         }
     }
 
-    //public void deleteUser();
+    @Override
+    public void deleteUser(int id){
+        String query = String.format
+                ("insert into groep214.user (email,firstname,lastname,team,role,password) values (?,?,?,?,?,?)", schema);
+        
+    }
 
     @Override
     public User getUserWithId(int id) {
