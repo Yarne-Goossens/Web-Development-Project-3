@@ -1,19 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
-    <title>Edit</title>
-    <jsp:include page="headPlusLoginStatus.jsp"/>
-    <jsp:include page="nav.jsp"/>
+<title>Edit</title>
+<jsp:include page="nav.jsp"/>
+<jsp:include page="headPlusLoginStatus.jsp"/>
 
-        <h2>
-            Edit user
-        </h2>
+<h2>
+    Edit user
+</h2>
 
-        <p>id: ${tobeEdited.userid}</p>
+<p>id: ${tobeEdited.userid}</p>
 
-    </header>
-    <main>
+</header>
+<main>
     <div>
         <c:if test="${not empty errors}">
         <div id="error" class="alert alert-danger">
@@ -26,13 +26,14 @@
         </div>
 
 
-        <form name="formulier" method="POST" action="Controller?command=EditProcessing&userid=${tobeEdited.userid}" novalidate>
+        <form name="formulier" method="POST" action="Controller?command=EditProcessing&userid=${tobeEdited.userid}"
+              novalidate>
 
             <p><label for="firstName">First Name</label>
-                <input type="text" id="firstName" name="firstName" required value="${tobeEdited.firstName}"> </p>
+                <input type="text" id="firstName" name="firstName" required value="${tobeEdited.firstName}"></p>
 
             <p><label for="lastName">Last Name</label>
-                <input type="text" id="lastName" name="lastName" required value="${tobeEdited.lastName}"> </p>
+                <input type="text" id="lastName" name="lastName" required value="${tobeEdited.lastName}"></p>
 
             <p><label for="email">Email</label>
                 <input type="email" id="email" name="email" required value="${tobeEdited.email}"></p>
@@ -55,11 +56,11 @@
                 <option value="epsilon">epsilon</option>
             </select>
 
-            <p><input id = "submit" type = "submit" value="edit"></p>
+            <p><input id="submit" type="submit" value="edit"></p>
 
         </form>
 </main>
 </div>
-<footer> &copy; Webontwikkeling 3, UC Leuven-Limburg </footer>
+<footer> &copy; Webontwikkeling 3, UC Leuven-Limburg</footer>
 </body>
 </html>

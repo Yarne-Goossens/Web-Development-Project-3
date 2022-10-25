@@ -2,6 +2,7 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 html, body {
@@ -10,71 +11,7 @@ html, body {
 }
 
 body{
-    background-color: navajowhite;
-}
-
-nav{
-    border: solid;
-}
-
-nav ul{
-    list-style: none;
-    font-size: 2rem;
-
-
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-}
-
-a{
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    padding: 1em 2em 1em 2em;
-    margin: -2em;
-}
-
-td a{
-    display: inline-block;
-    position: relative;
-    z-index: 1;
-    padding: 0.5em 1em 0.5em 1em;
-    margin: -2em;
-
-}
-
-nav a:link{
-    text-decoration: none;
-    color: black;
-}
-
-nav a:visited{
-    text-decoration: none;
-    color: black;
-}
-
-nav a:hover{
-    text-decoration: underline;
-    background-color: gray;
-    color: black;
-}
-
-nav a:active{
-    text-decoration: none;
-    color: black;
-}
-
-th, td {
-    border: 1px solid;
-    padding:2px 2px 2px 2px;
-}
-
-table {
-    border-collapse: collapse;
-    width: 80%;
-    text-align: center;
+    background-color: whitesmoke;
 }
 
 #container{
@@ -82,9 +19,95 @@ table {
     min-height: 100vh;
 }
 
+/*---------NAV---------*/
+.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+nav li  {
+    display: inline;
+
+}
+nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #dddddd;
+}
+
+nav li a{
+    padding: 14px 16px;
+    text-align: center;
+
+    text-decoration: none;
+}
+
+nav a {
+    padding: 8px;
+
+}
+
+
+@media only screen and (max-width: 600px) {
+
+    nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    nav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    nav li a:hover:not(.active) {
+        background-color: #111;
+    }
+}
+
+
+
+/*---------TABLE---------*/
+
+th, td {
+    padding:2px 2px 2px 2px;
+}
+
+tr{
+    background-color: white;
+}
+
+tr:nth-child(odd) {
+    background: lightgray;
+}
+
+th{
+    background-color: darkgreen;
+    color: white;
+    border: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
 footer {
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 2.5rem;            /*Footer height*/
+    height: 2.5rem;
 }

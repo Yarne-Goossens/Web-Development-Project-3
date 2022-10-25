@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <title>Login</title>
-<jsp:include page="headPlusLoginStatus.jsp"/>
+
 <jsp:include page="nav.jsp"/>
+<jsp:include page="headPlusLoginStatus.jsp"/>
 
 <h2>
     Login
