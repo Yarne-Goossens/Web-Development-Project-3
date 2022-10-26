@@ -28,14 +28,14 @@
 
                 <c:forEach var="user" items="${useroverview}">
                     <tr>
-                        <td>${user.userid}</td>
-                        <td>${user.email}</td>
-                        <td>${user.firstName}</td>
-                        <td>${user.lastName}</td>
-                        <td>${user.team}</td>
-                        <td>${user.role}</td>
-                        <td><a id="edit" href="Controller?command=EditForm&userid=${user.userid}">Edit</a></td>
-                        <td><a id="delete" href="Controller?command=DeleteConfirm&userid=${user.userid}">Delete</a></td>
+                        <td><c:out value='${user.userid}'/></td>
+                        <td><c:out value='${user.email}'/></td>
+                        <td><c:out value='${user.firstName}'/></td>
+                        <td><c:out value='${user.lastName}'/></td>
+                        <td><c:out value='${user.team}'/></td>
+                        <td><c:out value='${user.role}'/></td>
+                        <td><a id="edit" href="Controller?command=EditForm&userid=<c:out value='${user.userid}'/>">Edit</a></td>
+                        <td><a id="delete" href="Controller?command=DeleteConfirm&userid=<c:out value='${user.userid}'/>">Delete</a></td>
                     </tr>
                 </c:forEach>
 

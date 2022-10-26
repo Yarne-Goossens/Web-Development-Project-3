@@ -25,10 +25,10 @@
             <form name="login" method="POST" action="Controller?command=LoginProcessing" novalidate>
 
                 <label for="email">Email: </label>
-                <input type="text" id="email" name="email" placeholder="Jan.Janssens@gmail.com">
+                <input type="text" id="email" name="email" placeholder="Jan.Janssens@gmail.com" value="<c:out value='${param.email}'/>">
 
                 <label for="password">Wachtwoord: </label>
-                <input type="password" id="password" name="password">
+                <input type="password" id="password" name="password" value="<c:out value='${param.password}'/>">
 
                 <input id="submit" type="submit" name="command" value="login">
             </form>
