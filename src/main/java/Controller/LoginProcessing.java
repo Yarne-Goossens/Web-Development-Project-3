@@ -1,7 +1,5 @@
 package Controller;
 
-
-import domain.model.Role;
 import domain.model.User;
 import domain.service.DbException;
 
