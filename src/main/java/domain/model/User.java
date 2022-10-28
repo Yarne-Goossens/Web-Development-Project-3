@@ -121,7 +121,7 @@ public class User {
         if (password.isEmpty()) {
             throw new IllegalArgumentException("No password given");
         }
-        this.password = hashPassword(password);
+        this.password =password;
     }
 
     public void setFirstName(String firstName) {
@@ -227,7 +227,7 @@ public class User {
         boolean passwordHasErrors = false;
         try {
             request.setAttribute("passwordPreviousValue", name);
-            this.setPassword(name);
+            this.setPassword(hashPassword(name));
         } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             passwordHasErrors = true;
