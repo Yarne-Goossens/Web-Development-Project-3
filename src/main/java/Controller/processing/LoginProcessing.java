@@ -1,5 +1,6 @@
-package Controller;
+package Controller.processing;
 
+import Controller.RequestHandler;
 import domain.model.User;
 import domain.service.DbException;
 

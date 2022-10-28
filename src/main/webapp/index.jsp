@@ -18,6 +18,8 @@
             <li>${error}</li>
         </c:forEach>
     </ul>
+</div>
+
     </c:if>
     <c:choose>
         <c:when test="${empty loginUserSession}">
@@ -33,6 +35,7 @@
                 <input id="submit" type="submit" name="command" value="login">
             </form>
         </c:when>
+
         <c:otherwise>
             <p>Welcome, ${loginUserSession.firstName}!</p>
             <form name="logout" method="POST" action="Controller?command=LogoutProcessing" novalidate>
@@ -40,7 +43,6 @@
             </form>
         </c:otherwise>
     </c:choose>
-</div>
 <footer> &copy; Webontwikkeling 3, UC Leuven-Limburg</footer>
 </body>
 </html>

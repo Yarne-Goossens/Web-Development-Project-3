@@ -1,5 +1,6 @@
-package Controller;
+package Controller.processing;
 
+import Controller.RequestHandler;
 import domain.model.User;
 import domain.service.DbException;
 
@@ -7,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-public class EditProcessing extends RequestHandler {
+public class UserEditProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("userid"));

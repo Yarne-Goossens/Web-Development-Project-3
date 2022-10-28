@@ -28,7 +28,7 @@ public class UserServiceDBSQL implements UserService {
             preparedStatement.setString(2, user.getFirstName());
             preparedStatement.setString(3, user.getLastName());
             preparedStatement.setString(4, user.getTeam().getStringValue());
-            preparedStatement.setString(5, user.getRole().getStringValue());
+            preparedStatement.setString(5, "EMPLOYEE");
             preparedStatement.setString(6, user.getPassword());
 
             for (User u : this.getAllUsers()) {

@@ -1,6 +1,6 @@
-package Controller;
+package Controller.processing;
 
-import domain.model.Role;
+import Controller.RequestHandler;
 import domain.model.User;
 import domain.service.DbException;
 
@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 
-public class RegisterProcessing extends RequestHandler {
+public class UserRegisterProcessing extends RequestHandler {
 
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
@@ -20,7 +20,6 @@ public class RegisterProcessing extends RequestHandler {
         user.setEmailRequest(request,errors);
         user.setPasswordRequest(request,errors);
         user.setTeamRequest(request,errors);
-        user.setRoleRequest(request,errors);
 
         if(errors.size()==0) {
             try {

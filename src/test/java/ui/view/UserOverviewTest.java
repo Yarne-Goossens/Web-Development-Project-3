@@ -9,7 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import static org.junit.Assert.*;
 
-public class OverviewTest {
+public class UserOverviewTest {
     private WebDriver driver;
 
     @Before

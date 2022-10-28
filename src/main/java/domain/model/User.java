@@ -121,7 +121,7 @@ public class User {
         if (password.isEmpty()) {
             throw new IllegalArgumentException("No password given");
         }
-        this.password =password;
+        this.password=password;
     }
 
     public void setFirstName(String firstName) {
@@ -221,13 +221,20 @@ public class User {
         }
     }
 
+    public void setPasswordHash(String password){
+        if (password.isEmpty()) {
+            throw new IllegalArgumentException("No password given");
+        }
+        this.password=hashPassword(password);
+    }
     //Wordt gecalled in processing classes.
     public void setPasswordRequest(HttpServletRequest request, ArrayList<String> errors) {
         String name = request.getParameter("password");
+
         boolean passwordHasErrors = false;
         try {
             request.setAttribute("passwordPreviousValue", name);
-            this.setPassword(hashPassword(name));
+            this.setPasswordHash(name);
         } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             passwordHasErrors = true;

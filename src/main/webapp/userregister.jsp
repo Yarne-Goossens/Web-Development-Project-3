@@ -3,12 +3,12 @@
 <!DOCTYPE html>
 <html>
 
-<title>Register</title>
+<title>User Register</title>
 <jsp:include page="nav.jsp"/>
 <jsp:include page="headPlusLoginStatus.jsp"/>
 
 <h2>
-    Register
+    Register User
 </h2>
 
 <main>
@@ -40,13 +40,6 @@
 
             <c:choose>
                 <c:when test="${not empty teamPreviousValue}">
-                    <label for="role">Role</label>
-                    <select name="role" id="role">
-                        <option value="${rolePreviousValue}">${rolePreviousValue}</option>
-                        <option value="employee">employee</option>
-                        <option value="teamleader">teamleader</option>
-                        <option value="director">director</option>
-                    </select>
 
                     <label for="team">Team</label>
                     <select name="team" id="team">
@@ -60,12 +53,6 @@
 
                 </c:when>
                 <c:otherwise>
-                    <label for="role">Role</label>
-                    <select name="role" id="role">
-                        <option value="employee">employee</option>
-                        <option value="teamleader">teamleader</option>
-                        <option value="director">director</option>
-                    </select>
 
                     <label for="team">Team</label>
                     <select name="team" id="team">

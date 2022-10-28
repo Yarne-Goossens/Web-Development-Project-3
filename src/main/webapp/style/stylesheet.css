@@ -47,6 +47,8 @@ nav li a{
     text-decoration: none;
 }
 
+
+
 nav a {
     padding: 8px;
 }
@@ -101,6 +103,15 @@ th{
     background-color: darkgreen;
     color: white;
     border: none;
+}
+
+#error{
+    border:red  2px solid;
+    padding:10px;
+}
+
+#error ul{
+    list-style: none;
 }
 
 table {
