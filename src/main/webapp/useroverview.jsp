@@ -4,8 +4,7 @@
 <html>
 
 <title>User Overview</title>
-
-<jsp:include page="nav.jsp"/>
+<jsp:include page="nav.jsp"></jsp:include>
 <jsp:include page="headPlusLoginStatus.jsp"/>
 <h2>
     User Overview

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <title>Delete</title>
-<jsp:include page="nav.jsp"/>
+<jsp:include page="nav.jsp"></jsp:include>
 <jsp:include page="headPlusLoginStatus.jsp"/>
 <h2>
     Confirm deletion

@@ -3,8 +3,7 @@
 <!DOCTYPE html>
 <html>
 <title>Login</title>
-
-<jsp:include page="nav.jsp"/>
+<jsp:include page="nav.jsp"></jsp:include>
 <jsp:include page="headPlusLoginStatus.jsp"/>
 
 <h2>

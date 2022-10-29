@@ -26,20 +26,24 @@ body{
 }
 
 nav li  {
-    display: inline;
+    display: block;
 
 }
 nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #dddddd;
+    background-color: #333;
 }
 
 nav li a{
     padding: 14px 16px;
     text-align: center;
+    color: white;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -59,9 +63,11 @@ nav{
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 660px) {
 
     nav ul {
+        display: flex;
+        flex-direction: column;
         list-style-type: none;
         margin: 0;
         padding: 0;
