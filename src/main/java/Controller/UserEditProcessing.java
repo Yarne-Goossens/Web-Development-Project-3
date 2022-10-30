@@ -1,4 +1,4 @@
-package Controller.processing;
+package Controller;
 
 import Controller.RequestHandler;
 import domain.model.User;

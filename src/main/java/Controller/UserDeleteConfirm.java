@@ -1,12 +1,13 @@
 package Controller;
 
 
+import Controller.RequestHandler;
 import domain.model.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class DeleteConfirm extends RequestHandler {
+public class UserDeleteConfirm extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int id =Integer.parseInt(request.getParameter("userid"));

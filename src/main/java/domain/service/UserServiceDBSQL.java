@@ -3,6 +3,8 @@ package domain.service;
 import domain.model.Role;
 import domain.model.Team;
 import domain.model.User;
+import domain.service.DbException;
+import domain.service.UserService;
 import util.DbConnectionService;
 
 import java.sql.*;

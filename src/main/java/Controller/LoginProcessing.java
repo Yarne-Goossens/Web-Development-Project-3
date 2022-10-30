@@ -1,4 +1,4 @@
-package Controller.processing;
+package Controller;
 
 import Controller.RequestHandler;
 import domain.model.User;
@@ -28,6 +28,5 @@ public class LoginProcessing extends RequestHandler {
         }
         request.setAttribute("errors", errors);
         return "index.jsp";
-
     }
 }
