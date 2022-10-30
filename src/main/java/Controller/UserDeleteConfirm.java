@@ -13,6 +13,6 @@ public class UserDeleteConfirm extends RequestHandler {
         int id =Integer.parseInt(request.getParameter("userid"));
         User tobeDeleted=service.getUserWithId(id);
         request.setAttribute("tobeDeleted",tobeDeleted);
-        return "deleteConfirm.jsp";
+        return "userDeleteConfirm.jsp";
     }
 }

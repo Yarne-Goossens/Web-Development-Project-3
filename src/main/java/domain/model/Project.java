@@ -1,20 +1,23 @@
 package domain.model;
 
-import java.time.LocalDate;
-import java.util.Locale;
+import javax.servlet.http.HttpServletRequest;
+import java.sql.Time;
+import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class Project {
     private int projectId;
     private String projectName;
     private Team team;
-    private Role role;
-    private LocalDate start,end;
+    private Timestamp start,end;
 
     public Project(){}
 
-    public Project( String projectName, LocalDate start, LocalDate end) {
+    public Project(int projectId, String projectName,String team, Timestamp start, Timestamp end) {
         this.projectName = projectName;
         this.start = start;
+        setTeam(team);
+        this.projectId=projectId;
         this.end = end;
     }
 
@@ -27,20 +30,22 @@ public class Project {
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
-
+    public void setTeam(String team) {
+        try {
+            this.team = Team.valueOf(team.toUpperCase());
+        } catch (IllegalArgumentException e) {
+            throw new DomainException("There is no team with value " + team);
+        }
+    }
     public void setTeam(Team team) {
         this.team = team;
     }
 
-    public void setRole(Role role) {
-        this.role = role;
-    }
-
-    public void setStart(LocalDate start) {
+    public void setStart(Timestamp start) {
         this.start = start;
     }
 
-    public void setEnd(LocalDate end) {
+    public void setEnd(Timestamp end) {
         this.end = end;
     }
 
@@ -57,15 +62,70 @@ public class Project {
         return team;
     }
 
-    public Role getRole() {
-        return role;
-    }
-
-    public LocalDate getStart() {
+    public Timestamp getStart() {
         return start;
     }
 
-    public LocalDate getEnd() {
+    public Timestamp getEnd() {
         return end;
+    }
+
+    //Setter gebruikt in Processing class Register
+    public void setProjectNameRequest(HttpServletRequest request, ArrayList<String> errors) {
+        String projectName = request.getParameter("projectName");
+        boolean firstnameHasErrors = false;
+        try {
+            
+            request.setAttribute("projectNamePreviousValue", projectName);
+            this.setProjectName(projectName);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            firstnameHasErrors = true;
+        } finally {
+            request.setAttribute("firstnameHasErrors", firstnameHasErrors);
+        }
+    }
+
+    public void setProjectTeamRequest(HttpServletRequest request, ArrayList<String> errors) {
+        String team = request.getParameter("team");
+        boolean teamHasErrors = false;
+        try {
+            request.setAttribute("teamPreviousValue", team);
+            this.setTeam(team);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            teamHasErrors = true;
+        } finally {
+            request.setAttribute("teamHasErrors", teamHasErrors);
+        }
+    }
+
+    public void setProjectStartDate(HttpServletRequest request, ArrayList<String> errors) {
+        String start = request.getParameter("start");
+
+        boolean startHasErrors = false;
+        try {
+            request.setAttribute("startPreviousValue", start);
+            this.setStart(Timestamp.valueOf(start));
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            startHasErrors = true;
+        } finally {
+            request.setAttribute("startHasErrors", startHasErrors);
+        }
+    }
+
+    public void setProjectEndDate(HttpServletRequest request, ArrayList<String> errors) {
+        String end = request.getParameter("end");
+        boolean endHasErrors = false;
+        try {
+            request.setAttribute("endPreviousValue", end);
+            this.setEnd(Timestamp.valueOf(end));
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            endHasErrors = true;
+        } finally {
+            request.setAttribute("endHasErrors", endHasErrors);
+        }
     }
 }

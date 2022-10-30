@@ -10,6 +10,6 @@ public class UserRegister extends RequestHandler {
 
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        return "userregister.jsp";
+        return "userRegister.jsp";
     }
 }

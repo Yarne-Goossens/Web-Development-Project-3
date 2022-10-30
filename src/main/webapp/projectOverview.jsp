@@ -27,20 +27,19 @@
 
                 <c:forEach var="project" items="${projectoverview}">
                     <tr>
-                        <td><c:out value='${project.userid}'/></td>
-                        <td><c:out value='${project.email}'/></td>
-                        <td><c:out value='${project.firstName}'/></td>
-                        <td><c:out value='${project.lastName}'/></td>
+                        <td><c:out value='${project.projectId}'/></td>
+                        <td><c:out value='${project.projectName}'/></td>
                         <td><c:out value='${project.team}'/></td>
-                        <td><c:out value='${project.role}'/></td>
-                        <td><a id="edit" href="Controller?command=EditForm&userid=<c:out value='${project.userid}'/>">Edit</a></td>
-                        <td><a id="delete" href="Controller?command=DeleteConfirm&userid=<c:out value='${project.userid}'/>">Delete</a></td>
+                        <td><c:out value='${project.start}'/></td>
+                        <td><c:out value='${project.end}'/></td>
+                        <td><a id="edit" href="Controller?command=ProjectEditForm&projectid=<c:out value='${project.projectId}'/>">Edit</a></td>
+                        <td><a id="delete" href="Controller?command=ProjectDeleteConfirm&projectid=<c:out value='${project.projectId}'/>">Delete</a></td>
                     </tr>
                 </c:forEach>
 
             </c:when>
             <c:otherwise>
-                <p>There are no user to show.</p>
+                <p>There are no projects to show.</p>
             </c:otherwise>
         </c:choose>
     </table>

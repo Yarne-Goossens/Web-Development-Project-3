@@ -9,6 +9,6 @@ import javax.servlet.http.HttpServletResponse;
 public class WorkorderRegister extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        return "workorderregister.jsp";
+        return "workorderRegister.jsp";
     }
 }

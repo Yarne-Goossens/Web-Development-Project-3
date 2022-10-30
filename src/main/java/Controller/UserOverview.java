@@ -10,6 +10,6 @@ public class UserOverview extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         request.setAttribute("useroverview",service.getAllUsers());
-        return "useroverview.jsp";
+        return "userOverview.jsp";
     }
 }
