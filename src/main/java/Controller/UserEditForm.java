@@ -14,6 +14,6 @@ public class UserEditForm extends RequestHandler {
         User tobeEdited=service.getUserWithId(id);
         request.setAttribute("tobeEdited",tobeEdited);
 
-        return "editForm.jsp";
+        return "userEditForm.jsp";
     }
 }

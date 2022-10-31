@@ -24,7 +24,7 @@
         </div>
 
 
-        <form name="formulier" method="POST" action="Controller?command=RegisterProcessing" novalidate>
+        <form name="formulier" method="POST" action="Controller?command=UserRegisterProcessing" novalidate>
 
             <p><label for="firstName">First Name</label>
                 <input type="text" id="firstName" name="firstName" required value="${firstnamePreviousValue}"></p>

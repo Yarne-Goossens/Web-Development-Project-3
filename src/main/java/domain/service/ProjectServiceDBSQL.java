@@ -16,7 +16,7 @@ public class ProjectServiceDBSQL implements ProjectService {
 
     public void addProject(Project project){
         String query = String.format
-                ("insert into groep214.user (name,team,startdate,enddate) values (?,?,?,?)", schema);
+                ("insert into groep214.project (name,team,startdate,enddate) values (?,?,CAST(? AS date),CAST(? AS date))", schema);
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
@@ -26,7 +26,7 @@ public class ProjectServiceDBSQL implements ProjectService {
             preparedStatement.setString(4, project.getEnd().toString());
 
             if(project.getStart().after(project.getEnd())){
-                throw new IllegalArgumentException("startdate should be before the enddate.");
+                throw new DbException("startdate should be before the enddate.");
             }
             preparedStatement.execute();
 
@@ -49,7 +49,7 @@ public class ProjectServiceDBSQL implements ProjectService {
 
     public void updateProject(int id,Project project){
         String query = String.format
-                ("update groep214.user set name=?,team=?,startdate=?,enddate=? where id=?", schema);
+                ("update groep214.project set name=?,team=?,startdate=CAST(? AS date),enddate=CAST(? AS date) where id=?", schema);
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
@@ -86,8 +86,8 @@ public class ProjectServiceDBSQL implements ProjectService {
                 int id = result.getInt("id");
                 String name = result.getString("name");
                 String team = result.getString("team");
-                Timestamp startdate = Timestamp.valueOf(result.getString("startdate"));
-                Timestamp enddate = Timestamp.valueOf(result.getString("enddate"));
+                Date startdate = Date.valueOf(result.getString("startdate"));
+                Date enddate = Date.valueOf(result.getString("enddate"));
 
             projects.add(new Project(id,name,team,startdate,enddate));
             }

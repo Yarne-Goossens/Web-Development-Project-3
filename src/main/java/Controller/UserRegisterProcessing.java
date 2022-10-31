@@ -1,6 +1,5 @@
 package Controller;
 
-import Controller.RequestHandler;
 import domain.model.User;
 import domain.service.DbException;
 
@@ -24,16 +23,14 @@ public class UserRegisterProcessing extends RequestHandler {
         if(errors.size()==0) {
             try {
                 service.addUser(user);
-
-                request.setAttribute("useroverview",service.getAllUsers());
-                return "Controller?command=Overview";
+                return "Controller?command=UserOverview";
             }
             catch (DbException d) {
                 errors.add(d.getMessage());
             }
         }
         request.setAttribute("errors", errors);
-        return "Controller?command=Register";
+        return "Controller?command=UserRegister";
     }
 
 }

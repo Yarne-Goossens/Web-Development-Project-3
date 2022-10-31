@@ -30,7 +30,7 @@ public class ProjectRegisterProcessing extends RequestHandler {
             }
         }
         request.setAttribute("errors", errors);
-        return "Controller?command=UserRegister";
+        return "Controller?command=ProjectRegister";
     }
 
 }

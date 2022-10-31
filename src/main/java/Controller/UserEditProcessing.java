@@ -28,11 +28,9 @@ public class UserEditProcessing extends RequestHandler {
 
         if (errors.size() == 0) {
             try {
-                //service.update(edit,id);
-                //
                 service.updateUser(id,edit);
 
-                return "Controller?command=Overview";
+                return "Controller?command=UserOverview";
             } catch (DbException d) {
                 errors.add(d.getMessage());
             } catch (NumberFormatException n) {
@@ -42,6 +40,6 @@ public class UserEditProcessing extends RequestHandler {
             }
         }
         request.setAttribute("errors", errors);
-        return "editForm.jsp";
+        return "Controller?command=UserEditForm";
     }
 }

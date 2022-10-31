@@ -1,19 +1,21 @@
 package domain.model;
 
 import javax.servlet.http.HttpServletRequest;
+import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.DateTimeException;
 import java.util.ArrayList;
 
 public class Project {
     private int projectId;
     private String projectName;
     private Team team;
-    private Timestamp start,end;
+    private Date start,end;
 
     public Project(){}
 
-    public Project(int projectId, String projectName,String team, Timestamp start, Timestamp end) {
+    public Project(int projectId, String projectName,String team, Date start, Date end) {
         this.projectName = projectName;
         this.start = start;
         setTeam(team);
@@ -28,6 +30,9 @@ public class Project {
     }
 
     public void setProjectName(String projectName) {
+        if (projectName.isEmpty()) {
+            throw new IllegalArgumentException("No project name given");
+        }
         this.projectName = projectName;
     }
     public void setTeam(String team) {
@@ -41,11 +46,17 @@ public class Project {
         this.team = team;
     }
 
-    public void setStart(Timestamp start) {
-        this.start = start;
+    public void setStart(Date start) {
+        try {
+            this.start = start;
+        }
+        catch (IllegalArgumentException e){
+            throw new IllegalArgumentException("date is not correct");
+        }
+
     }
 
-    public void setEnd(Timestamp end) {
+    public void setEnd(Date end) {
         this.end = end;
     }
 
@@ -62,11 +73,11 @@ public class Project {
         return team;
     }
 
-    public Timestamp getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public Timestamp getEnd() {
+    public Date getEnd() {
         return end;
     }
 
@@ -75,7 +86,6 @@ public class Project {
         String projectName = request.getParameter("projectName");
         boolean firstnameHasErrors = false;
         try {
-            
             request.setAttribute("projectNamePreviousValue", projectName);
             this.setProjectName(projectName);
         } catch (IllegalArgumentException exc) {
@@ -106,7 +116,7 @@ public class Project {
         boolean startHasErrors = false;
         try {
             request.setAttribute("startPreviousValue", start);
-            this.setStart(Timestamp.valueOf(start));
+            this.setStart(Date.valueOf(start));
         } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             startHasErrors = true;
@@ -120,7 +130,7 @@ public class Project {
         boolean endHasErrors = false;
         try {
             request.setAttribute("endPreviousValue", end);
-            this.setEnd(Timestamp.valueOf(end));
+            this.setEnd(Date.valueOf(end));
         } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             endHasErrors = true;

@@ -26,7 +26,7 @@
         </div>
 
 
-        <form name="formulier" method="POST" action="Controller?command=EditProcessing&userid=${tobeEdited.userid}"
+        <form name="formulier" method="POST" action="Controller?command=UserEditProcessing&userid=${tobeEdited.userid}"
               novalidate>
 
             <p><label for="firstName">First Name</label>
