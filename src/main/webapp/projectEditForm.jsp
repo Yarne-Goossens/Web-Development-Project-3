@@ -28,14 +28,14 @@
 
         <form name="formulier" method="POST" action="Controller?command=ProjectEditProcessing&projectid=${tobeEdited.projectId}" novalidate>
 
-            <p><label for="projectName">First Name</label>
+            <p><label for="projectName">Project name</label>
                 <input type="text" id="projectName" name="projectName" required value="${tobeEdited.projectName}"></p>
 
-            <p><label for="start">Last Name</label>
+            <p><label for="start">Start date</label>
                 <input type="date" id="start" name="start" required value="${tobeEdited.start}"></p>
 
-            <p><label for="end">Email</label>
-                <input type="date" id="end" name="email" required value="${tobeEdited.end}"></p>
+            <p><label for="end">End date</label>
+                <input type="date" id="end" name="end" required value="${tobeEdited.end}"></p>
 
             <label for="team">Team</label>
             <select name="team" id="team">

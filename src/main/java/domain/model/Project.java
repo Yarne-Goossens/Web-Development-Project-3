@@ -51,13 +51,18 @@ public class Project {
             this.start = start;
         }
         catch (IllegalArgumentException e){
-            throw new IllegalArgumentException("date is not correct");
+            throw new IllegalArgumentException(e);
         }
 
     }
 
     public void setEnd(Date end) {
-        this.end = end;
+        try {
+            this.end = end;
+        }
+        catch (IllegalArgumentException e){
+            throw new IllegalArgumentException(e);
+        }
     }
 
     //GETTERS
