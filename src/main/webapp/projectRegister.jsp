@@ -25,13 +25,13 @@
 
         <form name="formulier" method="POST" action="Controller?command=ProjectRegisterProcessing" novalidate>
 
-            <p><label for="projectName">First Name</label>
+            <p><label for="projectName">Project Name</label>
                 <input type="text" id="projectName" name="projectName" required value="${projectNamePreviousValue}"></p>
 
-            <p><label for="start">Last Name</label>
+            <p><label for="start">Start date</label>
                 <input type="date" id="start" name="start" required value="${startPreviousValue}"></p>
 
-            <p><label for="end">Email</label>
+            <p><label for="end">End date</label>
                 <input type="date" id="end" name="end" required value="${endPreviousValue}"></p>
 
             <c:choose>

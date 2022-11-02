@@ -2,6 +2,7 @@ package domain.service;
 
 import domain.model.Project;
 import domain.model.User;
+import domain.model.Workorder;
 
 import java.util.ArrayList;
 
@@ -32,7 +33,26 @@ public class AppService {
 
     //WORKORDER
 
+    public void addWorkorder(Workorder workorder){
+        workorderDB.addWorkorder(workorder);
+    }
 
+    public void deleteWorkorder(int id){
+        workorderDB.deleteWorkorder(id);
+    }
+
+    public void updateWorkorder(int id,Workorder workorder){
+        workorderDB.updateWorkorder(id,workorder);
+    }
+
+
+    public Workorder getWorkorderWithId(int id) {
+        return workorderDB.getWorkorderWithId(id);
+    }
+
+    public ArrayList<Workorder> getAllWorkorders(){
+        return  workorderDB.getAllWorkorders();
+    }
 
 
     //USER

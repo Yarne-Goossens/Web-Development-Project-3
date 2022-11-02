@@ -8,17 +8,17 @@
     Confirm deletion
 </h2>
 <body>
-<p>Wilt u het project ${tobeDeleted.projectName} ${tobeDeleted.team} met projectid: ${tobeDeleted.projectId}
+<p>Wilt u de workorder van ${tobeDeleted.employee} uit het ${tobeDeleted.team} team met workorderid: ${tobeDeleted.workorderid}
     verwijderen?</p>
 <br>
 <form name="formulierJa" method="POST"
-      action="Controller?command=ProjectDeleteProcessing&projectid=<c:out value='${tobeDeleted.projectId}'/>"
+      action="Controller?command=WorkorderDeleteProcessing&workorderid=<c:out value='${tobeDeleted.workorderid}'/>"
       novalidate>
     <p><input id="submitJa" type="submit" value="Ja"></p>
 </form>
 <br>
 
-<form name="formulierNee" method="POST" action="Controller?command=ProjectOverview" novalidate>
+<form name="formulierNee" method="POST" action="Controller?command=WorkorderOverview" novalidate>
     <p><input id="submitNee" type="submit" value="Nee"></p>
 </form>
 

@@ -7,10 +7,10 @@
 <jsp:include page="headPlusLoginStatus.jsp"/>
 
 <h2>
-    Edit project
+    Edit workorder
 </h2>
 
-<p>id: ${tobeEdited.projectId}</p>
+<p>id: ${tobeEdited.workorderId}</p>
 
 </header>
 <main>
@@ -26,16 +26,15 @@
         </div>
 
 
-        <form name="formulier" method="POST" action="Controller?command=ProjectEditProcessing&projectid=${tobeEdited.projectId}" novalidate>
+        <form name="formulier" method="POST"
+              action="Controller?command=WorkorderEditProcessing&projectid=${tobeEdited.workorderId}" novalidate>
 
-            <p><label for="projectName">Project name</label>
-                <input type="text" id="projectName" name="projectName" required value="${tobeEdited.projectName}"></p>
+            <p><label for="employee">Employee</label>
+                <input type="text" id="employee" name="employee" required value="${tobeEdited.employee}"></p>
 
-            <p><label for="start">Start date</label>
-                <input type="date" id="start" name="start" required value="${tobeEdited.start}"></p>
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required value="${tobeEdited.description}"></textarea>
 
-            <p><label for="end">End date</label>
-                <input type="date" id="end" name="end" required value="${tobeEdited.end}"></p>
 
             <label for="team">Team</label>
             <select name="team" id="team">
@@ -46,6 +45,15 @@
                 <option value="delta">delta</option>
                 <option value="epsilon">epsilon</option>
             </select>
+
+            <p><label for="date">Date</label>
+                <input type="date" id="date" name="date" required value="${tobeEdited.date}"></p>
+
+            <p><label for="startTime">Starttime</label>
+                <input type="date" id="startTime" name="startTime" required value="${tobeEdited.startTime}"></p>
+
+            <p><label for="endTime">Endtime</label>
+                <input type="date" id="endTime" name="endTime" required value="${tobeEdited.endTime}"></p>
 
             <p><input id="submit" type="submit" value="edit"></p>
 
