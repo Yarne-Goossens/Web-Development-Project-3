@@ -16,16 +16,15 @@ public class WorkorderServiceDBSQL implements WorkorderService{
 
     public void addWorkorder(Workorder workorder){
         String query = String.format
-                ("insert into groep214.workorder (employee,description,team,date,starttime,endtime) values (?,?,?,CAST(? AS date),CAST(? AS date),CAST(? AS date))", schema);
+                ("insert into groep214.workorder (employee,description,date,starttime,endtime) values (?,?,CAST(? AS date),CAST(? AS time),CAST(? AS time))", schema);
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, workorder.getEmployee());
             preparedStatement.setString(2, workorder.getDescription());
-            preparedStatement.setString(3, workorder.getTeam().getStringValue());
-            preparedStatement.setString(4, workorder.getDate().toString());
-            preparedStatement.setString(5, workorder.getStartTime().toString());
-            preparedStatement.setString(6, workorder.getEndTime().toString());
+            preparedStatement.setString(3, workorder.getDate().toString());
+            preparedStatement.setString(4, workorder.getStartTime().toString());
+            preparedStatement.setString(5, workorder.getEndTime().toString());
 
             if(workorder.getStartTime().after(workorder.getEndTime())){
                 throw new DbException("starttime should be before the endtime.");
@@ -90,12 +89,11 @@ public class WorkorderServiceDBSQL implements WorkorderService{
                 int id = result.getInt("id");
                 String employee = result.getString("employee");
                 String description = result.getString("description");
-                String team = result.getString("team");
                 Date date = Date.valueOf(result.getString("date"));
-                Date starttime = Date.valueOf(result.getString("starttime"));
-                Date endtime = Date.valueOf(result.getString("endtime"));
+                Time starttime = Time.valueOf(result.getString("starttime"));
+                Time endtime = Time.valueOf(result.getString("endtime"));
 
-                workorders.add(new Workorder(id,employee,description,team,date,starttime,endtime));
+                workorders.add(new Workorder(id,employee,description,date,starttime,endtime));
             }
         } catch (SQLException e) {
             throw new DbException(e.getMessage());

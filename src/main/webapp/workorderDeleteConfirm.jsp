@@ -8,11 +8,11 @@
     Confirm deletion
 </h2>
 <body>
-<p>Wilt u de workorder van ${tobeDeleted.employee} uit het ${tobeDeleted.team} team met workorderid: ${tobeDeleted.workorderid}
+<p>Wilt u de workorder van ${tobeDeleted.employee} uit het ${tobeDeleted.team} team met workorderid: ${tobeDeleted.workorderId}
     verwijderen?</p>
 <br>
 <form name="formulierJa" method="POST"
-      action="Controller?command=WorkorderDeleteProcessing&workorderid=<c:out value='${tobeDeleted.workorderid}'/>"
+      action="Controller?command=WorkorderDeleteProcessing&workorderid=<c:out value='${tobeDeleted.workorderId}'/>"
       novalidate>
     <p><input id="submitJa" type="submit" value="Ja"></p>
 </form>

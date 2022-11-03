@@ -19,6 +19,7 @@
                     <th>Project Id</th>
                     <th>Name</th>
                     <th>Team</th>
+                    <th>Date</th>
                     <th>Start</th>
                     <th>End</th>
                     <th>Edit</th>
@@ -34,7 +35,7 @@
                         <td><c:out value='${work.startTime}'/></td>
                         <td><c:out value='${work.endTime}'/></td>
                         <td><a id="edit" href="Controller?command=WorkorderEditForm&workorderid=<c:out value='${work.workorderId}'/>">Edit</a></td>
-                        <td><a id="delete" href="Controller?command=ProjectDeleteConfirm&projectid=<c:out value='${work.workorderId}'/>">Delete</a></td>
+                        <td><a id="delete" href="Controller?command=WorkorderDeleteConfirm&workorderid=<c:out value='${work.workorderId}'/>">Delete</a></td>
                     </tr>
                 </c:forEach>
 

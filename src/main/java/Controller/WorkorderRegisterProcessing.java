@@ -14,6 +14,7 @@ public class WorkorderRegisterProcessing extends RequestHandler {
 
         Workorder workorder = new Workorder();
         workorder.setEmployeeRequest(request, errors);
+        workorder.setWorkorderTeamRequest(request,errors);
         workorder.setDescriptionRequest(request, errors);
         workorder.setWorkorderTeamRequest(request, errors);
         workorder.setWorkorderDateRequest(request, errors);
@@ -22,6 +23,7 @@ public class WorkorderRegisterProcessing extends RequestHandler {
 
         if (errors.size() == 0) {
             try {
+                System.out.println(workorder.toString());
                 service.addWorkorder(workorder);
 
                 return "Controller?command=WorkorderOverview";
