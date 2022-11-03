@@ -25,35 +25,20 @@
             </c:if>
         </div>
 
-
         <form name="formulier" method="POST"
-              action="Controller?command=WorkorderEditProcessing&projectid=${tobeEdited.workorderId}" novalidate>
-
-            <p><label for="employee">Employee</label>
-                <input type="text" id="employee" name="employee" required value="${tobeEdited.employee}"></p>
-
-            <label for="description">Description</label>
-            <textarea id="description" name="description" required value="${tobeEdited.description}"></textarea>
-
-
-            <label for="team">Team</label>
-            <select name="team" id="team">
-                <option value="${tobeEdited.team}">${tobeEdited.team}</option>
-                <option value="alpha">alpha</option>
-                <option value="beta">beta</option>
-                <option value="gamma">gamma</option>
-                <option value="delta">delta</option>
-                <option value="epsilon">epsilon</option>
-            </select>
+              action="Controller?command=WorkorderEditProcessing&workorderid=${tobeEdited.workorderId}" novalidate>
 
             <p><label for="date">Date</label>
                 <input type="date" id="date" name="date" required value="${tobeEdited.date}"></p>
 
             <p><label for="startTime">Starttime</label>
-                <input type="date" id="startTime" name="startTime" required value="${tobeEdited.startTime}"></p>
+                <input type="time" id="startTime" name="startTime" required value="${tobeEdited.startTime}"></p>
 
             <p><label for="endTime">Endtime</label>
-                <input type="date" id="endTime" name="endTime" required value="${tobeEdited.endTime}"></p>
+                <input type="time" id="endTime" name="endTime" required value="${tobeEdited.endTime}"></p>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required value="${tobeEdited.description}"></textarea>
 
             <p><input id="submit" type="submit" value="edit"></p>
 

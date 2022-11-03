@@ -50,18 +50,17 @@ public class WorkorderServiceDBSQL implements WorkorderService{
 
     public void updateWorkorder(int id,Workorder workorder){
         String query = String.format
-                ("update groep214.workorder set employee=?,description=?,team=?,date=CAST(? AS date),starttime=CAST(? AS date),endtime=CAST(? AS date) where id=?", schema);
+                ("update groep214.workorder set employee=?,description=?,date=CAST(? AS date),starttime=CAST(? AS time),endtime=CAST(? AS time) where id=?", schema);
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             preparedStatement.setString(1, workorder.getEmployee());
             preparedStatement.setString(2, workorder.getDescription());
-            preparedStatement.setString(3, workorder.getTeam().getStringValue());
-            preparedStatement.setString(4, workorder.getDate().toString());
-            preparedStatement.setString(5, workorder.getStartTime().toString());
-            preparedStatement.setString(6, workorder.getEndTime().toString());
-            preparedStatement.setInt(7, id);
+            preparedStatement.setString(3, workorder.getDate().toString());
+            preparedStatement.setString(4, workorder.getStartTime().toString());
+            preparedStatement.setString(5, workorder.getEndTime().toString());
+            preparedStatement.setInt(6, id);
 
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -81,7 +80,10 @@ public class WorkorderServiceDBSQL implements WorkorderService{
 
     public ArrayList<Workorder> getAllWorkorders(){
         ArrayList<Workorder> workorders = new ArrayList<>();
-        String sql = String.format("SELECT * from groep214.workorder", schema);
+        String sql="";
+            sql = String.format("SELECT * from groep214.workorder", schema);
+
+
         try {
             PreparedStatement statement = getConnection().prepareStatement(sql);
             ResultSet result = statement.executeQuery();

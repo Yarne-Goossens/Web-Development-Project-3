@@ -18,7 +18,7 @@
                 <tr>
                     <th>Project Id</th>
                     <th>Name</th>
-                    <th>Team</th>
+                    <th>Description</th>
                     <th>Date</th>
                     <th>Start</th>
                     <th>End</th>

@@ -30,9 +30,6 @@
 
         <form name="formulier" method="POST" action="Controller?command=WorkorderRegisterProcessing&user=${loginUserSession.firstName}" novalidate>
 
-            <label for="description">Description</label>
-            <textarea id="description" name="description" required value="${employeePreviousValue}"></textarea>
-
             <p><label for="team">Team</label>
                 <input readonly type="text" id="team" name="team" required value="${loginUserSession.team}"></p>
 
@@ -44,6 +41,9 @@
 
             <p><label for="endTime">Endtime</label>
                 <input type="time" class="without_ampm" id="endTime" name="endTime" step="1"  required value="${endPreviousValue}"></p>
+
+            <label for="description">Description</label>
+            <textarea id="description" name="description" required value="${employeePreviousValue}"></textarea>
 
             <p><input id="submit" type="submit" value="Registreer"></p>
 

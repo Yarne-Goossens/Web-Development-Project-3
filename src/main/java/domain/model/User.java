@@ -33,7 +33,6 @@ public class User {
         if (password.isEmpty()) {
             throw new IllegalArgumentException("No password given");
         }
-        System.out.println(hashPassword(password));
         return this.getPassword().compareTo(hashPassword(password))==0;
     }
 

@@ -19,11 +19,10 @@ public class WorkorderEditProcessing extends RequestHandler{
 
         request.setAttribute("workorderid", id);
         request.setAttribute("tobeEdited", editWorkorder);
-
-        edit.setEmployeeRequest(request, errors);
+        edit.setEmployee(editWorkorder.getEmployee());
         edit.setDescriptionRequest(request, errors);
-        edit.setWorkorderTeamRequest(request, errors);
         edit.setWorkorderDateRequest(request, errors);
+        edit.setTeam("ALPHA");
         edit.setStartTimeRequest(request, errors);
         edit.setEndTimeRequest(request, errors);
 
