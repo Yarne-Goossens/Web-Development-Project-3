@@ -27,6 +27,10 @@ public class AppService {
         return projectDB.getProjectWithId(id);
     }
 
+    public Project getProjectWithName(String name) {
+        return projectDB.getProjectWithName(name);
+    }
+
     public ArrayList<Project> getAllProjects(){
        return  projectDB.getAllProjects();
     }
@@ -51,6 +55,10 @@ public class AppService {
     }
 
     public ArrayList<Workorder> getAllWorkorders(){
+        return  workorderDB.getAllWorkorders();
+    }
+
+    public ArrayList<Workorder> getAllWorkordersOrderedByEmployee(){
         return  workorderDB.getAllWorkorders();
     }
 

@@ -102,6 +102,30 @@ public class WorkorderServiceDBSQL implements WorkorderService{
         }
         return workorders;
     }
+
+    public ArrayList<Workorder> getAllWorkordersOrderedByEmployee(){
+        ArrayList<Workorder> workorders = new ArrayList<>();
+        String sql="";
+        sql = String.format("SELECT * from groep214.workorder order by employee", schema);
+        try {
+            PreparedStatement statement = getConnection().prepareStatement(sql);
+            ResultSet result = statement.executeQuery();
+            while (result.next()) {
+                int id = result.getInt("id");
+                String employee = result.getString("employee");
+                String description = result.getString("description");
+                Date date = Date.valueOf(result.getString("date"));
+                Time starttime = Time.valueOf(result.getString("starttime"));
+                Time endtime = Time.valueOf(result.getString("endtime"));
+
+                workorders.add(new Workorder(id,employee,description,date,starttime,endtime));
+            }
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage());
+        }
+        return workorders;
+    }
+
     private Connection getConnection() {
         return this.connection;
     }

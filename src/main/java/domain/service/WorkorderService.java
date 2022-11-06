@@ -14,4 +14,5 @@ public interface WorkorderService {
 
     Workorder getWorkorderWithId(int id);
     ArrayList<Workorder> getAllWorkorders();
+    ArrayList<Workorder> getAllWorkordersOrderedByEmployee();
 }

@@ -96,6 +96,15 @@ public class ProjectServiceDBSQL implements ProjectService {
         }
         return projects;
     }
+
+    public Project getProjectWithName(String name){
+        for (Project p : getAllProjects()) {
+            if(p.getProjectName().equals(name)){
+                return p;
+            }
+        }
+        return null;
+    }
     private Connection getConnection() {
         return this.connection;
     }

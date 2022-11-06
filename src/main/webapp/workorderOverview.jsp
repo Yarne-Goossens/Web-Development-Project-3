@@ -11,17 +11,18 @@
 <body>
 
 </header>
+Order By: <a href="Controller?command=OrderByEmployee">Employee</a>
 <main>
     <table>
         <c:choose>
             <c:when test="${not empty workorderoverview}">
                 <tr>
-                    <th>Project Id</th>
-                    <th>Name</th>
+                    <th>Workorder Id</th>
+                    <th>Employee</th>
                     <th>Description</th>
                     <th>Date</th>
                     <th>Start</th>
-                    <th>End</th>
+                    <th>Duration</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -33,7 +34,7 @@
                         <td><c:out value='${work.description}'/></td>
                         <td><c:out value='${work.date}'/></td>
                         <td><c:out value='${work.startTime}'/></td>
-                        <td><c:out value='${work.endTime}'/></td>
+                        <td><c:out value='${work.getDuration()}'/></td>
                         <td><a id="edit" href="Controller?command=WorkorderEditForm&workorderid=<c:out value='${work.workorderId}'/>">Edit</a></td>
                         <td><a id="delete" href="Controller?command=WorkorderDeleteConfirm&workorderid=<c:out value='${work.workorderId}'/>">Delete</a></td>
                     </tr>

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.time.Duration;
@@ -119,11 +120,8 @@ public class Workorder {
     }
 
     public Time getDuration() {
-        Instant start=startTime.toInstant();
-        Instant end=endTime.toInstant();
-        Duration duration = Duration.between(start, end);
-        System.out.println(duration.toString());
-        return Time.valueOf(duration.toString());
+        Long duration=endTime.getTime()-startTime.getTime();
+        return new Time(duration);
     }
 
     //Setter gebruikt in Processing class Register

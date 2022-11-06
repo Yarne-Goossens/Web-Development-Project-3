@@ -13,5 +13,7 @@ public interface ProjectService {
     void updateProject(int id,Project project);
 
     Project getProjectWithId(int id);
+
+    Project getProjectWithName(String name);
     ArrayList<Project> getAllProjects();
 }
