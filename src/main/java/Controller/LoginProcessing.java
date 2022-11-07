@@ -1,7 +1,6 @@
 package Controller;
 
-
-import domain.model.Role;
+import Controller.RequestHandler;
 import domain.model.User;
 import domain.service.DbException;
 
@@ -29,6 +28,5 @@ public class LoginProcessing extends RequestHandler {
         }
         request.setAttribute("errors", errors);
         return "index.jsp";
-
     }
 }

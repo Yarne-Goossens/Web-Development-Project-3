@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, body {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+body{
+    background-color: whitesmoke;
+}
+
+#container{
+    position: relative;
+    min-height: 100vh;
+}
+
+/*---------NAV---------*/
+.active {
+    background-color: #04AA6D;
+    color: white;
+}
+
+/*nav li  {
+    display: block;
+}*/
+
+nav ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+nav li a{
+    padding: 14px 16px;
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+}
+
+
+
+nav a {
+    padding: 8px;
+}
+
+nav{
+    text-align: center;
+
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+@media only screen and (max-width: 660px) {
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    nav li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        width: 100%;
+        text-decoration: none;
+    }
+
+    nav li a:hover:not(.active) {
+        background-color: #111;
+    }
+}
+
+
+
+/*---------TABLE---------*/
+
+th, td {
+    padding:2px 2px 2px 2px;
+}
+
+tr{
+    background-color: white;
+}
+
+tr:nth-child(odd) {
+    background: lightgray;
+}
+
+th{
+    background-color: darkgreen;
+    color: white;
+    border: none;
+}
+
+#error{
+    border:red  2px solid;
+    padding:10px;
+}
+
+#error ul{
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+    text-align: center;
+    border: 1px solid;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    background-color: #333;
+}
+
+.without_ampm::-webkit-datetime-edit-ampm-field {
+    display: none;
+}
+input[type=time]::-webkit-clear-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -o-appearance: none;
+    -ms-appearance:none;
+    appearance: none;
+    margin: -10px;
+}
