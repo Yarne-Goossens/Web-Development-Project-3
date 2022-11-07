@@ -51,7 +51,7 @@ public class Project {
             this.start = start;
         }
         catch (IllegalArgumentException e){
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException("No startdate given");
         }
 
     }
@@ -61,7 +61,7 @@ public class Project {
             this.end = end;
         }
         catch (IllegalArgumentException e){
-            throw new IllegalArgumentException(e);
+            throw new IllegalArgumentException("No enddate given");
         }
     }
 

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 
-<title>User Register</title>
+<title>Project Register</title>
 <jsp:include page="nav.jsp"></jsp:include>
 <jsp:include page="headPlusLoginStatus.jsp"/>
 

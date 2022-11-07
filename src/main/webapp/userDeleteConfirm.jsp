@@ -16,7 +16,7 @@
 </form>
 <br>
 
-<form name="formulierNee" method="POST" action="Controller?command=ProjectOverview" novalidate>
+<form name="formulierNee" method="POST" action="Controller?command=UserOverview" novalidate>
     <p><input id="submitNee" type="submit" value="Nee"></p>
 </form>
 
