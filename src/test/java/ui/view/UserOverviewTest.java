@@ -24,191 +24,185 @@ public class UserOverviewTest {
 
     @Test
     public void test_Edit_AllFieldsFilledInCorrectly_UserIsEdited() {
-        RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
-        registerPage.setFirstName("Jos");
-        registerPage.setLastName("Josser");
-        registerPage.setEmail("jos.josser@hotmail.com");
-        registerPage.setPassword("1234");
-        registerPage.setRole("employee");
-        registerPage.setTeam("alpha");
+        UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
+        userRegisterPage.setFirstName("Jos");
+        userRegisterPage.setLastName("Josser");
+        userRegisterPage.setEmail("jos.josser@hotmail.com");
+        userRegisterPage.setPassword("1234");
+        userRegisterPage.setTeam("alpha");
 
-        registerPage.add();
+        userRegisterPage.add();
 
-        OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
-        assertEquals("Users", overviewPage.getTitle());
+        UserOverviewPage userOverviewPage = PageFactory.initElements(driver, UserOverviewPage.class);
+        assertEquals("User Overview", userOverviewPage.getTitle());
 
-        overviewPage.edit("Jos");
+        userOverviewPage.edit("Jos");
 
-        overviewPage.setFirstName("Walter");
-        overviewPage.setLastName("White");
-        overviewPage.setEmail("walter.white@hotmail.com");
-        overviewPage.setRole("teamleader");
-        overviewPage.setTeam("delta");
+        userOverviewPage.setFirstName("Walter");
+        userOverviewPage.setLastName("White");
+        userOverviewPage.setEmail("walter.white@hotmail.com");
+        userOverviewPage.setRole("teamleader");
+        userOverviewPage.setTeam("delta");
 
-        overviewPage.submit();
+        userOverviewPage.submit();
 
-        assertTrue(overviewPage.containsUserWithSpecified("Walter","walter.white@hotmail.com"));
-        assertFalse(overviewPage.containsUserWithSpecified("Jos","jos.josser@hotmail.com"));
+        assertTrue(userOverviewPage.containsUserWithSpecified("Walter","walter.white@hotmail.com"));
+        assertFalse(userOverviewPage.containsUserWithSpecified("Jos","jos.josser@hotmail.com"));
     }
 
     @Test
     public void test_Edit_FirstNameNotFilledIn_ErrorMessageGivenForFirstNameAndOtherFieldsValueKept(){
-        RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
-        registerPage.setFirstName("Nazrin");
-        registerPage.setLastName("Mouse");
-        registerPage.setEmail("nazrin.mouse@hotmail.com");
-        registerPage.setPassword("1234");
-        registerPage.setRole("teamleader");
-        registerPage.setTeam("epsilon");
+        UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
+        userRegisterPage.setFirstName("Nazrin");
+        userRegisterPage.setLastName("Mouse");
+        userRegisterPage.setEmail("nazrin.mouse@hotmail.com");
+        userRegisterPage.setPassword("1234");
+        userRegisterPage.setTeam("epsilon");
 
-        registerPage.add();
+        userRegisterPage.add();
 
-        OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
-        assertEquals("Users", overviewPage.getTitle());
+        UserOverviewPage userOverviewPage = PageFactory.initElements(driver, UserOverviewPage.class);
+        assertEquals("User Overview", userOverviewPage.getTitle());
 
-        overviewPage.edit("Nazrin");
+        userOverviewPage.edit("Nazrin");
 
-        overviewPage.setFirstName("");
-        overviewPage.setLastName("Ibuki");
-        overviewPage.setEmail("suika.ibuki@hotmail.com");
-        overviewPage.setRole("employee");
-        overviewPage.setTeam("beta");
+        userOverviewPage.setFirstName("");
+        userOverviewPage.setLastName("Ibuki");
+        userOverviewPage.setEmail("suika.ibuki@hotmail.com");
+        userOverviewPage.setRole("teamleader");
+        userOverviewPage.setTeam("beta");
 
-        overviewPage.submit();
+        userOverviewPage.submit();
 
-        assertTrue(registerPage.hasErrorMessage("No firstname given"));
+        assertTrue(userRegisterPage.hasErrorMessage("No firstname given"));
 
-        assertTrue(registerPage.hasStickyFirstName("Nazrin"));
-        assertTrue(registerPage.hasStickyLastName("Mouse"));
-        assertTrue(registerPage.hasStickyEmail("nazrin.mouse@hotmail.com"));
-        assertTrue(registerPage.hasStickyRole("TEAMLEADER"));
-        assertTrue(registerPage.hasStickyTeam("EPSILON"));
+        assertTrue(userRegisterPage.hasStickyFirstName("Nazrin"));
+        assertTrue(userRegisterPage.hasStickyLastName("Mouse"));
+        assertTrue(userRegisterPage.hasStickyEmail("nazrin.mouse@hotmail.com"));
+        assertTrue(userRegisterPage.hasStickyRole("EMPLOYEE"));
+        assertTrue(userRegisterPage.hasStickyTeam("EPSILON"));
 
-        overviewPage = PageFactory.initElements(driver, OverviewPage.class);
-        assertTrue(overviewPage.containsUserWithSpecified("Nazrin","nazrin.mouse@hotmail.com"));
-        assertFalse(overviewPage.containsUserWithSpecified("Suika","suika.ibuki@hotmail.com"));
+        userOverviewPage = PageFactory.initElements(driver, UserOverviewPage.class);
+        assertTrue(userOverviewPage.containsUserWithSpecified("Nazrin","nazrin.mouse@hotmail.com"));
+        assertFalse(userOverviewPage.containsUserWithSpecified("Suika","suika.ibuki@hotmail.com"));
     }
 
     @Test
     public void test_Edit_LastNameNotFilledIn_ErrorMessageGivenForLastNameAndOtherFieldsValueKept(){
-        RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
-        registerPage.setFirstName("Saul");
-        registerPage.setLastName("Goodman");
-        registerPage.setEmail("saul.goodman@hotmail.com");
-        registerPage.setPassword("1234");
-        registerPage.setRole("teamleader");
-        registerPage.setTeam("delta");
+        UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
+        userRegisterPage.setFirstName("Saul");
+        userRegisterPage.setLastName("Goodman");
+        userRegisterPage.setEmail("saul.goodman@hotmail.com");
+        userRegisterPage.setPassword("1234");
+        userRegisterPage.setTeam("delta");
 
-        registerPage.add();
+        userRegisterPage.add();
 
-        OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
-        assertEquals("Users", overviewPage.getTitle());
+        UserOverviewPage userOverviewPage = PageFactory.initElements(driver, UserOverviewPage.class);
+        assertEquals("User Overview", userOverviewPage.getTitle());
 
-        overviewPage.edit("Saul");
+        userOverviewPage.edit("Saul");
 
-        overviewPage.setFirstName("Sol");
-        overviewPage.setLastName("");
-        overviewPage.setEmail("sol.badguy@hotmail.com");
-        overviewPage.setRole("employee");
-        overviewPage.setTeam("beta");
+        userOverviewPage.setFirstName("Sol");
+        userOverviewPage.setLastName("");
+        userOverviewPage.setEmail("sol.badguy@hotmail.com");
+        userOverviewPage.setRole("director");
+        userOverviewPage.setTeam("beta");
 
-        overviewPage.submit();
+        userOverviewPage.submit();
 
-        assertTrue(registerPage.hasErrorMessage("No last name given"));
+        assertTrue(userRegisterPage.hasErrorMessage("No last name given"));
 
-        assertTrue(registerPage.hasStickyFirstName("Saul"));
-        assertTrue(registerPage.hasStickyLastName("Goodman"));
-        assertTrue(registerPage.hasStickyEmail("saul.goodman@hotmail.com"));
-        assertTrue(registerPage.hasStickyRole("TEAMLEADER"));
-        assertTrue(registerPage.hasStickyTeam("DELTA"));
+        assertTrue(userRegisterPage.hasStickyFirstName("Saul"));
+        assertTrue(userRegisterPage.hasStickyLastName("Goodman"));
+        assertTrue(userRegisterPage.hasStickyEmail("saul.goodman@hotmail.com"));
+        assertTrue(userRegisterPage.hasStickyRole("EMPLOYEE"));
+        assertTrue(userRegisterPage.hasStickyTeam("DELTA"));
 
-        overviewPage = PageFactory.initElements(driver, OverviewPage.class);
+        userOverviewPage = PageFactory.initElements(driver, UserOverviewPage.class);
 
-        assertTrue(overviewPage.containsUserWithSpecified("Saul","saul.goodman@hotmail.com"));
-        assertFalse(overviewPage.containsUserWithSpecified("Sol","sol.badguy@hotmail.com"));
+        assertTrue(userOverviewPage.containsUserWithSpecified("Saul","saul.goodman@hotmail.com"));
+        assertFalse(userOverviewPage.containsUserWithSpecified("Sol","sol.badguy@hotmail.com"));
     }
 
     @Test
     public void test_Edit_EmailNotFilledIn_ErrorMessageGivenForEmailAndOtherFieldsValueKept(){
-        RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
-        registerPage.setFirstName("Cirno");
-        registerPage.setLastName("Nineball");
-        registerPage.setEmail("cirno.nineball@hotmail.com");
-        registerPage.setPassword("1234");
-        registerPage.setRole("director");
-        registerPage.setTeam("gamma");
+        UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
+        userRegisterPage.setFirstName("Cirno");
+        userRegisterPage.setLastName("Nineball");
+        userRegisterPage.setEmail("cirno.nineball@hotmail.com");
+        userRegisterPage.setPassword("1234");
+        userRegisterPage.setTeam("gamma");
 
-        registerPage.add();
+        userRegisterPage.add();
 
-        OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
-        assertEquals("Users", overviewPage.getTitle());
+        UserOverviewPage userOverviewPage = PageFactory.initElements(driver, UserOverviewPage.class);
+        assertEquals("User Overview", userOverviewPage.getTitle());
 
-        overviewPage.edit("Cirno");
+        userOverviewPage.edit("Cirno");
 
-        overviewPage.setFirstName("Reimu");
-        overviewPage.setLastName("Hakurei");
-        overviewPage.setEmail("");
-        overviewPage.setRole("employee");
-        overviewPage.setTeam("beta");
+        userOverviewPage.setFirstName("Reimu");
+        userOverviewPage.setLastName("Hakurei");
+        userOverviewPage.setEmail("");
+        userOverviewPage.setRole("director");
+        userOverviewPage.setTeam("beta");
 
-        overviewPage.submit();
+        userOverviewPage.submit();
 
-        assertTrue(registerPage.hasErrorMessage("No email given"));
+        assertTrue(userRegisterPage.hasErrorMessage("No email given"));
 
-        assertTrue(registerPage.hasStickyFirstName("Cirno"));
-        assertTrue(registerPage.hasStickyLastName("Nineball"));
-        assertTrue(registerPage.hasStickyEmail("cirno.nineball@hotmail.com"));
-        assertTrue(registerPage.hasStickyRole("DIRECTOR"));
-        assertTrue(registerPage.hasStickyTeam("GAMMA"));
+        assertTrue(userRegisterPage.hasStickyFirstName("Cirno"));
+        assertTrue(userRegisterPage.hasStickyLastName("Nineball"));
+        assertTrue(userRegisterPage.hasStickyEmail("cirno.nineball@hotmail.com"));
+        assertTrue(userRegisterPage.hasStickyRole("EMPLOYEE"));
+        assertTrue(userRegisterPage.hasStickyTeam("GAMMA"));
 
-        overviewPage = PageFactory.initElements(driver, OverviewPage.class);
+        userOverviewPage = PageFactory.initElements(driver, UserOverviewPage.class);
 
-        assertTrue(overviewPage.containsUserWithSpecified("Cirno","cirno.nineball@hotmail.com"));
-        assertFalse(overviewPage.containsUserWithSpecified("Reimu","reimu.hakurei@hotmail.com"));
+        assertTrue(userOverviewPage.containsUserWithSpecified("Cirno","cirno.nineball@hotmail.com"));
+        assertFalse(userOverviewPage.containsUserWithSpecified("Reimu","reimu.hakurei@hotmail.com"));
     }
 
     @Test
     public void test_Delete_User_And_Confirm(){
-        RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
-        registerPage.setFirstName("Astolfo");
-        registerPage.setLastName("Rider");
-        registerPage.setEmail("astolfo.rider@hotmail.com");
-        registerPage.setPassword("1234");
-        registerPage.setRole("director");
-        registerPage.setTeam("gamma");
+        UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
+        userRegisterPage.setFirstName("Astolfo");
+        userRegisterPage.setLastName("Rider");
+        userRegisterPage.setEmail("astolfo.rider@hotmail.com");
+        userRegisterPage.setPassword("1234");
+        userRegisterPage.setTeam("gamma");
 
-        registerPage.add();
+        userRegisterPage.add();
 
-        OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
+        UserOverviewPage userOverviewPage = PageFactory.initElements(driver, UserOverviewPage.class);
 
-        overviewPage.delete("Astolfo");
-        assertEquals("Delete", overviewPage.getTitle());
+        userOverviewPage.delete("Astolfo");
+        assertEquals("Delete", userOverviewPage.getTitle());
 
-        overviewPage.submitJa();
+        userOverviewPage.submitJa();
 
-        assertFalse(overviewPage.containsUserWithSpecified("Astolfo","astolfo.rider@hotmail.com"));
+        assertFalse(userOverviewPage.containsUserWithSpecified("Astolfo","astolfo.rider@hotmail.com"));
     }
 
     @Test
     public void test_Delete_User_And_Cancel(){
-        RegisterPage registerPage = PageFactory.initElements(driver, RegisterPage.class);
-        registerPage.setFirstName("Mutsuki");
-        registerPage.setLastName("California");
-        registerPage.setEmail("mutsuki.california@hotmail.com");
-        registerPage.setPassword("1234");
-        registerPage.setRole("employee");
-        registerPage.setTeam("gamma");
+        UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
+        userRegisterPage.setFirstName("Mutsuki");
+        userRegisterPage.setLastName("California");
+        userRegisterPage.setEmail("mutsuki.california@hotmail.com");
+        userRegisterPage.setPassword("1234");
+        userRegisterPage.setTeam("gamma");
 
-        registerPage.add();
+        userRegisterPage.add();
 
-        OverviewPage overviewPage = PageFactory.initElements(driver, OverviewPage.class);
-        assertEquals("Users", overviewPage.getTitle());
+        UserOverviewPage userOverviewPage = PageFactory.initElements(driver, UserOverviewPage.class);
+        assertEquals("User Overview", userOverviewPage.getTitle());
 
-        overviewPage.delete("Mutsuki");
-        assertEquals("Delete", overviewPage.getTitle());
+        userOverviewPage.delete("Mutsuki");
+        assertEquals("Delete", userOverviewPage.getTitle());
 
-        overviewPage.submitNee();
+        userOverviewPage.submitNee();
 
-        assertTrue(overviewPage.containsUserWithSpecified("Mutsuki","mutsuki.california@hotmail.com"));
+        assertTrue(userOverviewPage.containsUserWithSpecified("Mutsuki","mutsuki.california@hotmail.com"));
     }
 }

@@ -121,7 +121,7 @@ public class Workorder {
 
     public Time getDuration() {
         Long duration=endTime.getTime()-startTime.getTime();
-        return new Time(duration);
+        return new Time(duration-3600000);
     }
 
     //Setter gebruikt in Processing class Register

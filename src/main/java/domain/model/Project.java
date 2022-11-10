@@ -44,7 +44,8 @@ public class Project {
     }
 
     public void setStart(Date start) {
-        if(start==null||start.equals("")){
+
+        if(start==null||start.equals("")) {
             throw new IllegalArgumentException("The start date you entered is not correct.");
         }
         this.start = start;
@@ -55,8 +56,7 @@ public class Project {
         if(end==null){
             throw new IllegalArgumentException("The start date you entered is not correct.");
         }
-            this.end = end;
-
+        this.end = end;
     }
 
     //GETTERS

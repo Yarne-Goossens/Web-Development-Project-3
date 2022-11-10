@@ -11,7 +11,7 @@
 <body>
 
 </header>
-<a href="Controller?command=ProjectSearch">Search for a project</a>
+<a id="search" href="Controller?command=ProjectSearch">Search for a project</a>
 <main>
     <table>
         <c:choose>

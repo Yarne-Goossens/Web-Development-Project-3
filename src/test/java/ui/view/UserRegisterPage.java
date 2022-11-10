@@ -1,36 +1,13 @@
+
 package ui.view;
 
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonIntegerFormatVisitor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 
-import java.util.ArrayList;
-
-public class OverviewPage extends Page {
-
-    public OverviewPage(WebDriver driver) {
-        super(driver);
-        this.driver.get(Config.BASE_URL + "Web3_war_exploded/Controller?command=Overview");
-    }
-
-    public boolean containsUserWithSpecified(String name, String spec) {
-        ArrayList<WebElement> listItems = (ArrayList<WebElement>) this.driver.findElements(By.cssSelector("tr"));
-        boolean found = false;
-        for (WebElement listItem : listItems) {
-            if (listItem.getText().contains(name)) {
-                listItems = (ArrayList<WebElement>) this.driver.findElements(By.cssSelector("td"));
-                for (WebElement rowItem : listItems) {
-                    if (rowItem.getText().contains(spec)) {
-                        found = true;
-                    }
-                }
-            }
-        }
-        return found;
-    }
+public class UserRegisterPage extends Page {
 
     @FindBy(id = "firstName")
     private WebElement firstNameField;
@@ -53,17 +30,10 @@ public class OverviewPage extends Page {
     @FindBy(id = "submit")
     private WebElement submitButton;
 
-    @FindBy(id = "edit")
-    private WebElement editButton;
-
-    @FindBy(id = "delete")
-    private WebElement deleteButton;
-
-    @FindBy(id = "submitJa")
-    private WebElement submitJaButton;
-
-    @FindBy(id = "submitNee")
-    private WebElement submitNeeButton;
+    public UserRegisterPage(WebDriver driver) {
+        super(driver);
+        this.driver.get(Config.BASE_URL + "Web3_war_exploded/Controller?command=UserRegister");
+    }
 
     public void setFirstName(String firstName) {
         firstNameField.clear();
@@ -90,36 +60,13 @@ public class OverviewPage extends Page {
         dropdown.selectByVisibleText(team);
     }
 
-    public void edit(String name) {
-        ArrayList<WebElement> listItems = (ArrayList<WebElement>) this.driver.findElements(By.cssSelector("tr"));
-        for (WebElement listItem : listItems) {
-            if (listItem.getText().contains(name)) {
-                editButton = listItem.findElement(By.id("edit"));
-                editButton.click();
-            }
-        }
+    public void setPassword(String password) {
+        passwordField.clear();
+        passwordField.sendKeys(password);
     }
 
-    public void delete(String name) {
-        ArrayList<WebElement> listItems = (ArrayList<WebElement>) this.driver.findElements(By.cssSelector("tr"));
-        for (WebElement listItem : listItems) {
-            if (listItem.getText().contains(name)) {
-                deleteButton = listItem.findElement(By.id("delete"));
-                deleteButton.click();
-            }
-        }
-    }
-
-    public void submit() {
+    public void add() {
         submitButton.click();
-    }
-
-    public void submitJa() {
-        submitJaButton.click();
-    }
-
-    public void submitNee() {
-        submitNeeButton.click();
     }
 
     public boolean hasErrorMessage(String message) {
@@ -130,33 +77,30 @@ public class OverviewPage extends Page {
     public boolean hasStickyFirstName(String type) {
         return type.equals(firstNameField.getAttribute("value"));
     }
-
     public boolean hasStickyLastName(String type) {
         return type.equals(lastNameField.getAttribute("value"));
     }
-
     public boolean hasStickyEmail(String type) {
         return type.equals(emailField.getAttribute("value"));
     }
-
     public boolean hasStickyRole(String type) {
         return type.equals(roleField.getAttribute("value"));
     }
-
     public boolean hasStickyTeam(String type) {
         return type.equals(teamField.getAttribute("value"));
     }
-
-
     public boolean hasEmptyFirstName() {
         return firstNameField.getAttribute("value").isEmpty();
     }
-
     public boolean hasEmptyLastName() {
         return lastNameField.getAttribute("value").isEmpty();
     }
 
     public boolean hasEmptyEmail() {
         return emailField.getAttribute("value").isEmpty();
+    }
+
+    public boolean hasEmptyPassword() {
+        return passwordField.getAttribute("value").isEmpty();
     }
 }
