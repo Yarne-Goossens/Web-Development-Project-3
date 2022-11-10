@@ -26,7 +26,7 @@
         </div>
 
 
-        <form name="formulier" method="POST" action="Controller?command=ProjectEditProcessing&projectid=${tobeEdited.projectId}" novalidate>
+        <form name="formulier" method="POST" action="Controller?command=ProjectEditProcessing&projectid=<c:out value='${tobeEdited.projectId}'/>" novalidate>
 
             <p><label for="projectName">Project name</label>
                 <input type="text" id="projectName" name="projectName" required value="${tobeEdited.projectName}"></p>

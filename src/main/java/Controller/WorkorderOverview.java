@@ -1,8 +1,6 @@
 package Controller;
 
 
-import Controller.RequestHandler;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

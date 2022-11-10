@@ -28,7 +28,7 @@
             </c:if>
         </div>
 
-        <form name="formulier" method="POST" action="Controller?command=WorkorderRegisterProcessing&user=${loginUserSession.firstName}" novalidate>
+        <form name="formulier" method="POST" action="Controller?command=WorkorderRegisterProcessing&user=<c:out value='${loginUserSession.firstName}'/>" novalidate>
 
             <p><label for="team">Team</label>
                 <input readonly type="text" id="team" name="team" required value="${loginUserSession.team}"></p>

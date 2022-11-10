@@ -89,12 +89,9 @@ public class RegisterPage extends Page {
     public boolean hasStickyTeam(String type) {
         return type.equals(teamField.getAttribute("value"));
     }
-
-
     public boolean hasEmptyFirstName() {
         return firstNameField.getAttribute("value").isEmpty();
     }
-
     public boolean hasEmptyLastName() {
         return lastNameField.getAttribute("value").isEmpty();
     }
@@ -106,8 +103,4 @@ public class RegisterPage extends Page {
     public boolean hasEmptyPassword() {
         return passwordField.getAttribute("value").isEmpty();
     }
-
-
 }
-
-

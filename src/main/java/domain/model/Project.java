@@ -2,9 +2,6 @@ package domain.model;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.time.DateTimeException;
 import java.util.ArrayList;
 
 public class Project {
@@ -47,22 +44,19 @@ public class Project {
     }
 
     public void setStart(Date start) {
-        try {
-            this.start = start;
+        if(start==null||start.equals("")){
+            throw new IllegalArgumentException("The start date you entered is not correct.");
         }
-        catch (IllegalArgumentException e){
-            throw new IllegalArgumentException(e);
-        }
+        this.start = start;
 
     }
 
     public void setEnd(Date end) {
-        try {
+        if(end==null){
+            throw new IllegalArgumentException("The start date you entered is not correct.");
+        }
             this.end = end;
-        }
-        catch (IllegalArgumentException e){
-            throw new IllegalArgumentException(e);
-        }
+
     }
 
     //GETTERS
@@ -117,7 +111,6 @@ public class Project {
 
     public void setProjectStartDate(HttpServletRequest request, ArrayList<String> errors) {
         String start = request.getParameter("start");
-
         boolean startHasErrors = false;
         try {
             request.setAttribute("startPreviousValue", start);

@@ -13,10 +13,12 @@ CREATE TABLE groep214.project
     CONSTRAINT project_pkey PRIMARY KEY (id)
 );
 
+
 GRANT ALL ON TABLE groep214.project TO local_r0887747;
 
 INSERT INTO groep214.project ("name","team","startdate","enddate") values ('project1','BETA','2032-01-19','2038-01-19');
 INSERT INTO groep214.project ("name","team","startdate","enddate") values ('project2','ALPHA','2033-01-19','2036-01-19');
+
 
 -- grant aan teamgenoot
 GRANT ALL ON SCHEMA groep214 TO local_r0887519;

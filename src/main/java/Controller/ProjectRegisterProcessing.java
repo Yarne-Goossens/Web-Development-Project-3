@@ -22,10 +22,9 @@ public class ProjectRegisterProcessing extends RequestHandler {
         if(errors.size()==0) {
             try {
                 service.addProject(project);
-
                 return "Controller?command=ProjectOverview";
             }
-            catch (DbException d) {
+            catch (IllegalArgumentException d) {
                 errors.add(d.getMessage());
             }
         }

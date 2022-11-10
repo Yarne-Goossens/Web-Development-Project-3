@@ -26,7 +26,7 @@
         </div>
 
         <form name="formulier" method="POST"
-              action="Controller?command=WorkorderEditProcessing&workorderid=${tobeEdited.workorderId}" novalidate>
+              action="Controller?command=WorkorderEditProcessing&workorderid=<c:out value='${tobeEdited.workorderId}'/>" novalidate>
 
             <p><label for="date">Date</label>
                 <input type="date" id="date" name="date" required value="${tobeEdited.date}"></p>
