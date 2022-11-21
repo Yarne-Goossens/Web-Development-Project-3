@@ -5,14 +5,12 @@ import Controller.RequestHandler;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
-public class UserDeleteProcessing extends RequestHandler  {
+public class UserDeleteProcessing extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws IOException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         int deleteId=Integer.parseInt(request.getParameter("userid"));
         service.deleteUser(deleteId);
-        response.sendRedirect("Controller?command=UserOverview");
         return "Controller?command=UserOverview";
     }
 }

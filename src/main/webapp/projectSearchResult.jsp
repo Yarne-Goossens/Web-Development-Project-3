@@ -9,12 +9,12 @@
 <body>
 
 <c:choose>
-    <c:when test="${not empty foundProjectSession}">
+    <c:when test="${not empty foundProject}">
         <ul>
-            <li>Name: ${foundProjectSession.projectName}</li>
-            <li>Team: ${foundProjectSession.team}</li>
-            <li>Start date: ${foundProjectSession.start}</li>
-            <li>End date: ${foundProjectSession.end}</li>
+            <li>Name: ${foundProject.projectName}</li>
+            <li>Team: ${foundProject.team}</li>
+            <li>Start date: ${foundProject.start}</li>
+            <li>End date: ${foundProject.end}</li>
         </ul>
     </c:when>
     <c:otherwise>

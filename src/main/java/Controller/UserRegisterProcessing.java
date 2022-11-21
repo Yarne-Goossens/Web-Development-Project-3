@@ -5,13 +5,12 @@ import domain.service.DbException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class UserRegisterProcessing extends RequestHandler {
 
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws IOException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         ArrayList<String>errors=new ArrayList<String>();
 
         User user= new User();
@@ -24,7 +23,6 @@ public class UserRegisterProcessing extends RequestHandler {
         if(errors.size()==0) {
             try {
                 service.addUser(user);
-                response.sendRedirect("Controller?command=UserOverview");
                 return "Controller?command=UserOverview";
             }
             catch (DbException d) {

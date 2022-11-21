@@ -14,7 +14,6 @@ public class ProjectDeleteConfirm extends RequestHandler {
         int id =Integer.parseInt(request.getParameter("projectid"));
         Project tobeDeleted=service.getProjectWithId(id);
         request.setAttribute("tobeDeleted",tobeDeleted);
-
         return "projectDeleteConfirm.jsp";
     }
 }

@@ -4,7 +4,7 @@
         <c:set var="url" scope="session" value="${requestScope['javax.servlet.forward.query_string']}"/>
         <c:choose>
             <c:when test="${not empty url}">
-                <li><a href="Controller?command=Home" ${url.contains("command=Home")?"class='active'":""}>Home</a></li>
+                <li><a href="index.jsp">Home</a></li>
                 <li><a href="Controller?command=UserOverview" ${url.contains("command=UserOverview")?"class='active'":""}>User Overview</a></li>
                 <li><a href="Controller?command=UserRegister" ${url.contains("command=UserRegister")?"class='active'":""}>Register User</a></li>
                 <li><a href="Controller?command=ProjectOverview" ${url.contains("command=ProjectOverview")?"class='active'":""}>Project Overview</a></li>
@@ -14,7 +14,7 @@
             </c:when>
 
             <c:otherwise>
-                <li><a href="Controller?command=Home" class="active">Home</a></li>
+                <li><a href="index.jsp" class="active">Home</a></li>
                 <li><a href="Controller?command=UserOverview">User Overview</a></li>
                 <li><a href="Controller?command=UserRegister">Register User</a></li>
                 <li><a href="Controller?command=ProjectOverview">Project Overview</a></li>
