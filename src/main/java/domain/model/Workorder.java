@@ -74,17 +74,11 @@ public class Workorder {
     }
 
     public void setStartTime(Time startTime) {
-        if(startTime==null){
-            throw new IllegalArgumentException("start time is empty");
-        }
         this.startTime=startTime;
-
     }
 
     public void setEndTime(Time endTime) {
-        if(endTime==null|| endTime.before(startTime)){
-            throw new IllegalArgumentException("end time is empty");
-        }
+
         this.endTime=endTime;
     }
 

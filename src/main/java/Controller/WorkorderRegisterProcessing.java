@@ -20,6 +20,16 @@ public class WorkorderRegisterProcessing extends RequestHandler {
         workorder.setStartTimeRequest(request, errors);
         workorder.setEndTimeRequest(request, errors);
 
+        if(request.getParameter("date").isEmpty()){
+            errors.add("Work order date is empty.");
+        }
+        if(request.getParameter("startTime").isEmpty()){
+            errors.add("Work order start time is empty.");
+        }
+        if(request.getParameter("endTime").isEmpty()){
+            errors.add("Work order end time is empty.");
+        }
+
         if (errors.size() == 0) {
             try {
                 service.addWorkorder(workorder);
@@ -29,6 +39,8 @@ public class WorkorderRegisterProcessing extends RequestHandler {
                 errors.add(d.getMessage());
             }
         }
+
+
         request.setAttribute("errors", errors);
         return "Controller?command=WorkorderRegister";
     }

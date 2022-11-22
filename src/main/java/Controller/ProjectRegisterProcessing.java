@@ -19,6 +19,13 @@ public class ProjectRegisterProcessing extends RequestHandler {
         project.setProjectStartDate(request,errors);
         project.setProjectEndDate(request,errors);
 
+        if(request.getParameter("start").isEmpty()){
+            errors.add("Project start date is empty.");
+        }
+        if(request.getParameter("end").isEmpty()){
+            errors.add("Project end date is empty.");
+        }
+
         if(errors.size()==0) {
             try {
                 service.addProject(project);
