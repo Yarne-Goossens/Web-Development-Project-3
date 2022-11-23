@@ -13,13 +13,13 @@ public class ProjectEditForm extends RequestHandler {
         try {
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
             Utility.checkRole(request, roles);
-        int id =Integer.parseInt(request.getParameter("projectid"));
-        Project tobeEdited=service.getProjectWithId(id);
-        request.setAttribute("tobeEdited",tobeEdited);
+            int id = Integer.parseInt(request.getParameter("projectid"));
+            Project tobeEdited = service.getProjectWithId(id);
+            request.setAttribute("tobeEdited", tobeEdited);
 
-        return "projectEditForm.jsp";
-    } catch(NotAuthorizedException n){
-        return "notAuthorized.jsp";
-    }
+            return "projectEditForm.jsp";
+        } catch (NotAuthorizedException n) {
+            return "notAuthorized.jsp";
+        }
     }
 }

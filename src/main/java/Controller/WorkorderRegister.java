@@ -1,7 +1,6 @@
 package Controller;
 
 
-import Controller.RequestHandler;
 import domain.model.Role;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,8 +12,8 @@ public class WorkorderRegister extends RequestHandler {
         try {
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
             Utility.checkRole(request, roles);
-        return "workorderRegister.jsp";
-        } catch(NotAuthorizedException n){
+            return "workorderRegister.jsp";
+        } catch (NotAuthorizedException n) {
             return "notAuthorized.jsp";
         }
     }

@@ -22,16 +22,16 @@ public class ProjectEditProcessing extends RequestHandler {
         request.setAttribute("projectid", id);
         request.setAttribute("tobeEdited", editProject);
 
-        edit.setProjectNameRequest(request,errors);
-        edit.setProjectStartDate(request,errors);
-        edit.setProjectEndDate(request,errors);
-        edit.setProjectTeamRequest(request,errors);
+        edit.setProjectNameRequest(request, errors);
+        edit.setProjectStartDate(request, errors);
+        edit.setProjectEndDate(request, errors);
+        edit.setProjectTeamRequest(request, errors);
 
         if (errors.size() == 0) {
             try {
-                    Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
-                    Utility.checkRole(request, roles);
-                service.updateProject(id,edit);
+                Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+                Utility.checkRole(request, roles);
+                service.updateProject(id, edit);
 
                 return "Controller?command=ProjectOverview";
             } catch (DbException d) {

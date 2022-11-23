@@ -11,10 +11,10 @@ public class ProjectSearchProcessing extends RequestHandler {
         try {
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
             Utility.checkRole(request, roles);
-        String projectName=request.getParameter("projectName");
-        request.setAttribute("foundProject",service.getProjectWithName(projectName));
-        return "projectSearchResult.jsp";
-        } catch(NotAuthorizedException n){
+            String projectName = request.getParameter("projectName");
+            request.setAttribute("foundProject", service.getProjectWithName(projectName));
+            return "projectSearchResult.jsp";
+        } catch (NotAuthorizedException n) {
             return "notAuthorized.jsp";
         }
     }

@@ -15,6 +15,7 @@ public class Controller extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private HandlerFactory handlerFactory = new HandlerFactory();
     private AppService service = new AppService();
+
     public Controller() {
         super();
     }
@@ -32,7 +33,7 @@ public class Controller extends HttpServlet {
         String command = request.getParameter("command");
 
         if (command != null) {
-            RequestHandler handler = handlerFactory.getHandler(command,service);
+            RequestHandler handler = handlerFactory.getHandler(command, service);
             destination = handler.handleRequest(request, response);
         }
 

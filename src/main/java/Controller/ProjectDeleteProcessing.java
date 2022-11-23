@@ -12,10 +12,10 @@ public class ProjectDeleteProcessing extends RequestHandler {
         try {
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
             Utility.checkRole(request, roles);
-            int deleteId=Integer.parseInt(request.getParameter("projectid"));
+            int deleteId = Integer.parseInt(request.getParameter("projectid"));
             service.deleteProject(deleteId);
             return "Controller?command=ProjectOverview";
-        } catch(NotAuthorizedException n){
+        } catch (NotAuthorizedException n) {
             return "notAuthorized.jsp";
         }
     }

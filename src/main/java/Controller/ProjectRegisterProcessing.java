@@ -12,32 +12,30 @@ public class ProjectRegisterProcessing extends RequestHandler {
 
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        ArrayList<String>errors=new ArrayList<String>();
+        ArrayList<String> errors = new ArrayList<String>();
 
-        Project project= new Project();
-        project.setProjectNameRequest(request,errors);
-        project.setProjectTeamRequest(request,errors);
-        project.setProjectStartDate(request,errors);
-        project.setProjectEndDate(request,errors);
+        Project project = new Project();
+        project.setProjectNameRequest(request, errors);
+        project.setProjectTeamRequest(request, errors);
+        project.setProjectStartDate(request, errors);
+        project.setProjectEndDate(request, errors);
 
-        if(request.getParameter("start").isEmpty()){
+        if (request.getParameter("start").isEmpty()) {
             errors.add("Project start date is empty.");
         }
-        if(request.getParameter("end").isEmpty()){
+        if (request.getParameter("end").isEmpty()) {
             errors.add("Project end date is empty.");
         }
 
-        if(errors.size()==0) {
+        if (errors.size() == 0) {
             try {
-                    Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
-                    Utility.checkRole(request, roles);
-                    service.addProject(project);
-                    return "Controller?command=ProjectOverview";
-            }
-            catch (IllegalArgumentException d) {
+                Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+                Utility.checkRole(request, roles);
+                service.addProject(project);
+                return "Controller?command=ProjectOverview";
+            } catch (IllegalArgumentException d) {
                 errors.add(d.getMessage());
-            }
-            catch (NotAuthorizedException n ){
+            } catch (NotAuthorizedException n) {
                 return "notAuthorized.jsp";
             }
         }
