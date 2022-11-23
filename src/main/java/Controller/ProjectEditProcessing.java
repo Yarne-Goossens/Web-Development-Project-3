@@ -1,6 +1,7 @@
 package Controller;
 
 import domain.model.Project;
+import domain.model.Role;
 import domain.service.DbException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 public class ProjectEditProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+
         int id = Integer.parseInt(request.getParameter("projectid"));
         Project editProject = service.getProjectWithId(id);
         Project edit = new Project();
@@ -27,18 +29,15 @@ public class ProjectEditProcessing extends RequestHandler {
 
         if (errors.size() == 0) {
             try {
+                    Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+                    Utility.checkRole(request, roles);
                 service.updateProject(id,edit);
 
                 return "Controller?command=ProjectOverview";
             } catch (DbException d) {
                 errors.add(d.getMessage());
-            } catch (NumberFormatException n) {
-                errors.add(n.getMessage());
-            } catch (IllegalArgumentException n) {
-                errors.add(n.getMessage());
-            }
-            catch (DateTimeException n) {
-                errors.add(n.getMessage());
+            } catch (NotAuthorizedException n) {
+                return "notAuthorized.jsp";
             }
         }
         request.setAttribute("errors", errors);

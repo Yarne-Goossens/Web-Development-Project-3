@@ -1,6 +1,7 @@
 package Controller;
 
 import domain.model.Project;
+import domain.model.Role;
 import domain.service.DbException;
 
 import javax.servlet.http.HttpServletRequest;
@@ -28,11 +29,16 @@ public class ProjectRegisterProcessing extends RequestHandler {
 
         if(errors.size()==0) {
             try {
-                service.addProject(project);
-                return "Controller?command=ProjectOverview";
+                    Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+                    Utility.checkRole(request, roles);
+                    service.addProject(project);
+                    return "Controller?command=ProjectOverview";
             }
             catch (IllegalArgumentException d) {
                 errors.add(d.getMessage());
+            }
+            catch (NotAuthorizedException n ){
+                return "notAuthorized.jsp";
             }
         }
         request.setAttribute("errors", errors);

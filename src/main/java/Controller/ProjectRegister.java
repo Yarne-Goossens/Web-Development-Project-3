@@ -1,11 +1,19 @@
 package Controller;
 
+import domain.model.Role;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class ProjectRegister extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        return "projectRegister.jsp";
+        try {
+            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+            Utility.checkRole(request, roles);
+            return "projectRegister.jsp";
+        }catch(NotAuthorizedException n){
+            return "notAuthorized.jsp";
+        }
     }
 }

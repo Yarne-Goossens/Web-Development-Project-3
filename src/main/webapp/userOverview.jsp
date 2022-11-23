@@ -34,8 +34,12 @@
                         <td><c:out value='${user.lastName}'/></td>
                         <td><c:out value='${user.team}'/></td>
                         <td><c:out value='${user.role}'/></td>
-                        <td><a id="edit" href="Controller?command=UserEditForm&userid=<c:out value='${user.userid}'/>">Edit</a></td>
+                        <c:if test="${user.role=='DIRECTOR'|| user.role=='TEAMLEADER'||user.role=='EMPLOYEE'}">
+                            <td><a id="edit" href="Controller?command=UserEditForm&userid=<c:out value='${user.userid}'/>">Edit</a></td>
+                        </c:if>
+                        <c:if test="${user.role=='DIRECTOR'|| user.role=='TEAMLEADER'}">
                         <td><a id="delete" href="Controller?command=UserDeleteConfirm&userid=<c:out value='${user.userid}'/>">Delete</a></td>
+                        </c:if>
                     </tr>
                 </c:forEach>
 

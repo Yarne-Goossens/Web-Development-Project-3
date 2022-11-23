@@ -10,7 +10,7 @@ public class LogoutProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
-        session.setAttribute("loginUserSession",null);
+        session.setAttribute("user",null);
         return "index.jsp";
     }
 }

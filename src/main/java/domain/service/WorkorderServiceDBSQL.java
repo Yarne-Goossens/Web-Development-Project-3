@@ -82,8 +82,6 @@ public class WorkorderServiceDBSQL implements WorkorderService{
         ArrayList<Workorder> workorders = new ArrayList<>();
         String sql="";
             sql = String.format("SELECT * from groep214.workorder", schema);
-
-
         try {
             PreparedStatement statement = getConnection().prepareStatement(sql);
             ResultSet result = statement.executeQuery();

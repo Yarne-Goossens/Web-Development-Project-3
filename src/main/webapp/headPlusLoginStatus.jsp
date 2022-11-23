@@ -9,8 +9,8 @@
 <header>
     <h2>
         <c:choose>
-            <c:when test="${loginUserSession!=null}">
-                <p>You are logged in as ${loginUserSession.firstName} ${loginUserSession.lastName}.</p>
+            <c:when test="${user!=null}">
+                <p>You are logged in as ${user.firstName} ${user.lastName}.</p>
             </c:when>
             <c:otherwise>
                 <p>You are not logged in.</p>

@@ -2,6 +2,7 @@ package Controller;
 
 
 import Controller.RequestHandler;
+import domain.model.Role;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

@@ -59,7 +59,7 @@ public class AppService {
     }
 
     public ArrayList<Workorder> getAllWorkordersOrderedByEmployee(){
-        return  workorderDB.getAllWorkorders();
+        return  workorderDB.getAllWorkordersOrderedByEmployee();
     }
 
 

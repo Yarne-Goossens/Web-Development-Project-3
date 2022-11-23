@@ -1,5 +1,6 @@
 package Controller;
 
+import domain.model.Role;
 import domain.model.Workorder;
 import domain.service.DbException;
 
@@ -28,19 +29,17 @@ public class WorkorderEditProcessing extends RequestHandler{
 
         if (errors.size() == 0) {
             try {
+                    Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+                    Utility.checkRole(request, roles);
                 service.updateWorkorder(id,edit);
 
                 return "Controller?command=WorkorderOverview";
             } catch (DbException d) {
                 errors.add(d.getMessage());
-            } catch (NumberFormatException n) {
-                errors.add(n.getMessage());
-            } catch (IllegalArgumentException n) {
-                errors.add(n.getMessage());
             }
-            catch (DateTimeException n) {
-                errors.add(n.getMessage());
-            }
+        catch(NotAuthorizedException n){
+            return "notAuthorized.jsp";
+        }
         }
         request.setAttribute("errors", errors);
         return "Controller?command=WorkorderEditForm";

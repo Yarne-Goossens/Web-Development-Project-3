@@ -21,7 +21,7 @@
 
     </c:if>
     <c:choose>
-        <c:when test="${empty loginUserSession}">
+        <c:when test="${empty user}">
 
             <form name="login" method="POST" action="Controller?command=LoginProcessing" novalidate>
 
@@ -36,7 +36,7 @@
         </c:when>
 
         <c:otherwise>
-            <p>Welcome, ${loginUserSession.firstName}!</p>
+            <p>Welcome, ${user.firstName}!</p>
             <form name="logout" method="POST" action="Controller?command=LogoutProcessing" novalidate>
                 <input id="submitLogout" type="submit" name="command" value="logout">
             </form>

@@ -19,7 +19,7 @@ public class LoginProcessing extends RequestHandler {
 
             request.setAttribute("loginUser",loginUser);
             HttpSession session = request.getSession();
-            session.setAttribute("loginUserSession", loginUser);
+            session.setAttribute("user", loginUser);
 
             return "index.jsp";
         }
