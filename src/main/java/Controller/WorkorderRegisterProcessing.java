@@ -20,6 +20,7 @@ public class WorkorderRegisterProcessing extends RequestHandler {
         workorder.setWorkorderDateRequest(request, errors);
         workorder.setStartTimeRequest(request, errors);
         workorder.setEndTimeRequest(request, errors);
+        workorder.setUserIdRequest(request,errors);
 
         if (request.getParameter("date").isEmpty()) {
             errors.add("Work order date is empty.");

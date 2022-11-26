@@ -12,8 +12,9 @@ public class UserDeleteConfirm extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException {
         try {
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
             Utility.checkRole(request, roles);
+
 
             int id = Integer.parseInt(request.getParameter("userid"));
             User tobeDeleted = service.getUserWithId(id);

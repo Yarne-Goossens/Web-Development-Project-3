@@ -38,6 +38,7 @@
             <p><label for="email">Email</label>
                 <input type="email" id="email" name="email" required value="${tobeEdited.email}"></p>
 
+
             <label for="role">Role</label>
             <select name="role" id="role">
                 <option value="${tobeEdited.role}">${tobeEdited.role}</option>
@@ -45,6 +46,7 @@
                 <option value="teamleader">teamleader</option>
                 <option value="director">director</option>
             </select>
+
 
             <label for="team">Team</label>
             <select name="team" id="team">

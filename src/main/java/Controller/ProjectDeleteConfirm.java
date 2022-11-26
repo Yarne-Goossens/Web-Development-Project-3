@@ -13,13 +13,13 @@ public class ProjectDeleteConfirm extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         try {
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
             Utility.checkRole(request, roles);
-            int id =Integer.parseInt(request.getParameter("projectid"));
-            Project tobeDeleted=service.getProjectWithId(id);
-            request.setAttribute("tobeDeleted",tobeDeleted);
+            int id = Integer.parseInt(request.getParameter("projectid"));
+            Project tobeDeleted = service.getProjectWithId(id);
+            request.setAttribute("tobeDeleted", tobeDeleted);
             return "projectDeleteConfirm.jsp";
-        } catch(NotAuthorizedException n){
+        } catch (NotAuthorizedException n) {
             return "notAuthorized.jsp";
         }
     }

@@ -9,7 +9,7 @@ public class ProjectSearchProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         try {
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
             Utility.checkRole(request, roles);
             String projectName = request.getParameter("projectName");
             request.setAttribute("foundProject", service.getProjectWithName(projectName));

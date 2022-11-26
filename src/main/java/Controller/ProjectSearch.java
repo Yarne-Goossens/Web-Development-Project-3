@@ -9,7 +9,7 @@ public class ProjectSearch extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         try {
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
             Utility.checkRole(request, roles);
             return "projectSearch.jsp";
         } catch(NotAuthorizedException n){

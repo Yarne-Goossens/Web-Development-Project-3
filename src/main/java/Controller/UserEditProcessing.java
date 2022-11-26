@@ -1,6 +1,5 @@
 package Controller;
 
-import Controller.RequestHandler;
 import domain.model.Role;
 import domain.model.User;
 import domain.service.DbException;
@@ -25,13 +24,22 @@ public class UserEditProcessing extends RequestHandler {
         edit.setEmailRequest( request, errors);
         edit.setFirstNameRequest( request, errors);
         edit.setLastNameRequest( request, errors);
-        edit.setRoleRequest( request, errors);
+
+        if(Utility.checkIfUserRoleSame(request,Role.EMPLOYEE)) {
+            edit.setRole(editUser.getRole());
+        }
+        else{
+            edit.setRoleRequest(request, errors);
+        }
+
         edit.setTeamRequest( request, errors);
 
         if (errors.size() == 0) {
             try {
                 Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
                 Utility.checkRole(request, roles);
+
+                Utility.checkIfUserAuthorizedByUser(request,Role.EMPLOYEE,editUser);
 
                 service.updateUser(id,edit);
 

@@ -9,10 +9,10 @@ public class ProjectRegister extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         try {
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
             Utility.checkRole(request, roles);
             return "projectRegister.jsp";
-        }catch(NotAuthorizedException n){
+        } catch (NotAuthorizedException n) {
             return "notAuthorized.jsp";
         }
     }

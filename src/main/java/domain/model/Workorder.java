@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.time.Duration;
 import java.time.Instant;
 public class Workorder {
-    private int workorderId;
+    private int workorderId,userId;
 
     private String description,employee;
     private Team team;
@@ -23,13 +23,15 @@ public class Workorder {
     public Workorder() {
     }
 
-    public Workorder(int workorderId, String employee, String description, Date date, Time startTime, Time endTime) {
+    public Workorder(int workorderId, String employee, String description, Date date, Time startTime, Time endTime,int userId,Team team) {
         this.workorderId = workorderId;
         this.employee = employee;
         this.description = description;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.userId=userId;
+        this.team=team;
     }
 
 
@@ -82,8 +84,15 @@ public class Workorder {
         this.endTime=endTime;
     }
 
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
     //GETTERS
 
+
+    public int getUserId() {
+        return userId;
+    }
 
     public int getWorkorderId() {
         return workorderId;
@@ -120,11 +129,12 @@ public class Workorder {
 
     //Setter gebruikt in Processing class Register
     public void setEmployeeRequest(HttpServletRequest request, ArrayList<String> errors) {
-        String employee = request.getParameter("user");
+        User user=(User) request.getSession().getAttribute("user");
+        String name=user.getFirstName();
         boolean employeeHasErrors = false;
         try {
-            request.setAttribute("employeePreviousValue", employee);
-            this.setEmployee(employee);
+            request.setAttribute("employeePreviousValue", name);
+            this.setEmployee(name);
         } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             employeeHasErrors = true;
@@ -210,6 +220,36 @@ public class Workorder {
         }
         finally {
             request.setAttribute("endHasErrors", endHasErrors);
+        }
+    }
+
+    public void setUserIdRequest(HttpServletRequest request, ArrayList<String> errors) {
+        User user=(User) request.getSession().getAttribute("user");
+        int userId=user.getUserid();
+        boolean userIdHasErrors = false;
+        try {
+            request.setAttribute("userIdPreviousValue", userId);
+            this.setUserId(userId);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            userIdHasErrors = true;
+        } finally {
+            request.setAttribute("userIdHasErrors", userIdHasErrors);
+        }
+    }
+
+    public void setTeamRequest(HttpServletRequest request, ArrayList<String> errors) {
+        User user=(User) request.getSession().getAttribute("user");
+        Team team=user.getTeam();
+        boolean teamHasErrors = false;
+        try {
+            request.setAttribute("teamPreviousValue", team);
+            this.setTeam(team);
+        } catch (IllegalArgumentException exc) {
+            errors.add(exc.getMessage());
+            teamHasErrors = true;
+        } finally {
+            request.setAttribute("teamHasErrors", teamHasErrors);
         }
     }
 }

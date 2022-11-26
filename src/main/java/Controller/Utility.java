@@ -27,7 +27,35 @@ public class Utility {
             }
         if (!found)
             throw new NotAuthorizedException();
+    }
 
+    public static boolean checkRoleBoolean(HttpServletRequest request,Role role) {
+
+        boolean found = false;
+        User user = (User) request.getSession().getAttribute("user");
+        if (user != null) {
+            if (user.getRole().equals(role)) {
+                found = true;
+            }
+        }
+        return found;
+    }
+
+    public static User getUserLoggedIn(HttpServletRequest request){
+        return  (User) request.getSession().getAttribute("user");
+    }
+
+    public static void checkIfUserAuthorizedByUser(HttpServletRequest request, Role expectedRole, User expectedUser){
+        if(Utility.checkRoleBoolean(request,expectedRole)){
+            if(expectedUser.getUserid()!=Utility.getUserLoggedIn(request).getUserid()){
+                throw new NotAuthorizedException();
+            }
+        }
+    }
+
+    public static boolean checkIfUserRoleSame(HttpServletRequest request, Role expectedRole){
+        User loggedIn= (User) request.getSession().getAttribute("user");
+        return loggedIn.getRole().equals(expectedRole);
     }
 
 }

@@ -29,7 +29,7 @@ public class ProjectEditProcessing extends RequestHandler {
 
         if (errors.size() == 0) {
             try {
-                Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+                Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
                 Utility.checkRole(request, roles);
                 service.updateProject(id, edit);
 

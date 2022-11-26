@@ -12,10 +12,16 @@ public class WorkorderEditForm extends RequestHandler {
         try {
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
             Utility.checkRole(request, roles);
+
             int id = Integer.parseInt(request.getParameter("workorderid"));
             Workorder tobeEdited = service.getWorkorderWithId(id);
-            request.setAttribute("tobeEdited", tobeEdited);
 
+            if(Utility.checkRoleBoolean(request,Role.EMPLOYEE)){
+                if(tobeEdited.getUserId()!=Utility.getUserLoggedIn(request).getUserid()){
+                    throw new NotAuthorizedException();
+                }
+            }
+            request.setAttribute("tobeEdited", tobeEdited);
             return "workorderEditForm.jsp";
         } catch(NotAuthorizedException n){
             return "notAuthorized.jsp";

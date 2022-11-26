@@ -1,7 +1,5 @@
 package Controller;
 
-
-import Controller.RequestHandler;
 import domain.model.Role;
 
 import javax.servlet.http.HttpServletRequest;
@@ -11,8 +9,9 @@ public class UserDeleteProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException {
         try {
-            Role[] roles = {Role.DIRECTOR,Role.TEAMLEADER,Role.EMPLOYEE};
+            Role[] roles = {Role.DIRECTOR,Role.TEAMLEADER};
             Utility.checkRole(request, roles);
+
 
             request.setAttribute("useroverview",service.getAllUsers());
             int deleteId = Integer.parseInt(request.getParameter("userid"));

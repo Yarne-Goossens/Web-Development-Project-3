@@ -8,7 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public abstract class RequestHandler {
     protected AppService service;
-    public abstract String handleRequest (HttpServletRequest request, HttpServletResponse response);
+
+    public abstract String handleRequest(HttpServletRequest request, HttpServletResponse response);
 
     public AppService getService() {
         return service;

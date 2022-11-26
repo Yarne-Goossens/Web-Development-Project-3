@@ -1,5 +1,6 @@
 package domain.service;
 
+import domain.model.Team;
 import domain.model.Workorder;
 import util.DbConnectionService;
 
@@ -16,7 +17,7 @@ public class WorkorderServiceDBSQL implements WorkorderService{
 
     public void addWorkorder(Workorder workorder){
         String query = String.format
-                ("insert into groep214.workorder (employee,description,date,starttime,endtime) values (?,?,CAST(? AS date),CAST(? AS time),CAST(? AS time))", schema);
+                ("insert into groep214.workorder (employee,description,date,starttime,endtime,userid,team) values (?,?,CAST(? AS date),CAST(? AS time),CAST(? AS time),?,?)", schema);
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
@@ -25,6 +26,8 @@ public class WorkorderServiceDBSQL implements WorkorderService{
             preparedStatement.setString(3, workorder.getDate().toString());
             preparedStatement.setString(4, workorder.getStartTime().toString());
             preparedStatement.setString(5, workorder.getEndTime().toString());
+            preparedStatement.setInt(6, workorder.getUserId());
+            preparedStatement.setString(7, workorder.getTeam().getStringValue().toLowerCase());
 
             if(workorder.getStartTime().after(workorder.getEndTime())){
                 throw new DbException("starttime should be before the endtime.");
@@ -50,7 +53,7 @@ public class WorkorderServiceDBSQL implements WorkorderService{
 
     public void updateWorkorder(int id,Workorder workorder){
         String query = String.format
-                ("update groep214.workorder set employee=?,description=?,date=CAST(? AS date),starttime=CAST(? AS time),endtime=CAST(? AS time) where id=?", schema);
+                ("update groep214.workorder set employee=?,description=?,date=CAST(? AS date),starttime=CAST(? AS time),endtime=CAST(? AS time),userid=?,team=? where id=?", schema);
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
@@ -60,7 +63,9 @@ public class WorkorderServiceDBSQL implements WorkorderService{
             preparedStatement.setString(3, workorder.getDate().toString());
             preparedStatement.setString(4, workorder.getStartTime().toString());
             preparedStatement.setString(5, workorder.getEndTime().toString());
-            preparedStatement.setInt(6, id);
+            preparedStatement.setInt(6, workorder.getUserId());
+            preparedStatement.setString(7, workorder.getTeam().toString().toLowerCase());
+            preparedStatement.setInt(8, id);
 
             preparedStatement.execute();
         } catch (SQLException e) {
@@ -78,10 +83,8 @@ public class WorkorderServiceDBSQL implements WorkorderService{
         return null;
     }
 
-    public ArrayList<Workorder> getAllWorkorders(){
+    public ArrayList<Workorder> getAllWorkordersTemplate(String sql) {
         ArrayList<Workorder> workorders = new ArrayList<>();
-        String sql="";
-            sql = String.format("SELECT * from groep214.workorder", schema);
         try {
             PreparedStatement statement = getConnection().prepareStatement(sql);
             ResultSet result = statement.executeQuery();
@@ -92,8 +95,10 @@ public class WorkorderServiceDBSQL implements WorkorderService{
                 Date date = Date.valueOf(result.getString("date"));
                 Time starttime = Time.valueOf(result.getString("starttime"));
                 Time endtime = Time.valueOf(result.getString("endtime"));
+                int userid = result.getInt("userid");
+                Team team = Team.valueOf(result.getString("team").toUpperCase());
 
-                workorders.add(new Workorder(id,employee,description,date,starttime,endtime));
+                workorders.add(new Workorder(id,employee,description,date,starttime,endtime,userid,team));
             }
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
@@ -101,27 +106,30 @@ public class WorkorderServiceDBSQL implements WorkorderService{
         return workorders;
     }
 
-    public ArrayList<Workorder> getAllWorkordersOrderedByEmployee(){
-        ArrayList<Workorder> workorders = new ArrayList<>();
-        String sql="";
-        sql = String.format("SELECT * from groep214.workorder order by employee", schema);
-        try {
-            PreparedStatement statement = getConnection().prepareStatement(sql);
-            ResultSet result = statement.executeQuery();
-            while (result.next()) {
-                int id = result.getInt("id");
-                String employee = result.getString("employee");
-                String description = result.getString("description");
-                Date date = Date.valueOf(result.getString("date"));
-                Time starttime = Time.valueOf(result.getString("starttime"));
-                Time endtime = Time.valueOf(result.getString("endtime"));
+    public ArrayList<Workorder> getAllWorkorders(){
 
-                workorders.add(new Workorder(id,employee,description,date,starttime,endtime));
-            }
-        } catch (SQLException e) {
-            throw new DbException(e.getMessage());
-        }
-        return workorders;
+        String sql = String.format("SELECT * from groep214.workorder", schema);
+
+        return getAllWorkordersTemplate(sql);
+    }
+
+    public ArrayList<Workorder> getAllWorkordersOrderedByEmployee(){
+
+        String sql = String.format("SELECT * from groep214.workorder order by employee", schema);
+
+        return getAllWorkordersTemplate(sql);
+    }
+
+    public ArrayList<Workorder> getAllWorkordersRestrictedByUserId(int userId){
+
+        String sql = String.format("SELECT * from groep214.workorder where userid="+userId , schema);
+        return getAllWorkordersTemplate(sql);
+    }
+
+    public ArrayList<Workorder> getAllWorkordersRestrictedByTeam(Team team){
+        String sql="";
+        sql = String.format("SELECT * from groep214.workorder where team="+"'"+team.getStringValue().toLowerCase()+"'" , schema);
+        return getAllWorkordersTemplate(sql);
     }
 
     private Connection getConnection() {

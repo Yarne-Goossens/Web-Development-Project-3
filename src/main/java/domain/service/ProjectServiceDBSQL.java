@@ -1,6 +1,7 @@
 package domain.service;
 
 import domain.model.Project;
+import domain.model.Team;
 import util.DbConnectionService;
 import java.sql.*;
 import java.util.ArrayList;
@@ -75,26 +76,39 @@ public class ProjectServiceDBSQL implements ProjectService {
         return null;
     }
 
-    public ArrayList<Project> getAllProjects(){
+    public ArrayList<Project> getAllProjectsTemplate(String sql){
         ArrayList<Project> projects = new ArrayList<>();
-        String sql = String.format("SELECT * from groep214.project", schema);
-        try {
-            PreparedStatement statement = getConnection().prepareStatement(sql);
-            ResultSet result = statement.executeQuery();
-            while (result.next()) {
 
-                int id = result.getInt("id");
-                String name = result.getString("name");
-                String team = result.getString("team");
-                Date startdate = Date.valueOf(result.getString("startdate"));
-                Date enddate = Date.valueOf(result.getString("enddate"));
+    try {
+        PreparedStatement statement = getConnection().prepareStatement(sql);
+        ResultSet result = statement.executeQuery();
+        while (result.next()) {
+
+            int id = result.getInt("id");
+            String name = result.getString("name");
+            String team = result.getString("team");
+            Date startdate = Date.valueOf(result.getString("startdate"));
+            Date enddate = Date.valueOf(result.getString("enddate"));
 
             projects.add(new Project(id,name,team,startdate,enddate));
-            }
-        } catch (SQLException e) {
-            throw new DbException(e.getMessage());
         }
+    } catch (SQLException e) {
+        throw new DbException(e.getMessage());
+    }
         return projects;
+    }
+
+
+    public ArrayList<Project> getAllProjects(){
+        String sql = String.format("SELECT * from groep214.project", schema);
+
+        return getAllProjectsTemplate(sql);
+    }
+
+    public ArrayList<Project> getAllProjectsRestrictedByTeam(Team team){
+        String sql = String.format("SELECT * from groep214.project where team="+"'"+team.getStringValue().toLowerCase()+"'", schema);
+
+        return getAllProjectsTemplate(sql);
     }
 
     public Project getProjectWithName(String name){

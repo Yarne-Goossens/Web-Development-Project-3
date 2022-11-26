@@ -13,8 +13,7 @@
     Register Workorder
 </h2>
 <c:choose>
-    <c:when test="${loginUserSession!=null}">
-        <p>You are logged in as ${loginUserSession.firstName} ${loginUserSession.lastName}.</p>
+    <c:when test="${user!=null}">
 
 <main>
     <div>
@@ -28,10 +27,10 @@
             </c:if>
         </div>
 
-        <form name="formulier" method="POST" action="Controller?command=WorkorderRegisterProcessing&user=<c:out value='${loginUserSession.firstName}'/>" novalidate>
+        <form name="formulier" method="POST" action="Controller?command=WorkorderRegisterProcessing" novalidate>
 
             <p><label for="team">Team</label>
-                <input readonly type="text" id="team" name="team" required value="${loginUserSession.team}"></p>
+                <input readonly type="text" id="team" name="team" required value="${user.team}"></p>
 
             <p><label for="date">Date</label>
                 <input type="date" id="date" name="date" required value="${datePreviousValue}"></p>

@@ -1,6 +1,7 @@
 package domain.service;
 
 import domain.model.Project;
+import domain.model.Team;
 import domain.model.User;
 import domain.model.Workorder;
 
@@ -35,6 +36,10 @@ public class AppService {
        return  projectDB.getAllProjects();
     }
 
+    public ArrayList<Project> getAllProjectsRestrictedByTeam(Team team){
+        return  projectDB.getAllProjectsRestrictedByTeam(team);
+    }
+
     //WORKORDER
 
     public void addWorkorder(Workorder workorder){
@@ -60,6 +65,14 @@ public class AppService {
 
     public ArrayList<Workorder> getAllWorkordersOrderedByEmployee(){
         return  workorderDB.getAllWorkordersOrderedByEmployee();
+    }
+
+    public ArrayList<Workorder> getAllWorkordersRestrictedByUserId(int userId){
+        return  workorderDB.getAllWorkordersRestrictedByUserId(userId);
+    }
+
+    public ArrayList<Workorder> getAllWorkordersRestrictedByTeam(Team team){
+        return  workorderDB.getAllWorkordersRestrictedByTeam(team);
     }
 
 

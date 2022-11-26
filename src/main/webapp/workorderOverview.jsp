@@ -19,6 +19,7 @@ Order By: <a href="Controller?command=OrderByEmployee">Employee</a>
                 <tr>
                     <th>Workorder Id</th>
                     <th>Employee</th>
+                    <th>Employee Id</th>
                     <th>Description</th>
                     <th>Date</th>
                     <th>Start</th>
@@ -32,6 +33,7 @@ Order By: <a href="Controller?command=OrderByEmployee">Employee</a>
                     <tr>
                         <td><c:out value='${work.workorderId}'/></td>
                         <td><c:out value='${work.employee}'/></td>
+                        <td><c:out value='${work.userId}'/></td>
                         <td><c:out value='${work.description}'/></td>
                         <td><c:out value='${work.date}'/></td>
                         <td><c:out value='${work.startTime}'/></td>
