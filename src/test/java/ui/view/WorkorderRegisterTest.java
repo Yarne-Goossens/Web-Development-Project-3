@@ -23,18 +23,19 @@ public class WorkorderRegisterTest {
     }
 
 
-    /*@Test
+    @Test
     public void test_Register_AllFieldsFilledInCorrectly_WorkorderIsRegistered() {
         IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
-        indexPage.setEmail("teamleader@ucll.be");
+        indexPage.setEmail("director@ucll.be");
         indexPage.setPassword("t");
+        indexPage.submit();
 
         WorkorderRegisterPage workorderRegisterPage = PageFactory.initElements(driver, WorkorderRegisterPage.class);
-        workorderRegisterPage.setTeam("BETA");
-        workorderRegisterPage.setDate("01112022");
+        workorderRegisterPage.setDate("01112023");
         workorderRegisterPage.setStart("080000");
-        workorderRegisterPage.setEnd("180000");
+        workorderRegisterPage.setEnd("090000");
         workorderRegisterPage.setDescription("Lorem ipsum");
+        workorderRegisterPage.submit();
 
         WorkorderOverviewPage workorderOverviewPage = PageFactory.initElements(driver, WorkorderOverviewPage.class);
         assertEquals("Work Overview", workorderRegisterPage.getTitle());
@@ -46,14 +47,18 @@ public class WorkorderRegisterTest {
         IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
         indexPage.setEmail("teamleader@ucll.be");
         indexPage.setPassword("t");
+        indexPage.submit();
 
         WorkorderRegisterPage workorderRegisterPage = PageFactory.initElements(driver, WorkorderRegisterPage.class);
-        workorderRegisterPage.setTeam("BETA");
         workorderRegisterPage.setDate("01112022");
         workorderRegisterPage.setStart("080000");
         workorderRegisterPage.setEnd("180000");
         workorderRegisterPage.setDescription("");
 
         workorderRegisterPage.hasErrorMessage("No description given");
-    }*/
+
+        workorderRegisterPage.hasStickyDate("01112022");
+        workorderRegisterPage.hasStickyStart("080000");
+        workorderRegisterPage.hasStickyEnd("180000");
+    }
 }
