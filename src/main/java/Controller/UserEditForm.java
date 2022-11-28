@@ -23,6 +23,8 @@ public class UserEditForm extends RequestHandler {
                     throw new NotAuthorizedException();
                 }
             }
+
+
             request.setAttribute("tobeEdited", tobeEdited);
             return "userEditForm.jsp";
 
