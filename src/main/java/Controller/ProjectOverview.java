@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ProjectOverview extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        try {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
+
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
             Utility.checkRole(request, roles);
             User loggedIn=Utility.getUserLoggedIn(request);
@@ -23,9 +23,7 @@ public class ProjectOverview extends RequestHandler {
 
             request.setAttribute("projectoverview", service.getAllProjects());
             return "projectOverview.jsp";
-        }
-        catch (NotAuthorizedException n){
-            return "notAuthorized.jsp";
-        }
+
+
     }
 }

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class UserEditProcessing extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
 
         int id = Integer.parseInt(request.getParameter("userid"));
         User editUser = service.getUserWithId(id);
@@ -44,9 +44,6 @@ public class UserEditProcessing extends RequestHandler {
                 service.updateUser(id,edit);
 
                 return "Controller?command=UserOverview";
-            }
-            catch (NotAuthorizedException n){
-                return "notAuthorized.jsp";
             }
             catch (DbException d) {
                 errors.add(d.getMessage());

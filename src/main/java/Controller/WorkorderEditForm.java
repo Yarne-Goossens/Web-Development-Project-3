@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class WorkorderEditForm extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        try {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
+
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
             Utility.checkRole(request, roles);
 
@@ -29,8 +29,6 @@ public class WorkorderEditForm extends RequestHandler {
             }
             request.setAttribute("tobeEdited", tobeEdited);
             return "workorderEditForm.jsp";
-        } catch(NotAuthorizedException n){
-            return "notAuthorized.jsp";
-        }
+
     }
 }

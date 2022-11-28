@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class WorkorderRegisterProcessing extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
         ArrayList<String> errors = new ArrayList<String>();
 
         Workorder workorder = new Workorder();
@@ -42,8 +42,6 @@ public class WorkorderRegisterProcessing extends RequestHandler {
             } catch (DbException d) {
                 errors.add(d.getMessage());
 
-            } catch (NotAuthorizedException n) {
-                return "notAuthorized.jsp";
             }
         }
 

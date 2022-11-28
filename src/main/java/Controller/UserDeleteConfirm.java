@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UserDeleteConfirm extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException {
-        try {
+
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
             Utility.checkRole(request, roles);
 
@@ -20,9 +20,7 @@ public class UserDeleteConfirm extends RequestHandler {
             User tobeDeleted = service.getUserWithId(id);
             request.setAttribute("tobeDeleted", tobeDeleted);
             return "userDeleteConfirm.jsp";
-        } catch (NotAuthorizedException n) {
-            return "notAuthorized.jsp";
-        }
+
 
     }
 }

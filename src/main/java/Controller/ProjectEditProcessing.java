@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class ProjectEditProcessing extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException  {
 
         int id = Integer.parseInt(request.getParameter("projectid"));
         Project editProject = service.getProjectWithId(id);
@@ -36,8 +36,6 @@ public class ProjectEditProcessing extends RequestHandler {
                 return "Controller?command=ProjectOverview";
             } catch (DbException d) {
                 errors.add(d.getMessage());
-            } catch (NotAuthorizedException n) {
-                return "notAuthorized.jsp";
             }
         }
         request.setAttribute("errors", errors);

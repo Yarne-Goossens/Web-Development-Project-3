@@ -5,16 +5,14 @@ import domain.model.Role;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class OrderByEmployee extends RequestHandler {
+public class OrderByEmployee extends RequestHandler  {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
-            Utility.checkRole(request, roles);
-            request.setAttribute("workorderoverview", service.getAllWorkordersOrderedByEmployee());
-            return "workorderOverview.jsp";
-        } catch (NotAuthorizedException n) {
-            return "notAuthorized.jsp";
-        }
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException{
+
+        Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
+        Utility.checkRole(request, roles);
+        request.setAttribute("workorderoverview", service.getAllWorkordersOrderedByEmployee());
+        return "workorderOverview.jsp";
+
     }
 }
