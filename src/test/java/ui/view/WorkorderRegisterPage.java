@@ -87,24 +87,22 @@ public class WorkorderRegisterPage extends Page {
         return (message.equals(errorMsg.getText()));
     }
 
-
-    public boolean hasStickyEmployee(String type) {
-        return type.equals(employeeField.getAttribute("value"));
-    }
-
     public boolean hasStickyDescription(String type) {
         return type.equals(descriptionField.getAttribute("value"));
     }
 
     public boolean hasStickyDate(String type) {
+        System.out.println(dateField.getAttribute("value"));
         return type.equals(dateField.getAttribute("value"));
     }
 
     public boolean hasStickyStart(String type) {
+        System.out.println(startField.getAttribute("value"));
         return type.equals(startField.getAttribute("value"));
     }
 
     public boolean hasStickyEnd(String type) {
+        System.out.println(endField.getAttribute("value"));
         return type.equals(endField.getAttribute("value"));
     }
 

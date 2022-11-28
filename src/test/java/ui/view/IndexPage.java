@@ -20,7 +20,7 @@ public class IndexPage extends Page {
     @FindBy(id = "password")
     private WebElement passwordField;
 
-    @FindBy(id = "search")
+    @FindBy(id = "submit")
     private WebElement submitButton;
 
     public void setEmail(String email) {

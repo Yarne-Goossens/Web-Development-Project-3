@@ -25,6 +25,11 @@ public class ProjectRegisterTest {
 
     @Test
     public void test_Register_AllFieldsFilledInCorrectly_ProjectIsRegistered() {
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("teamleader@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         ProjectRegisterPage projectRegisterPage = PageFactory.initElements(driver, ProjectRegisterPage.class);
         projectRegisterPage.setProjectName("Touhou");
         projectRegisterPage.setStart("01112022");
@@ -40,6 +45,11 @@ public class ProjectRegisterTest {
 
     @Test
     public void test_Register_ProjectNameNotFilledIn_ErrorMessageGivenForProjectNameAndOtherFieldsValueKept(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("teamleader@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         ProjectRegisterPage projectRegisterPage = PageFactory.initElements(driver, ProjectRegisterPage.class);
         projectRegisterPage.setProjectName("");
         projectRegisterPage.setStart("01112022");
@@ -52,8 +62,8 @@ public class ProjectRegisterTest {
         assertTrue(projectRegisterPage.hasEmptyProjectName());
         assertTrue(projectRegisterPage.hasErrorMessage("No project name given"));
 
-        //assertTrue(projectRegisterPage.hasStickyStart("01112022"));
-        //assertTrue(projectRegisterPage.hasStickyEnd("10112022"));
+        assertTrue(projectRegisterPage.hasStickyStart("2022-01-11"));
+        assertTrue(projectRegisterPage.hasStickyEnd("2022-10-11"));
         assertTrue(projectRegisterPage.hasStickyTeam("beta"));
     }
 }
