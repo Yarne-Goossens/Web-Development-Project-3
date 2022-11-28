@@ -187,18 +187,15 @@ public class Workorder {
 
     public void setStartTimeRequest(HttpServletRequest request, ArrayList<String> errors) {
         String start = request.getParameter("startTime");
-
+        start+=":00";
         boolean startHasErrors = false;
         try {
             request.setAttribute("startPreviousValue", start);
             this.setStartTime(Time.valueOf(start));
         } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
-            startHasErrors = true;
-        }catch (NullPointerException nul) {
-            errors.add(nul.getMessage());
-            startHasErrors = true;
-        }
+            startHasErrors = true;}
+
         finally {
             request.setAttribute("startHasErrors", startHasErrors);
         }
@@ -207,6 +204,7 @@ public class Workorder {
     public void setEndTimeRequest(HttpServletRequest request, ArrayList<String> errors) {
         String endTime = request.getParameter("endTime");
         boolean endHasErrors = false;
+        endTime+=":00";
         try {
             request.setAttribute("endPreviousValue", endTime);
             this.setEndTime(Time.valueOf(endTime));
@@ -214,10 +212,7 @@ public class Workorder {
             errors.add(exc.getMessage());
             endHasErrors = true;
         }
-        catch (NullPointerException nul) {
-            errors.add(nul.getMessage());
-            endHasErrors = true;
-        }
+
         finally {
             request.setAttribute("endHasErrors", endHasErrors);
         }

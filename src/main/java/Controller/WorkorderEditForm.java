@@ -21,6 +21,12 @@ public class WorkorderEditForm extends RequestHandler {
                     throw new NotAuthorizedException();
                 }
             }
+
+            if(Utility.checkRoleBoolean(request,Role.TEAMLEADER)){
+                if(tobeEdited.getTeam()!=Utility.getUserLoggedIn(request).getTeam()){
+                    throw new NotAuthorizedException();
+                }
+            }
             request.setAttribute("tobeEdited", tobeEdited);
             return "workorderEditForm.jsp";
         } catch(NotAuthorizedException n){

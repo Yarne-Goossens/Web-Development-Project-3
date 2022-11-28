@@ -36,10 +36,10 @@
                 <input type="date" id="date" name="date" required value="${datePreviousValue}"></p>
 
             <p><label for="startTime">Starttime</label>
-                <input type="time" class="without_ampm" id="startTime" name="startTime" step="1"  required value="${startPreviousValue}"></p>
+                <input type="time" class="without_ampm" id="startTime" name="startTime"   required value="${startPreviousValue}"></p>
 
             <p><label for="endTime">Endtime</label>
-                <input type="time" class="without_ampm" id="endTime" name="endTime" step="1"  required value="${endPreviousValue}"></p>
+                <input type="time" class="without_ampm" id="endTime" name="endTime"   required value="${endPreviousValue}"></p>
 
             <label for="description">Description</label>
             <textarea id="description" name="description" required value="${employeePreviousValue}"></textarea>

@@ -14,7 +14,8 @@ public class WorkorderOverview extends RequestHandler {
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
             Utility.checkRole(request, roles);
             User loggedIn=Utility.getUserLoggedIn(request);
-            if(Utility.checkIfUserRoleSame(request,Role.EMPLOYEE)){
+
+            if(Utility.checkIfUserRoleSame(request,Role.EMPLOYEE)||Utility.checkIfUserRoleSame(request,Role.TEAMLEADER)){
                 request.setAttribute("workorderoverview", service.getAllWorkordersRestrictedByTeam(loggedIn.getTeam()));
                 return "workorderOverview.jsp";
             }

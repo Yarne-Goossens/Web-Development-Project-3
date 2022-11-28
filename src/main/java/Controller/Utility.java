@@ -53,6 +53,7 @@ public class Utility {
         }
     }
 
+
     public static boolean checkIfUserRoleSame(HttpServletRequest request, Role expectedRole){
         User loggedIn= (User) request.getSession().getAttribute("user");
         return loggedIn.getRole().equals(expectedRole);

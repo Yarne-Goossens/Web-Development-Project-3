@@ -24,22 +24,22 @@ public class UserEditProcessing extends RequestHandler {
         edit.setEmailRequest( request, errors);
         edit.setFirstNameRequest( request, errors);
         edit.setLastNameRequest( request, errors);
-
-        if(Utility.checkIfUserRoleSame(request,Role.EMPLOYEE)) {
+            edit.setTeam(editUser.getTeam());
             edit.setRole(editUser.getRole());
-        }
-        else{
-            edit.setRoleRequest(request, errors);
-        }
 
-        edit.setTeamRequest( request, errors);
 
         if (errors.size() == 0) {
             try {
                 Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
                 Utility.checkRole(request, roles);
-
+                User loggedIn=Utility.getUserLoggedIn(request);
                 Utility.checkIfUserAuthorizedByUser(request,Role.EMPLOYEE,editUser);
+
+                if(Utility.checkRoleBoolean(request,Role.TEAMLEADER)){
+                    if(editUser.getTeam()!=loggedIn.getTeam()){
+                        throw new NotAuthorizedException();
+                    }
+                }
 
                 service.updateUser(id,edit);
 

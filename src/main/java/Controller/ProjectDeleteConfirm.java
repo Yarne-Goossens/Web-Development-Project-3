@@ -13,7 +13,7 @@ public class ProjectDeleteConfirm extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         try {
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
+            Role[] roles = {Role.DIRECTOR};
             Utility.checkRole(request, roles);
             int id = Integer.parseInt(request.getParameter("projectid"));
             Project tobeDeleted = service.getProjectWithId(id);

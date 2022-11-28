@@ -23,7 +23,9 @@ public class WorkorderEditProcessing extends RequestHandler{
         edit.setEmployee(editWorkorder.getEmployee());
         edit.setDescriptionRequest(request, errors);
         edit.setWorkorderDateRequest(request, errors);
+
         edit.setTeam(loggedIn.getTeam());
+
         edit.setUserId(loggedIn.getUserid());
         edit.setStartTimeRequest(request, errors);
         edit.setEndTimeRequest(request, errors);
@@ -36,6 +38,12 @@ public class WorkorderEditProcessing extends RequestHandler{
 
                 if(Utility.checkRoleBoolean(request,Role.EMPLOYEE)){
                     if(editWorkorder.getUserId()!=Utility.getUserLoggedIn(request).getUserid()){
+                        throw new NotAuthorizedException();
+                    }
+                }
+
+                if(Utility.checkRoleBoolean(request,Role.TEAMLEADER)){
+                    if(editWorkorder.getTeam()!=Utility.getUserLoggedIn(request).getTeam()){
                         throw new NotAuthorizedException();
                     }
                 }

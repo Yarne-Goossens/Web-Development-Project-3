@@ -9,7 +9,7 @@ public class WorkorderDeleteProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
         try {
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
+            Role[] roles = {Role.DIRECTOR};
             Utility.checkRole(request, roles);
             int deleteId = Integer.parseInt(request.getParameter("workorderid"));
             service.deleteWorkorder(deleteId);
