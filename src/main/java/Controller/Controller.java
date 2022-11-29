@@ -29,16 +29,23 @@ public class Controller extends HttpServlet {
     }
 
     private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String destination = "index.jsp";
-        String command = request.getParameter("command");
+        String destination;
+        String action = request.getParameter("command");
+        if (action == null || action.isEmpty())
+            action = "Home";
+        RequestHandler handler = handlerFactory.getHandler(action,service);
 
-        if (command != null) {
-            RequestHandler handler = handlerFactory.getHandler(command, service);
+        try {
             destination = handler.handleRequest(request, response);
+        } catch (NotAuthorizedException e) {
+            // alle handlers gooien een NotAuthorizedException als gebruiker niet de juiste rechten heeft
+            // zodat authorization altijd op dezelfde manier afgehandeld wordt
+            //request.setAttribute("notAuthorized", "You have insufficient rights to have a look at the requested page.");
+            destination = "Controller?command=NotAuthorizedExceptionPage";
         }
-
-        RequestDispatcher view = request.getRequestDispatcher(destination);
-        view.forward(request, response);
+        if (!response.isCommitted()) {
+            request.getRequestDispatcher(destination).forward(request, response);
+        }
     }
 
 }

@@ -9,17 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ProjectEditForm extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            Role[] roles = {Role.DIRECTOR};
-            Utility.checkRole(request, roles);
-            int id = Integer.parseInt(request.getParameter("projectid"));
-            Project tobeEdited = service.getProjectWithId(id);
-            request.setAttribute("tobeEdited", tobeEdited);
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
 
-            return "projectEditForm.jsp";
-        } catch (NotAuthorizedException n) {
-            return "notAuthorized.jsp";
-        }
+        Role[] roles = {Role.DIRECTOR};
+        Utility.checkRole(request, roles);
+        int id = Integer.parseInt(request.getParameter("projectid"));
+        Project tobeEdited = service.getProjectWithId(id);
+        request.setAttribute("tobeEdited", tobeEdited);
+
+        return "projectEditForm.jsp";
+
     }
 }

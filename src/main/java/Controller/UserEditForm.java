@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class UserEditForm extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
-        try {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
+
             Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
             Utility.checkRole(request, roles);
             User loggedIn=Utility.getUserLoggedIn(request);
@@ -23,12 +23,11 @@ public class UserEditForm extends RequestHandler {
                     throw new NotAuthorizedException();
                 }
             }
+
+
             request.setAttribute("tobeEdited", tobeEdited);
             return "userEditForm.jsp";
-        }
-        catch(NotAuthorizedException n){
-            return "notAuthorized.jsp";
-        }
+
 
     }
 }

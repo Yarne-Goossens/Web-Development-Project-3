@@ -4,7 +4,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverHelper {
     private static WebDriver driver;
@@ -15,6 +14,7 @@ public class DriverHelper {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--lang=en-GB");
         driver = new ChromeDriver(options);
+        WebDriverManager.chromedriver().setup();
         driver.manage().window().maximize();
         return driver;
     }

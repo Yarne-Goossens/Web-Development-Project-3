@@ -19,6 +19,7 @@
     </ul>
 </div>
 
+
     </c:if>
     <c:choose>
         <c:when test="${empty user}">

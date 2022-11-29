@@ -23,16 +23,11 @@ public class UserRegisterProcessing extends RequestHandler {
 
         if(errors.size()==0) {
             try {
-                    Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
-                    Utility.checkRole(request, roles);
                 service.addUser(user);
                 return "Controller?command=UserOverview";
             }
             catch (DbException d) {
                 errors.add(d.getMessage());
-            }
-            catch (NotAuthorizedException n){
-                return "notAuthorized.jsp";
             }
         }
         request.setAttribute("errors", errors);

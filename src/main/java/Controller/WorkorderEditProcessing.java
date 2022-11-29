@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class WorkorderEditProcessing extends RequestHandler{
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
         int id = Integer.parseInt(request.getParameter("workorderid"));
         Workorder editWorkorder = service.getWorkorderWithId(id);
         Workorder edit = new Workorder();
@@ -52,9 +52,7 @@ public class WorkorderEditProcessing extends RequestHandler{
             } catch (DbException d) {
                 errors.add(d.getMessage());
             }
-        catch(NotAuthorizedException n){
-            return "notAuthorized.jsp";
-        }
+
         }
         request.setAttribute("errors", errors);
         return "Controller?command=WorkorderEditForm";

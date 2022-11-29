@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 public class UserDeleteProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException {
-        try {
+
             Role[] roles = {Role.DIRECTOR,Role.TEAMLEADER};
             Utility.checkRole(request, roles);
 
@@ -17,10 +17,8 @@ public class UserDeleteProcessing extends RequestHandler {
             int deleteId = Integer.parseInt(request.getParameter("userid"));
             service.deleteUser(deleteId);
             return "Controller?command=UserOverview";
-        }
-        catch (NotAuthorizedException n){
-            return "notAuthorized.jsp";
-        }
+
+
 
     }
 }
