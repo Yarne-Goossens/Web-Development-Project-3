@@ -62,8 +62,8 @@ public class ProjectRegisterTest {
         assertTrue(projectRegisterPage.hasEmptyProjectName());
         assertTrue(projectRegisterPage.hasErrorMessage("No project name given"));
 
-        assertTrue(projectRegisterPage.hasStickyStart("2022-01-11"));
-        assertTrue(projectRegisterPage.hasStickyEnd("2022-10-11"));
+        assertTrue(projectRegisterPage.hasStickyStart("2022-11-01"));
+        assertTrue(projectRegisterPage.hasStickyEnd("2022-11-10"));
         assertTrue(projectRegisterPage.hasStickyTeam("beta"));
     }
 }

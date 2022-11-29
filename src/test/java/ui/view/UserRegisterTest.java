@@ -32,6 +32,11 @@ public class UserRegisterTest {
 
 	@Test
 	public void test_Register_AllFieldsFilledInCorrectly_UserIsRegistered_and_RoleIsEmployee() {
+		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+		indexPage.setEmail("director@ucll.be");
+		indexPage.setPassword("t");
+		indexPage.submit();
+
 		UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
 		userRegisterPage.setFirstName("Jan");
 		userRegisterPage.setLastName("Janssens");
@@ -48,6 +53,11 @@ public class UserRegisterTest {
 
 	@Test
 	public void test_Register_FirstNameNotFilledIn_ErrorMessageGivenForFirstNameAndOtherFieldsValueKept(){
+		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+		indexPage.setEmail("director@ucll.be");
+		indexPage.setPassword("t");
+		indexPage.submit();
+
 		UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
 		userRegisterPage.setFirstName("");
 		userRegisterPage.setLastName("Janssens");
@@ -68,6 +78,11 @@ public class UserRegisterTest {
 
 	@Test
 	public void test_Register_LastNameNotFilledIn_ErrorMessageGivenForLastNameAndOtherFieldsValueKept(){
+		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+		indexPage.setEmail("director@ucll.be");
+		indexPage.setPassword("t");
+		indexPage.submit();
+
 		UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
 		userRegisterPage.setFirstName("Jan");
 		userRegisterPage.setLastName("");
@@ -88,6 +103,11 @@ public class UserRegisterTest {
 
 	@Test
 	public void test_Register_EmailNotFilledIn_ErrorMessageGivenForEmailAndOtherFieldsValueKept(){
+		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+		indexPage.setEmail("director@ucll.be");
+		indexPage.setPassword("t");
+		indexPage.submit();
+
 		UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
 		userRegisterPage.setFirstName("Jan");
 		userRegisterPage.setLastName("Janssens");
@@ -108,6 +128,11 @@ public class UserRegisterTest {
 
 	@Test
 	public void test_Register_PasswordNotFilledIn_ErrorMessageGivenForEmailAndOtherFieldsValueKept(){
+		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+		indexPage.setEmail("director@ucll.be");
+		indexPage.setPassword("t");
+		indexPage.submit();
+
 		UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
 		userRegisterPage.setFirstName("Jan");
 		userRegisterPage.setLastName("Janssens");
@@ -130,6 +155,11 @@ public class UserRegisterTest {
 
 	@Test
 	public void test_Register_UserAlreadyExists_ErrorMessageGiven(){
+		IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+		indexPage.setEmail("director@ucll.be");
+		indexPage.setPassword("t");
+		indexPage.submit();
+
 		UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
 		userRegisterPage.setFirstName("Pieter");
 		userRegisterPage.setLastName("Pieters");

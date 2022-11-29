@@ -31,9 +31,9 @@ public class WorkorderRegisterTest {
         indexPage.submit();
 
         WorkorderRegisterPage workorderRegisterPage = PageFactory.initElements(driver, WorkorderRegisterPage.class);
-        workorderRegisterPage.setDate("01112023");
-        workorderRegisterPage.setStart("080000");
-        workorderRegisterPage.setEnd("090000");
+        workorderRegisterPage.setDate("01112022");
+        workorderRegisterPage.setStart("0800");
+        workorderRegisterPage.setEnd("0900");
         workorderRegisterPage.setDescription("Lorem ipsum");
         workorderRegisterPage.submit();
 
@@ -45,20 +45,21 @@ public class WorkorderRegisterTest {
     @Test
     public void test_Register_DescriptionNotFilledIn_ErrorMessageGivenForDescriptionAndOtherFieldsValueKept(){
         IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
-        indexPage.setEmail("teamleader@ucll.be");
+        indexPage.setEmail("director@ucll.be");
         indexPage.setPassword("t");
         indexPage.submit();
 
         WorkorderRegisterPage workorderRegisterPage = PageFactory.initElements(driver, WorkorderRegisterPage.class);
         workorderRegisterPage.setDate("01112022");
-        workorderRegisterPage.setStart("080000");
-        workorderRegisterPage.setEnd("180000");
+        workorderRegisterPage.setStart("0800");
+        workorderRegisterPage.setEnd("1800");
         workorderRegisterPage.setDescription("");
+        workorderRegisterPage.submit();
 
         workorderRegisterPage.hasErrorMessage("No description given");
 
-        workorderRegisterPage.hasStickyDate("01112022");
-        workorderRegisterPage.hasStickyStart("080000");
-        workorderRegisterPage.hasStickyEnd("180000");
+        workorderRegisterPage.hasStickyDate("2022-11-01");
+        workorderRegisterPage.hasStickyStart("0800");
+        workorderRegisterPage.hasStickyEnd("1800");
     }
 }

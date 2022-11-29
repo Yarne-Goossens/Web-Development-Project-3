@@ -23,6 +23,11 @@ public class ProjectOverviewTest {
 
     @Test
     public void test_Edit_AllFieldsFilledInCorrectly_ProjectIsEdited() {
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         ProjectRegisterPage projectRegisterPage = PageFactory.initElements(driver, ProjectRegisterPage.class);
         projectRegisterPage.setProjectName("Mulu");
         projectRegisterPage.setStart("16102022");
@@ -50,6 +55,11 @@ public class ProjectOverviewTest {
 
     @Test
     public void test_Edit_ProjectNameNotFilledIn_ErrorMessageGivenForProjectNameAndOtherFieldsValueKept(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         ProjectRegisterPage projectRegisterPage = PageFactory.initElements(driver, ProjectRegisterPage.class);
         projectRegisterPage.setProjectName("Everest");
         projectRegisterPage.setStart("16102023");
@@ -83,6 +93,11 @@ public class ProjectOverviewTest {
 
     @Test
     public void test_Delete_Project_And_Confirm(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         ProjectRegisterPage projectRegisterPage = PageFactory.initElements(driver, ProjectRegisterPage.class);
         projectRegisterPage.setProjectName("Discord");
         projectRegisterPage.setStart("16102023");
@@ -103,6 +118,11 @@ public class ProjectOverviewTest {
 
     @Test
     public void test_Delete_Project_And_Cancel(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         ProjectRegisterPage projectRegisterPage = PageFactory.initElements(driver, ProjectRegisterPage.class);
         projectRegisterPage.setProjectName("Web");
         projectRegisterPage.setStart("16102023");
@@ -123,6 +143,11 @@ public class ProjectOverviewTest {
 
     @Test
     public void test_Search_Project_And_Find(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         ProjectRegisterPage projectRegisterPage = PageFactory.initElements(driver, ProjectRegisterPage.class);
         projectRegisterPage.setProjectName("Mash");
         projectRegisterPage.setStart("16102023");
@@ -145,6 +170,11 @@ public class ProjectOverviewTest {
 
     @Test
     public void test_Search_Project_And_Can_Not_Find(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         ProjectOverviewPage projectOverviewPage = PageFactory.initElements(driver, ProjectOverviewPage.class);
 
         projectOverviewPage.submitSearch();
