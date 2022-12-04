@@ -6,12 +6,13 @@ import domain.service.DbException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.time.DateTimeException;
 import java.util.ArrayList;
 
 public class ProjectEditProcessing extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException  {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException, IOException {
 
         int id = Integer.parseInt(request.getParameter("projectid"));
         Project editProject = service.getProjectWithId(id);
@@ -33,6 +34,7 @@ public class ProjectEditProcessing extends RequestHandler {
                 Utility.checkRole(request, roles);
                 service.updateProject(id, edit);
 
+                response.sendRedirect("Controller?command=ProjectOverview");
                 return "Controller?command=ProjectOverview";
             } catch (DbException d) {
                 errors.add(d.getMessage());

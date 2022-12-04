@@ -9,5 +9,5 @@ public enum Team {
         this.stringValue=stringValue;
     }
 
-    public String getStringValue() {return stringValue;}
+    public String  getStringValue() {return stringValue;}
 }

@@ -7,10 +7,11 @@ import domain.service.DbException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LoginProcessing extends RequestHandler {
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws IOException {
         ArrayList<String> errors = new ArrayList<String>();
         try {
             String email = request.getParameter("email");
@@ -21,7 +22,8 @@ public class LoginProcessing extends RequestHandler {
             HttpSession session = request.getSession();
             session.setAttribute("user", loginUser);
 
-            return "index.jsp";
+            response.sendRedirect("Controller?command=Home");
+            return "Controller?command=Home";
         } catch (DbException e) {
             errors.add(e.getMessage());
         }

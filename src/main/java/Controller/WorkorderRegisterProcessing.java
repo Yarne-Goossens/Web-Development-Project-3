@@ -6,6 +6,7 @@ import domain.service.DbException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class WorkorderRegisterProcessing extends RequestHandler {
@@ -38,8 +39,9 @@ public class WorkorderRegisterProcessing extends RequestHandler {
                 Utility.checkRole(request, roles);
                 service.addWorkorder(workorder);
 
+                response.sendRedirect("Controller?command=WorkorderOverview");
                 return "Controller?command=WorkorderOverview";
-            } catch (DbException d) {
+            } catch (DbException | IOException d) {
                 errors.add(d.getMessage());
 
             }
@@ -47,6 +49,7 @@ public class WorkorderRegisterProcessing extends RequestHandler {
 
 
         request.setAttribute("errors", errors);
+
         return "Controller?command=WorkorderRegister";
     }
 }

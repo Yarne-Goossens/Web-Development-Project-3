@@ -6,12 +6,13 @@ import domain.service.DbException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ProjectRegisterProcessing extends RequestHandler {
 
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException, IOException {
         ArrayList<String> errors = new ArrayList<String>();
 
         Project project = new Project();
@@ -32,6 +33,8 @@ public class ProjectRegisterProcessing extends RequestHandler {
                 Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
                 Utility.checkRole(request, roles);
                 service.addProject(project);
+
+                response.sendRedirect("Controller?command=ProjectOverview");
                 return "Controller?command=ProjectOverview";
             } catch (IllegalArgumentException d) {
                 errors.add(d.getMessage());

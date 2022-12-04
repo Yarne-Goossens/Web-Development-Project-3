@@ -37,15 +37,19 @@ public class Controller extends HttpServlet {
 
         try {
             destination = handler.handleRequest(request, response);
+
         } catch (NotAuthorizedException e) {
             // alle handlers gooien een NotAuthorizedException als gebruiker niet de juiste rechten heeft
             // zodat authorization altijd op dezelfde manier afgehandeld wordt
             //request.setAttribute("notAuthorized", "You have insufficient rights to have a look at the requested page.");
             destination = "Controller?command=NotAuthorizedExceptionPage";
         }
+
         if (!response.isCommitted()) {
-            request.getRequestDispatcher(destination).forward(request, response);
+            RequestDispatcher view = request.getRequestDispatcher(destination);
+            view.forward(request, response);
         }
+
     }
 
 }

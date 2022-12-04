@@ -7,11 +7,12 @@ import okhttp3.internal.Util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class UserEditProcessing extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException, IOException {
 
         int id = Integer.parseInt(request.getParameter("userid"));
         User editUser = service.getUserWithId(id);
@@ -29,20 +30,21 @@ public class UserEditProcessing extends RequestHandler {
         if (Utility.checkRoleBoolean(request, Role.EMPLOYEE)) {
             edit.setRole(editUser.getRole());
             edit.setTeam(editUser.getTeam());
-        } else if (Utility.checkRoleBoolean(request, Role.TEAMLEADER)) {
-            if (request.getParameter("role").compareTo("director")==0) {
+        } 
+        else if (Utility.checkRoleBoolean(request, Role.TEAMLEADER)) {
+            if (request.getParameter("role").compareTo("director") == 0) {
                 throw new NotAuthorizedException();
             } else {
                 edit.setRoleRequest(request, errors);
                 edit.setTeamRequest(request, errors);
             }
         }
-        else if(Utility.getUserLoggedIn(request).getUserid()==editUser.getUserid()&&Utility.getUserLoggedIn(request).getRole()==Role.DIRECTOR){
+        else if (Utility.getUserLoggedIn(request).getUserid() == editUser.getUserid() && Utility.getUserLoggedIn(request).getRole() == Role.DIRECTOR) {
             edit.setTeamRequest(request, errors);
             edit.setRole(editUser.getRole());
         }
         else if (Utility.checkRoleBoolean(request, Role.DIRECTOR)) {
-            edit.setRoleRequest(request,errors);
+            edit.setRoleRequest(request, errors);
             edit.setTeamRequest(request, errors);
         }
 
@@ -61,7 +63,7 @@ public class UserEditProcessing extends RequestHandler {
                 }
 
                 service.updateUser(id, edit);
-
+                response.sendRedirect("Controller?command=UserOverview");
                 return "Controller?command=UserOverview";
             } catch (DbException d) {
                 errors.add(d.getMessage());

@@ -7,11 +7,12 @@ import domain.service.DbException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class WorkorderEditProcessing extends RequestHandler{
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException, IOException {
         int id = Integer.parseInt(request.getParameter("workorderid"));
         Workorder editWorkorder = service.getWorkorderWithId(id);
         Workorder edit = new Workorder();
@@ -48,6 +49,7 @@ public class WorkorderEditProcessing extends RequestHandler{
                     }
                 }
 
+                response.sendRedirect("Controller?command=WorkorderOverview");
                 return "Controller?command=WorkorderOverview";
             } catch (DbException d) {
                 errors.add(d.getMessage());
