@@ -12,6 +12,7 @@
 
 </header>
 <a id="search" href="Controller?command=ProjectSearch">Search for a project</a>
+Order By: <a href="Controller?command=OrderByNameProject">Project name</a>
 <main>
     <table>
         <c:choose>

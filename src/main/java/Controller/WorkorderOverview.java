@@ -1,9 +1,7 @@
 package Controller;
 
-
 import domain.model.Role;
 import domain.model.User;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

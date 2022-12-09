@@ -39,6 +39,9 @@ public class AppService {
     public ArrayList<Project> getAllProjectsRestrictedByTeam(Team team){
         return  projectDB.getAllProjectsRestrictedByTeam(team);
     }
+    public ArrayList<Project> getAllProjectsOrderedByName(){
+        return projectDB.getAllProjectsOrderedByName();
+    }
 
     //WORKORDER
 
@@ -74,7 +77,6 @@ public class AppService {
     public ArrayList<Workorder> getAllWorkordersRestrictedByTeam(Team team){
         return  workorderDB.getAllWorkordersRestrictedByTeam(team);
     }
-
 
     //USER
     public void addUser(User user) {

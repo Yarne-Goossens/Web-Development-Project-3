@@ -15,7 +15,7 @@ public class ProjectSearchProcessing extends RequestHandler {
             String projectName = request.getParameter("projectName");
             request.setAttribute("foundProject", service.getProjectWithName(projectName));
 
-            response.sendRedirect("projectSearchResult.jsp");
+            //response.sendRedirect("projectSearchResult.jsp");
             return "projectSearchResult.jsp";
 
     }

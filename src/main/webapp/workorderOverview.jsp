@@ -11,6 +11,7 @@
 <body>
 
 </header>
+<a id="search" href="Controller?command=WorkorderSearch">Search for a workorder</a>
 Order By: <a href="Controller?command=OrderByEmployee">Employee</a>
 <main>
     <table>
