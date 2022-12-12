@@ -24,6 +24,11 @@ public class UserOverviewTest {
 
     @Test
     public void test_Edit_AllFieldsFilledInCorrectly_UserIsEdited() {
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
         userRegisterPage.setFirstName("Jos");
         userRegisterPage.setLastName("Josser");
@@ -52,6 +57,11 @@ public class UserOverviewTest {
 
     @Test
     public void test_Edit_FirstNameNotFilledIn_ErrorMessageGivenForFirstNameAndOtherFieldsValueKept(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
         userRegisterPage.setFirstName("Nazrin");
         userRegisterPage.setLastName("Mouse");
@@ -89,6 +99,11 @@ public class UserOverviewTest {
 
     @Test
     public void test_Edit_LastNameNotFilledIn_ErrorMessageGivenForLastNameAndOtherFieldsValueKept(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
         userRegisterPage.setFirstName("Saul");
         userRegisterPage.setLastName("Goodman");
@@ -127,6 +142,11 @@ public class UserOverviewTest {
 
     @Test
     public void test_Edit_EmailNotFilledIn_ErrorMessageGivenForEmailAndOtherFieldsValueKept(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
         userRegisterPage.setFirstName("Cirno");
         userRegisterPage.setLastName("Nineball");
@@ -165,6 +185,11 @@ public class UserOverviewTest {
 
     @Test
     public void test_Delete_User_And_Confirm(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
         userRegisterPage.setFirstName("Astolfo");
         userRegisterPage.setLastName("Rider");
@@ -186,6 +211,11 @@ public class UserOverviewTest {
 
     @Test
     public void test_Delete_User_And_Cancel(){
+        IndexPage indexPage = PageFactory.initElements(driver, IndexPage.class);
+        indexPage.setEmail("director@ucll.be");
+        indexPage.setPassword("t");
+        indexPage.submit();
+
         UserRegisterPage userRegisterPage = PageFactory.initElements(driver, UserRegisterPage.class);
         userRegisterPage.setFirstName("Mutsuki");
         userRegisterPage.setLastName("California");

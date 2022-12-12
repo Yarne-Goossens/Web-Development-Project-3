@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class IndexPage extends Page {
     public IndexPage(WebDriver driver) {
         super(driver);
-        this.driver.get(Config.BASE_URL + "Web3_war_exploded/");
+        this.driver.get(Config.BASE_URL);
     }
 
     @FindBy(id = "email")

@@ -13,7 +13,7 @@ public class ProjectOverviewPage extends Page {
 
     public ProjectOverviewPage(WebDriver driver) {
         super(driver);
-        this.driver.get(Config.BASE_URL + "Web3_war_exploded/Controller?command=ProjectOverview");
+        this.driver.get(Config.BASE_URL + "Controller?command=ProjectOverview");
     }
 
     public boolean containsProject(String name) {

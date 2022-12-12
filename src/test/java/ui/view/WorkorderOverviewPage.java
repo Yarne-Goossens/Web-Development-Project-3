@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class WorkorderOverviewPage extends Page{
     public WorkorderOverviewPage(WebDriver driver) {
         super(driver);
-        this.driver.get(Config.BASE_URL + "Web3_war_exploded/Controller?command=WorkorderOverview");
+        this.driver.get(Config.BASE_URL + "Controller?command=WorkorderOverview");
     }
 
     public boolean containsWorkorder(String name) {

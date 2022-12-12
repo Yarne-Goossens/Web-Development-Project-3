@@ -12,7 +12,7 @@ public class UserOverviewPage extends Page {
 
     public UserOverviewPage(WebDriver driver) {
         super(driver);
-        this.driver.get(Config.BASE_URL + "Web3_war_exploded/Controller?command=UserOverview");
+        this.driver.get(Config.BASE_URL + "Controller?command=UserOverview");
     }
 
     public boolean containsUserWithSpecified(String name, String spec) {

@@ -10,7 +10,7 @@ public class ProjectRegisterPage extends Page {
 
     public ProjectRegisterPage(WebDriver driver) {
         super(driver);
-        this.driver.get(Config.BASE_URL + "Web3_war_exploded/Controller?command=ProjectRegister");
+        this.driver.get(Config.BASE_URL + "Controller?command=ProjectRegister");
     }
 
 

@@ -26,6 +26,8 @@ public class LoginProcessing extends RequestHandler {
             return "Controller?command=Home";
         } catch (DbException e) {
             errors.add(e.getMessage());
+        } catch (IllegalArgumentException e) {
+            errors.add(e.getMessage());
         }
         request.setAttribute("errors", errors);
         return "index.jsp";

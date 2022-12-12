@@ -32,7 +32,7 @@ public class UserRegisterPage extends Page {
 
     public UserRegisterPage(WebDriver driver) {
         super(driver);
-        this.driver.get(Config.BASE_URL + "Web3_war_exploded/Controller?command=UserRegister");
+        this.driver.get(Config.BASE_URL + "Controller?command=UserRegister");
     }
 
     public void setFirstName(String firstName) {

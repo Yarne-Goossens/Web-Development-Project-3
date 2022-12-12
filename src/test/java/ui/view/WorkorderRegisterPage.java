@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class WorkorderRegisterPage extends Page {
     public WorkorderRegisterPage(WebDriver driver) {
         super(driver);
-        this.driver.get(Config.BASE_URL + "Web3_war_exploded/Controller?command=WorkorderRegister");
+        this.driver.get(Config.BASE_URL + "Controller?command=WorkorderRegister");
     }
 
     public boolean containsWorkorderWithDescription(String description) {
