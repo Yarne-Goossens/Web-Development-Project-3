@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class WorkorderEditProcessing extends RequestHandler{
+public class WorkorderEditProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException, IOException {
         int id = Integer.parseInt(request.getParameter("workorderid"));
         Workorder editWorkorder = service.getWorkorderWithId(id);
         Workorder edit = new Workorder();
-        User loggedIn=Utility.getUserLoggedIn(request);
+        User loggedIn = Utility.getUserLoggedIn(request);
         ArrayList<String> errors = new ArrayList<String>();
 
         request.setAttribute("workorderid", id);
@@ -35,16 +35,16 @@ public class WorkorderEditProcessing extends RequestHandler{
             try {
                 Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER, Role.EMPLOYEE};
                 Utility.checkRole(request, roles);
-                service.updateWorkorder(id,edit);
+                service.updateWorkorder(id, edit);
 
-                if(Utility.checkRoleBoolean(request,Role.EMPLOYEE)){
-                    if(editWorkorder.getUserId()!=Utility.getUserLoggedIn(request).getUserid()){
+                if (Utility.checkRoleBoolean(request, Role.EMPLOYEE)) {
+                    if (editWorkorder.getUserId() != Utility.getUserLoggedIn(request).getUserid()) {
                         throw new NotAuthorizedException();
                     }
                 }
 
-                if(Utility.checkRoleBoolean(request,Role.TEAMLEADER)){
-                    if(editWorkorder.getTeam()!=Utility.getUserLoggedIn(request).getTeam()){
+                if (Utility.checkRoleBoolean(request, Role.TEAMLEADER)) {
+                    if (editWorkorder.getTeam() != Utility.getUserLoggedIn(request).getTeam()) {
                         throw new NotAuthorizedException();
                     }
                 }

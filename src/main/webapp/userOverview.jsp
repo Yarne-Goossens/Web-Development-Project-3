@@ -22,23 +22,28 @@
                     <th>Name</th>
                     <th>Team</th>
                     <th>Role</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <c:if test="${user.role=='EMPLOYEE'||user.role=='TEAMLEADER'||user.role=='DIRECTOR'}">
+                        <th>Edit</th>
+                    </c:if>
+                    <c:if test="${user.role=='DIRECTOR'}">
+                        <th>Delete</th>
+                    </c:if>
                 </tr>
 
-                <c:forEach var="user" items="${useroverview}">
+                <c:forEach var="userview" items="${useroverview}">
                     <tr>
-                        <td><c:out value='${user.userid}'/></td>
-                        <td><c:out value='${user.email}'/></td>
-                        <td><c:out value='${user.firstName}'/></td>
-                        <td><c:out value='${user.lastName}'/></td>
-                        <td><c:out value='${user.team}'/></td>
-                        <td><c:out value='${user.role}'/></td>
-                        <td><a id="edit" href="Controller?command=UserEditForm&userid=<c:out value='${user.userid}'/>">Edit</a></td>
-
-                        <td><a id="delete"
-                               href="Controller?command=UserDeleteConfirm&userid=<c:out value='${user.userid}'/>">Delete</a>
-                        </td>
+                        <td><c:out value='${userview.userid}'/></td>
+                        <td><c:out value='${userview.email}'/></td>
+                        <td><c:out value='${userview.firstName}'/></td>
+                        <td><c:out value='${userview.lastName}'/></td>
+                        <td><c:out value='${userview.team}'/></td>
+                        <td><c:out value='${userview.role}'/></td>
+                        <c:if test="${user.role=='EMPLOYEE'&&user.userid==userview.userid||user.role=='TEAMLEADER'&&user.team==userview.team||user.role=='DIRECTOR'}">
+                            <td><a id="edit" href="Controller?command=UserEditForm&userid=<c:out value='${userview.userid}'/>">Edit</a></td>
+                        </c:if>
+                        <c:if test="${user.role=='DIRECTOR'}">
+                            <td><a id="delete" href="Controller?command=UserDeleteConfirm&userid=<c:out value='${userview.userid}'/>">Delete</a></td>
+                        </c:if>
                     </tr>
                 </c:forEach>
 

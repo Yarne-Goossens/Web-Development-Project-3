@@ -32,10 +32,10 @@
                 <input type="date" id="date" name="date" required value="${tobeEdited.date}"></p>
 
             <p><label for="startTime">Starttime</label>
-                <input type="time" id="startTime" name="startTime" required value="${tobeEdited.startTime}"></p>
+                <input type="time" class="without_ampm" id="startTime" name="startTime" required ></p>
 
             <p><label for="endTime">Endtime</label>
-                <input type="time" id="endTime" name="endTime" required value="${tobeEdited.endTime}"></p>
+                <input type="time" class="without_ampm" id="endTime" name="endTime" required ></p>
 
             <label for="description">Description</label>
             <textarea id="description" name="description" required value="${tobeEdited.description}"></textarea>
