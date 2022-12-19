@@ -23,8 +23,12 @@ Order By: <a href="Controller?command=OrderByNameProject">Project name</a>
                     <th>Team</th>
                     <th>Start</th>
                     <th>End</th>
+                    <c:if test="${user.role=='TEAMLEADER'||user.role=='DIRECTOR'}">
                     <th>Edit</th>
+                    </c:if>
+                    <c:if test="${user.role=='DIRECTOR'}">
                     <th>Delete</th>
+                    </c:if>
                 </tr>
 
                 <c:forEach var="project" items="${projectoverview}">
@@ -34,8 +38,12 @@ Order By: <a href="Controller?command=OrderByNameProject">Project name</a>
                         <td><c:out value='${project.team}'/></td>
                         <td><c:out value='${project.start}'/></td>
                         <td><c:out value='${project.end}'/></td>
+                        <c:if test="${user.role=='TEAMLEADER'&&user.team==project.team||user.role=='DIRECTOR'}">
                         <td><a id="edit" href="Controller?command=ProjectEditForm&projectid=<c:out value='${project.projectId}'/>">Edit</a></td>
+                        </c:if>
+                        <c:if test="${user.role=='DIRECTOR'}">
                         <td><a id="delete" href="Controller?command=ProjectDeleteConfirm&projectid=<c:out value='${project.projectId}'/>">Delete</a></td>
+                        </c:if>
                     </tr>
                 </c:forEach>
 

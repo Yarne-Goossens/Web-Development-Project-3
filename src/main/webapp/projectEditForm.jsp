@@ -26,7 +26,9 @@
         </div>
 
 
-        <form name="formulier" method="POST" action="Controller?command=ProjectEditProcessing&projectid=<c:out value='${tobeEdited.projectId}'/>" novalidate>
+        <form name="formulier" method="POST"
+              action="Controller?command=ProjectEditProcessing&projectid=<c:out value='${tobeEdited.projectId}'/>"
+              novalidate>
 
             <p><label for="projectName">Project name</label>
                 <input type="text" id="projectName" name="projectName" required value="${tobeEdited.projectName}"></p>
@@ -37,15 +39,17 @@
             <p><label for="end">End date</label>
                 <input type="date" id="end" name="end" required value="${tobeEdited.end}"></p>
 
-            <label for="team">Team</label>
-            <select name="team" id="team">
-                <option value="${tobeEdited.team}">${tobeEdited.team}</option>
-                <option value="alpha">alpha</option>
-                <option value="beta">beta</option>
-                <option value="gamma">gamma</option>
-                <option value="delta">delta</option>
-                <option value="epsilon">epsilon</option>
-            </select>
+            <c:if test="${user.role=='DIRECTOR'}">
+                <label for="team">Team</label>
+                <select name="team" id="team">
+                    <option value="${tobeEdited.team}">${tobeEdited.team}</option>
+                    <option value="alpha">alpha</option>
+                    <option value="beta">beta</option>
+                    <option value="gamma">gamma</option>
+                    <option value="delta">delta</option>
+                    <option value="epsilon">epsilon</option>
+                </select>
+            </c:if>
 
             <p><input id="submit" type="submit" value="edit"></p>
 

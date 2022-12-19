@@ -38,25 +38,36 @@
             <p><label for="email">Email</label>
                 <input type="email" id="email" name="email" required value="${tobeEdited.email}"></p>
 
+            <c:if test="${user.role=='TEAMLEADER'&&user.userid!=tobeEdited.userid}">
+                <label for="role">Role</label>
+                <select name="role" id="role">
+                    <option value="${tobeEdited.role}">${tobeEdited.role}</option>
+                    <option value="employee">employee</option>
+                    <option value="teamleader">teamleader</option>
+                </select>
+            </c:if>
 
-            <label for="role">Role</label>
-            <select name="role" id="role">
-                <option value="${tobeEdited.role}">${tobeEdited.role}</option>
-                <option value="employee">employee</option>
-                <option value="teamleader">teamleader</option>
-                <option value="director">director</option>
-            </select>
+            <c:if test="${user.role=='DIRECTOR'&&user.userid!=tobeEdited.userid}">
+                <label for="role">Role</label>
+                <select name="role" id="role">
+                    <option value="${tobeEdited.role}">${tobeEdited.role}</option>
+                    <option value="employee">employee</option>
+                    <option value="teamleader">teamleader</option>
+                    <option value="director">director</option>
+                </select>
+            </c:if>
 
-
-            <label for="team">Team</label>
-            <select name="team" id="team">
-                <option value="${tobeEdited.team}">${tobeEdited.team}</option>
-                <option value="alpha">alpha</option>
-                <option value="beta">beta</option>
-                <option value="gamma">gamma</option>
-                <option value="delta">delta</option>
-                <option value="epsilon">epsilon</option>
-            </select>
+            <c:if test="${user.role=='DIRECTOR'}">
+                <label for="team">Team</label>
+                <select name="team" id="team">
+                    <option value="${tobeEdited.team}">${tobeEdited.team}</option>
+                    <option value="alpha">alpha</option>
+                    <option value="beta">beta</option>
+                    <option value="gamma">gamma</option>
+                    <option value="delta">delta</option>
+                    <option value="epsilon">epsilon</option>
+                </select>
+            </c:if>
 
             <p><input id="submit" type="submit" value="edit"></p>
 
