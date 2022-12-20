@@ -1,5 +1,5 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: sans-serif;
@@ -7,16 +7,34 @@
 
 html, body {
     max-width: 100%;
-    overflow: hidden;
 }
 
-body{
+body {
     background-color: whitesmoke;
 }
 
-#container{
+#container {
     position: relative;
     min-height: 100vh;
+}
+
+h2 p {
+    padding-top: 1em;
+}
+
+h2 {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
+
+#welcomeMessage{
+    text-align: center;
+    margin-bottom: 3em;
+}
+
+#functions{
+    margin: 1em;
 }
 
 /*---------NAV---------*/
@@ -29,7 +47,7 @@ body{
     display: block;
 }*/
 
-nav ul{
+nav ul {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -40,7 +58,7 @@ nav ul{
     background-color: #333;
 }
 
-nav li a{
+nav li a {
     padding: 14px 16px;
     text-align: center;
     color: white;
@@ -52,12 +70,11 @@ nav li a{
 }
 
 
-
 nav a {
     padding: 8px;
 }
 
-nav{
+nav {
     text-align: center;
 
 }
@@ -93,14 +110,13 @@ nav a:hover {
 }
 
 
-
 /*---------TABLE---------*/
 
 th, td {
-    padding:2px 2px 2px 2px;
+    padding: 2px 2px 2px 2px;
 }
 
-tr{
+tr {
     background-color: white;
 }
 
@@ -108,18 +124,18 @@ tr:nth-child(odd) {
     background: lightgray;
 }
 
-th{
+th {
     background-color: darkgreen;
     color: white;
     border: none;
 }
 
-#error{
-    border:red  2px solid;
-    padding:10px;
+#error {
+    border: red 2px solid;
+    padding: 10px;
 }
 
-#error ul{
+#error ul {
     list-style: none;
 }
 
@@ -132,6 +148,46 @@ table {
     margin-right: auto;
 }
 
+@media only screen and (max-width: 800px) {
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid #ccc;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+    }
+
+    td:before {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    table{
+        margin-bottom: 1em;
+    }
+
+    footer {
+        position: relative !important;
+    }
+}
+
 
 footer {
     position: absolute;
@@ -140,6 +196,8 @@ footer {
     height: 2.5rem;
     background-color: #333;
     color: white;
+    padding: .3em 0;
+    padding-left: .5em;
 }
 
 .without_ampm::-webkit-datetime-edit-ampm-field {
@@ -150,7 +208,46 @@ input[type=time]::-webkit-clear-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     -o-appearance: none;
-    -ms-appearance:none;
+    -ms-appearance: none;
     appearance: none;
     margin: -10px;
+}
+
+/*---------FORM---------*/
+
+form {
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    align-items: center;
+    max-width: 50rem;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid black;
+}
+
+form p, label {
+    text-align: left;
+}
+
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid black;
+}
+
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid black;
 }

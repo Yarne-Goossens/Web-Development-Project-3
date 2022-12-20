@@ -11,8 +11,10 @@
 <body>
 
 </header>
-<a id="search" href="Controller?command=WorkorderSearch">Search for a workorder</a>
-Order By: <a href="Controller?command=OrderByEmployee">Employee</a>
+<div id="functions">
+    <a id="search" href="Controller?command=WorkorderSearch">Search for a workorder</a>
+    Order By: <a href="Controller?command=OrderByEmployee">Employee</a>
+</div>
 <main>
     <table>
         <c:choose>
@@ -45,10 +47,14 @@ Order By: <a href="Controller?command=OrderByEmployee">Employee</a>
                         <td><c:out value='${work.endTime}'/></td>
                         <td><c:out value='${work.getDuration()}'/></td>
                         <c:if test="${user.role=='EMPLOYEE'&&user.userid==work.userId||user.role=='TEAMLEADER'&&user.team==work.team||user.role=='DIRECTOR'}">
-                            <td><a id="edit" href="Controller?command=WorkorderEditForm&workorderid=<c:out value='${work.workorderId}'/>">Edit</a></td>
+                            <td><a id="edit"
+                                   href="Controller?command=WorkorderEditForm&workorderid=<c:out value='${work.workorderId}'/>">Edit</a>
+                            </td>
                         </c:if>
                         <c:if test="${user.role=='DIRECTOR'}">
-                            <td><a id="delete" href="Controller?command=WorkorderDeleteConfirm&workorderid=<c:out value='${work.workorderId}'/>">Delete</a></td>
+                            <td><a id="delete"
+                                   href="Controller?command=WorkorderDeleteConfirm&workorderid=<c:out value='${work.workorderId}'/>">Delete</a>
+                            </td>
                         </c:if>
                     </tr>
                 </c:forEach>

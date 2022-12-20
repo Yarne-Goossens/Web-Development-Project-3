@@ -37,7 +37,7 @@
         </c:when>
 
         <c:otherwise>
-            <p>Welcome, ${user.firstName}!</p>
+            <p id="welcomeMessage">Welcome, ${user.firstName}!</p>
             <form name="logout" method="POST" action="Controller?command=LogoutProcessing" novalidate>
                 <input id="submitLogout" type="submit" name="command" value="logout">
             </form>
