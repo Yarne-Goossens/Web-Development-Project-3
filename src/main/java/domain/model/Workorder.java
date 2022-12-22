@@ -1,37 +1,31 @@
 package domain.model;
 
-import net.bytebuddy.asm.Advice;
-
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Date;
 import java.sql.Time;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.temporal.Temporal;
 import java.util.ArrayList;
-import java.time.Duration;
-import java.time.Instant;
-public class Workorder {
-    private int workorderId,userId;
 
-    private String description,employee;
+public class Workorder {
+    private int workorderId, userId;
+
+    private String description, employee;
     private Team team;
     private Date date;
 
-    private Time startTime,endTime;
+    private Time startTime, endTime;
 
     public Workorder() {
     }
 
-    public Workorder(int workorderId, String employee, String description, Date date, Time startTime, Time endTime,int userId,Team team) {
+    public Workorder(int workorderId, String employee, String description, Date date, Time startTime, Time endTime, int userId, Team team) {
         this.workorderId = workorderId;
         this.employee = employee;
         this.description = description;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.userId=userId;
-        this.team=team;
+        this.userId = userId;
+        this.team = team;
     }
 
 
@@ -41,7 +35,7 @@ public class Workorder {
     }
 
     public void setEmployee(String employee) {
-        if (employee==null) {
+        if (employee == null) {
             throw new IllegalArgumentException("No employee given");
         }
         this.employee = employee;
@@ -76,12 +70,12 @@ public class Workorder {
     }
 
     public void setStartTime(Time startTime) {
-        this.startTime=startTime;
+        this.startTime = startTime;
     }
 
     public void setEndTime(Time endTime) {
 
-        this.endTime=endTime;
+        this.endTime = endTime;
     }
 
     public void setUserId(int userId) {
@@ -123,14 +117,14 @@ public class Workorder {
     }
 
     public Time getDuration() {
-        Long duration=endTime.getTime()-startTime.getTime();
-        return new Time(duration-3600000);
+        Long duration = endTime.getTime() - startTime.getTime();
+        return new Time(duration - 3600000);
     }
 
     //Setter gebruikt in Processing class Register
     public void setEmployeeRequest(HttpServletRequest request, ArrayList<String> errors) {
-        User user=(User) request.getSession().getAttribute("user");
-        String name=user.getFirstName();
+        User user = (User) request.getSession().getAttribute("user");
+        String name = user.getFirstName();
         boolean employeeHasErrors = false;
         try {
             request.setAttribute("employeePreviousValue", name);
@@ -187,16 +181,15 @@ public class Workorder {
 
     public void setStartTimeRequest(HttpServletRequest request, ArrayList<String> errors) {
         String start = request.getParameter("startTime");
-        start+=":00";
+        start += ":00";
         boolean startHasErrors = false;
         try {
             request.setAttribute("startPreviousValue", start);
             this.setStartTime(Time.valueOf(start));
         } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
-            startHasErrors = true;}
-
-        finally {
+            startHasErrors = true;
+        } finally {
             request.setAttribute("startHasErrors", startHasErrors);
         }
     }
@@ -204,23 +197,21 @@ public class Workorder {
     public void setEndTimeRequest(HttpServletRequest request, ArrayList<String> errors) {
         String endTime = request.getParameter("endTime");
         boolean endHasErrors = false;
-        endTime+=":00";
+        endTime += ":00";
         try {
             request.setAttribute("endPreviousValue", endTime);
             this.setEndTime(Time.valueOf(endTime));
         } catch (IllegalArgumentException exc) {
             errors.add(exc.getMessage());
             endHasErrors = true;
-        }
-
-        finally {
+        } finally {
             request.setAttribute("endHasErrors", endHasErrors);
         }
     }
 
     public void setUserIdRequest(HttpServletRequest request, ArrayList<String> errors) {
-        User user=(User) request.getSession().getAttribute("user");
-        int userId=user.getUserid();
+        User user = (User) request.getSession().getAttribute("user");
+        int userId = user.getUserid();
         boolean userIdHasErrors = false;
         try {
             request.setAttribute("userIdPreviousValue", userId);
@@ -234,8 +225,8 @@ public class Workorder {
     }
 
     public void setTeamRequest(HttpServletRequest request, ArrayList<String> errors) {
-        User user=(User) request.getSession().getAttribute("user");
-        Team team=user.getTeam();
+        User user = (User) request.getSession().getAttribute("user");
+        Team team = user.getTeam();
         boolean teamHasErrors = false;
         try {
             request.setAttribute("teamPreviousValue", team);

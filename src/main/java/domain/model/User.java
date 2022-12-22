@@ -3,6 +3,7 @@ package domain.model;
 import javax.servlet.http.HttpServletRequest;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class User {
         if (password.isEmpty()) {
             throw new IllegalArgumentException("No password given");
         }
-        return this.getPassword().compareTo(hashPassword(password))==0;
+        return this.getPassword().compareTo(hashPassword(password)) == 0;
     }
 
     public String hashPassword(String password) {
@@ -43,7 +44,7 @@ public class User {
             //reset
             crypt.reset();
             //update
-            byte[] passwordBytes = password.getBytes("UTF-8");
+            byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8);
             crypt.update(passwordBytes);
             //digest
             byte[] digest = crypt.digest();
@@ -51,11 +52,7 @@ public class User {
             BigInteger digestAsBigInteger = new BigInteger(1, digest);
             //return hashed password
             return digestAsBigInteger.toString(16);
-        }
-        catch (NoSuchAlgorithmException e){
-            throw new IllegalArgumentException(e);
-        }
-        catch (UnsupportedEncodingException e){
+        } catch (NoSuchAlgorithmException e) {
             throw new IllegalArgumentException(e);
         }
     }
@@ -116,11 +113,11 @@ public class User {
         this.email = email;
     }
 
-    public void setPassword(String password){
+    public void setPassword(String password) {
         if (password.isEmpty()) {
             throw new IllegalArgumentException("No password given");
         }
-        this.password=password;
+        this.password = password;
     }
 
     public void setFirstName(String firstName) {
@@ -220,12 +217,13 @@ public class User {
         }
     }
 
-    public void setPasswordHash(String password){
+    public void setPasswordHash(String password) {
         if (password.isEmpty()) {
             throw new IllegalArgumentException("No password given");
         }
-        this.password=hashPassword(password);
+        this.password = hashPassword(password);
     }
+
     //Wordt gecalled in processing classes.
     public void setPasswordRequest(HttpServletRequest request, ArrayList<String> errors) {
         String name = request.getParameter("password");

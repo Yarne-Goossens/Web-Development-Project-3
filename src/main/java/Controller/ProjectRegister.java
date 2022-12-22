@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ProjectRegister extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException {
 
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
-            Utility.checkRole(request, roles);
-            return "projectRegister.jsp";
+        Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
+        Utility.checkRole(request, roles);
+        return "projectRegister.jsp";
 
     }
 }

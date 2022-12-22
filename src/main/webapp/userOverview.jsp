@@ -39,10 +39,14 @@
                         <td><c:out value='${userview.team}'/></td>
                         <td><c:out value='${userview.role}'/></td>
                         <c:if test="${user.role=='EMPLOYEE'&&user.userid==userview.userid||user.role=='TEAMLEADER'&&user.team==userview.team||user.role=='DIRECTOR'}">
-                            <td><a id="edit" href="Controller?command=UserEditForm&userid=<c:out value='${userview.userid}'/>">Edit</a></td>
+                            <td><a id="edit"
+                                   href="Controller?command=UserEditForm&userid=<c:out value='${userview.userid}'/>">Edit</a>
+                            </td>
                         </c:if>
                         <c:if test="${user.role=='DIRECTOR'}">
-                            <td><a id="delete" href="Controller?command=UserDeleteConfirm&userid=<c:out value='${userview.userid}'/>">Delete</a></td>
+                            <td><a id="delete"
+                                   href="Controller?command=UserDeleteConfirm&userid=<c:out value='${userview.userid}'/>">Delete</a>
+                            </td>
                         </c:if>
                     </tr>
                 </c:forEach>

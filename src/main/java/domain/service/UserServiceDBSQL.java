@@ -3,11 +3,12 @@ package domain.service;
 import domain.model.Role;
 import domain.model.Team;
 import domain.model.User;
-import domain.service.DbException;
-import domain.service.UserService;
 import util.DbConnectionService;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class UserServiceDBSQL implements UserService {
@@ -92,8 +93,8 @@ public class UserServiceDBSQL implements UserService {
     @Override
     public User checkRealUserAndPassword(String email, String password) {
         for (User u : this.getAllUsers()) {
-            if (u.getEmail().compareTo(email)==0){
-                if(u.isCorrectPassword(password)){
+            if (u.getEmail().compareTo(email) == 0) {
+                if (u.isCorrectPassword(password)) {
                     return u;
                 }
             }

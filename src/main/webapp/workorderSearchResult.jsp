@@ -10,7 +10,7 @@
 
 <c:choose>
     <c:when test="${not empty foundWorkorder}">
-        <ul>
+        <ul id="resList">
             <li>Name: ${foundWorkorder.workorderId}</li>
             <li>Userid: ${foundWorkorder.userId}</li>
             <li>Team: ${foundWorkorder.team}</li>
@@ -22,8 +22,8 @@
         </ul>
     </c:when>
     <c:otherwise>
-        <p>We couldn't find that project </p>
-        <p><a href="Controller?command=WorkorderSearch">Go back to the search form.</a></p>
+        <p id="resList">We couldn't find that project </p>
+        <p id="resList"><a href="Controller?command=WorkorderSearch">Go back to the search form.</a></p>
     </c:otherwise>
 </c:choose>
 </body>

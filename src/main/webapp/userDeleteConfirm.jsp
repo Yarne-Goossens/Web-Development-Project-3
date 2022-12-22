@@ -10,7 +10,8 @@
 <body>
 <p>Wilt u de persoon ${tobeDeleted.firstName} ${tobeDeleted.lastName} met userid: ${tobeDeleted.userid} verwijderen?</p>
 <br>
-<form name="formulierJa" method="POST" action="Controller?command=UserDeleteProcessing&userid=<c:out value='${tobeDeleted.userid}'/>"
+<form name="formulierJa" method="POST"
+      action="Controller?command=UserDeleteProcessing&userid=<c:out value='${tobeDeleted.userid}'/>"
       novalidate>
     <p><input id="submitJa" type="submit" value="Ja"></p>
 </form>

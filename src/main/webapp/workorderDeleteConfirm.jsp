@@ -8,7 +8,8 @@
     Confirm deletion
 </h2>
 <body>
-<p>Wilt u de workorder van ${tobeDeleted.employee} uit het ${tobeDeleted.team} team met workorderid: ${tobeDeleted.workorderId}
+<p>Wilt u de workorder van ${tobeDeleted.employee} uit het ${tobeDeleted.team} team met
+    workorderid: ${tobeDeleted.workorderId}
     verwijderen?</p>
 <br>
 <form name="formulierJa" method="POST"

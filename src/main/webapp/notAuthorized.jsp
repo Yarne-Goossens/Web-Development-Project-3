@@ -7,6 +7,6 @@
 <jsp:include page="headPlusLoginStatus.jsp"/>
 
 <body>
-  <p>YOU ARE NOT AUTHORIZED REPORTED</p>
+<p>YOU ARE NOT AUTHORIZED REPORTED</p>
 </body>
 </html>

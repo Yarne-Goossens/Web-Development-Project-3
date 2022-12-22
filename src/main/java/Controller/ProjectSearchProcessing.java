@@ -10,13 +10,13 @@ public class ProjectSearchProcessing extends RequestHandler {
     @Override
     public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException, IOException {
 
-            Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
-            Utility.checkRole(request, roles);
-            String projectName = request.getParameter("projectName");
-            request.setAttribute("foundProject", service.getProjectWithName(projectName));
+        Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
+        Utility.checkRole(request, roles);
+        String projectName = request.getParameter("projectName");
+        request.setAttribute("foundProject", service.getProjectWithName(projectName));
 
-            //response.sendRedirect("projectSearchResult.jsp");
-            return "projectSearchResult.jsp";
+        //response.sendRedirect("projectSearchResult.jsp");
+        return "projectSearchResult.jsp";
 
     }
 }

@@ -13,7 +13,7 @@
     Register Workorder
 </h2>
 <c:choose>
-    <c:when test="${user!=null}">
+<c:when test="${user!=null}">
 
 <main>
     <div>
@@ -36,10 +36,12 @@
                 <input type="date" id="date" name="date" required value="${datePreviousValue}"></p>
 
             <p><label for="startTime">Starttime</label>
-                <input type="time" class="without_ampm" id="startTime" name="startTime"   required value="${startPreviousValue}"></p>
+                <input type="time" class="without_ampm" id="startTime" name="startTime" required
+                       value="${startPreviousValue}"></p>
 
             <p><label for="endTime">Endtime</label>
-                <input type="time" class="without_ampm" id="endTime" name="endTime"   required value="${endPreviousValue}"></p>
+                <input type="time" class="without_ampm" id="endTime" name="endTime" required
+                       value="${endPreviousValue}"></p>
 
             <label for="description">Description</label>
             <textarea id="description" name="description" required value="${employeePreviousValue}"></textarea>
@@ -47,11 +49,11 @@
             <p><input id="submit" type="submit" value="Registreer"></p>
 
         </form>
-            </c:when>
-            <c:otherwise>
-            <p>You can't add a workorder if you are not logged in. <a href="index.jsp">login here</a></p>
-            </c:otherwise>
-            </c:choose>
+        </c:when>
+        <c:otherwise>
+        <p>You can't add a workorder if you are not logged in. <a href="index.jsp">login here</a></p>
+        </c:otherwise>
+        </c:choose>
 </main>
 <footer> &copy; Webontwikkeling 3, UC Leuven-Limburg</footer>
 </body>

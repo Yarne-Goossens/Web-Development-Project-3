@@ -13,7 +13,7 @@ public class WorkorderSearchProcessing extends RequestHandler {
         Role[] roles = {Role.DIRECTOR, Role.TEAMLEADER};
         Utility.checkRole(request, roles);
 
-        int id=Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("id"));
         request.setAttribute("foundWorkorder", service.getWorkorderWithId(id));
 
         //response.sendRedirect("workorderSearchResult.jsp");

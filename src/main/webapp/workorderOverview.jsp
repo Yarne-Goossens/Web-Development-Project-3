@@ -12,8 +12,8 @@
 
 </header>
 <div id="functions">
-    <a id="search" href="Controller?command=WorkorderSearch">Search for a workorder</a>
-    Order By: <a href="Controller?command=OrderByEmployee">Employee</a>
+    <p><a id="search" href="Controller?command=WorkorderSearch">Search for a workorder</a></p>
+    <p> Order By: <a href="Controller?command=OrderByEmployee">Employee</a></p>
 </div>
 <main>
     <table>

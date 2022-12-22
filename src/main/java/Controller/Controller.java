@@ -13,8 +13,8 @@ import java.io.IOException;
 @WebServlet("/Controller")
 public class Controller extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private HandlerFactory handlerFactory = new HandlerFactory();
-    private AppService service = new AppService();
+    private final HandlerFactory handlerFactory = new HandlerFactory();
+    private final AppService service = new AppService();
 
     public Controller() {
         super();
@@ -33,7 +33,7 @@ public class Controller extends HttpServlet {
         String action = request.getParameter("command");
         if (action == null || action.isEmpty())
             action = "Home";
-        RequestHandler handler = handlerFactory.getHandler(action,service);
+        RequestHandler handler = handlerFactory.getHandler(action, service);
 
         try {
             destination = handler.handleRequest(request, response);

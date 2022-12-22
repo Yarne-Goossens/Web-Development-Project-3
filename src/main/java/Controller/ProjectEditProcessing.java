@@ -7,12 +7,11 @@ import domain.service.DbException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.time.DateTimeException;
 import java.util.ArrayList;
 
 public class ProjectEditProcessing extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException, IOException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException, IOException {
 
         int id = Integer.parseInt(request.getParameter("projectid"));
         Project editProject = service.getProjectWithId(id);

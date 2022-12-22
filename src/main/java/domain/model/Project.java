@@ -8,15 +8,16 @@ public class Project {
     private int projectId;
     private String projectName;
     private Team team;
-    private Date start,end;
+    private Date start, end;
 
-    public Project(){}
+    public Project() {
+    }
 
-    public Project(int projectId, String projectName,String team, Date start, Date end) {
+    public Project(int projectId, String projectName, String team, Date start, Date end) {
         this.projectName = projectName;
         this.start = start;
         setTeam(team);
-        this.projectId=projectId;
+        this.projectId = projectId;
         this.end = end;
     }
 
@@ -32,6 +33,7 @@ public class Project {
         }
         this.projectName = projectName;
     }
+
     public void setTeam(String team) {
         try {
             this.team = Team.valueOf(team.toUpperCase());
@@ -39,13 +41,14 @@ public class Project {
             throw new DomainException("There is no team with value " + team);
         }
     }
+
     public void setTeam(Team team) {
         this.team = team;
     }
 
     public void setStart(Date start) {
 
-        if(start==null||start.equals("")) {
+        if (start == null || start.equals("")) {
             throw new IllegalArgumentException("The start date you entered is not correct.");
         }
         this.start = start;
@@ -53,7 +56,7 @@ public class Project {
     }
 
     public void setEnd(Date end) {
-        if(end==null){
+        if (end == null) {
             throw new IllegalArgumentException("The start date you entered is not correct.");
         }
         this.end = end;

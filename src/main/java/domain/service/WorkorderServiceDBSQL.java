@@ -7,15 +7,16 @@ import util.DbConnectionService;
 import java.sql.*;
 import java.util.ArrayList;
 
-public class WorkorderServiceDBSQL implements WorkorderService{
+public class WorkorderServiceDBSQL implements WorkorderService {
     private final Connection connection;
     private final String schema;
+
     public WorkorderServiceDBSQL() {
         this.connection = DbConnectionService.getDbConnection();
         this.schema = DbConnectionService.getSchema();
     }
 
-    public void addWorkorder(Workorder workorder){
+    public void addWorkorder(Workorder workorder) {
         String query = String.format
                 ("insert into groep214.workorder (employee,description,date,starttime,endtime,userid,team) values (?,?,CAST(? AS date),CAST(? AS time),CAST(? AS time),?,?)", schema);
         try {
@@ -29,7 +30,7 @@ public class WorkorderServiceDBSQL implements WorkorderService{
             preparedStatement.setInt(6, workorder.getUserId());
             preparedStatement.setString(7, workorder.getTeam().getStringValue().toLowerCase());
 
-            if(workorder.getStartTime().after(workorder.getEndTime())){
+            if (workorder.getStartTime().after(workorder.getEndTime())) {
                 throw new DbException("starttime should be before the endtime.");
             }
             preparedStatement.execute();
@@ -39,7 +40,7 @@ public class WorkorderServiceDBSQL implements WorkorderService{
         }
     }
 
-    public void deleteWorkorder(int id){
+    public void deleteWorkorder(int id) {
         String query = String.format
                 ("delete from groep214.workorder where id=?", schema);
         try {
@@ -51,7 +52,7 @@ public class WorkorderServiceDBSQL implements WorkorderService{
         }
     }
 
-    public void updateWorkorder(int id,Workorder workorder){
+    public void updateWorkorder(int id, Workorder workorder) {
         String query = String.format
                 ("update groep214.workorder set employee=?,description=?,date=CAST(? AS date),starttime=CAST(? AS time),endtime=CAST(? AS time),userid=?,team=? where id=?", schema);
 
@@ -98,7 +99,7 @@ public class WorkorderServiceDBSQL implements WorkorderService{
                 int userid = result.getInt("userid");
                 Team team = Team.valueOf(result.getString("team").toUpperCase());
 
-                workorders.add(new Workorder(id,employee,description,date,starttime,endtime,userid,team));
+                workorders.add(new Workorder(id, employee, description, date, starttime, endtime, userid, team));
             }
         } catch (SQLException e) {
             throw new DbException(e.getMessage());
@@ -106,29 +107,29 @@ public class WorkorderServiceDBSQL implements WorkorderService{
         return workorders;
     }
 
-    public ArrayList<Workorder> getAllWorkorders(){
+    public ArrayList<Workorder> getAllWorkorders() {
 
         String sql = String.format("SELECT * from groep214.workorder", schema);
 
         return getAllWorkordersTemplate(sql);
     }
 
-    public ArrayList<Workorder> getAllWorkordersOrderedByEmployee(){
+    public ArrayList<Workorder> getAllWorkordersOrderedByEmployee() {
 
         String sql = String.format("SELECT * from groep214.workorder order by employee", schema);
 
         return getAllWorkordersTemplate(sql);
     }
 
-    public ArrayList<Workorder> getAllWorkordersRestrictedByUserId(int userId){
+    public ArrayList<Workorder> getAllWorkordersRestrictedByUserId(int userId) {
 
-        String sql = String.format("SELECT * from groep214.workorder where userid="+userId , schema);
+        String sql = String.format("SELECT * from groep214.workorder where userid=" + userId, schema);
         return getAllWorkordersTemplate(sql);
     }
 
-    public ArrayList<Workorder> getAllWorkordersRestrictedByTeam(Team team){
-        String sql="";
-        sql = String.format("SELECT * from groep214.workorder where team="+"'"+team.getStringValue().toLowerCase()+"'" , schema);
+    public ArrayList<Workorder> getAllWorkordersRestrictedByTeam(Team team) {
+        String sql = "";
+        sql = String.format("SELECT * from groep214.workorder where team=" + "'" + team.getStringValue().toLowerCase() + "'", schema);
         return getAllWorkordersTemplate(sql);
     }
 

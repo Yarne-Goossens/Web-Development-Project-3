@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class WorkorderRegisterProcessing extends RequestHandler {
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException {
         ArrayList<String> errors = new ArrayList<String>();
 
         Workorder workorder = new Workorder();
@@ -21,7 +21,7 @@ public class WorkorderRegisterProcessing extends RequestHandler {
         workorder.setWorkorderDateRequest(request, errors);
         workorder.setStartTimeRequest(request, errors);
         workorder.setEndTimeRequest(request, errors);
-        workorder.setUserIdRequest(request,errors);
+        workorder.setUserIdRequest(request, errors);
 
         if (request.getParameter("date").isEmpty()) {
             errors.add("Work order date is empty.");
@@ -43,7 +43,6 @@ public class WorkorderRegisterProcessing extends RequestHandler {
                 return "Controller?command=WorkorderOverview";
             } catch (DbException | IOException d) {
                 errors.add(d.getMessage());
-
             }
         }
 

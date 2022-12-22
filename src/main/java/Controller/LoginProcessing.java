@@ -1,6 +1,5 @@
 package Controller;
 
-import Controller.RequestHandler;
 import domain.model.User;
 import domain.service.DbException;
 
@@ -11,7 +10,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class LoginProcessing extends RequestHandler {
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws IOException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ArrayList<String> errors = new ArrayList<String>();
         try {
             String email = request.getParameter("email");

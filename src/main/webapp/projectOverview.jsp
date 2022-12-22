@@ -12,8 +12,8 @@
 
 </header>
 <div id="functions">
-    <a id="search" href="Controller?command=ProjectSearch">Search for a project</a>
-    Order By: <a href="Controller?command=OrderByNameProject">Project name</a>
+    <p><a id="search" href="Controller?command=ProjectSearch">Search for a project</a></p>
+    <p> Order By: <a href="Controller?command=OrderByNameProject">Project name</a></p>
 </div>
 <main>
     <table>

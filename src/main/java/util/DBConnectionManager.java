@@ -61,12 +61,12 @@ public class DBConnectionManager {
         try {
             System.out.print("connecting to database ...");
             Class.forName("org.postgresql.Driver");
-            System.out.println("url:"+url);
+            System.out.println("url:" + url);
             connection = DriverManager.getConnection(url, properties);
             System.out.println("done");
 
         } catch (ClassNotFoundException | SQLException e) {
-            System.out.print("connection troubles: \n"+e.getMessage()+"\n");
+            System.out.print("connection troubles: \n" + e.getMessage() + "\n");
             throw new ConnectionException(e);
         }
 

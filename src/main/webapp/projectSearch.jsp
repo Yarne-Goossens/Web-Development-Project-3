@@ -7,34 +7,33 @@
 <jsp:include page="headPlusLoginStatus.jsp"/>
 
 <h2>
-  Search for project
+    Search for project
 </h2>
-
 
 </header>
 <main>
-  <div>
-    <c:if test="${not empty errors}">
-    <div id="error" class="alert alert-danger">
-      <ul>
-        <c:forEach items="${errors}" var="error">
-          <li>${error}</li>
-        </c:forEach>
-      </ul>
-      </c:if>
-    </div>
+    <div>
+        <c:if test="${not empty errors}">
+        <div id="error" class="alert alert-danger">
+            <ul>
+                <c:forEach items="${errors}" var="error">
+                    <li>${error}</li>
+                </c:forEach>
+            </ul>
+            </c:if>
+        </div>
 
 
-    <form name="formulier" method="POST" action="Controller?command=ProjectSearchProcessing"
-          novalidate>
+        <form name="formulier" method="POST" action="Controller?command=ProjectSearchProcessing"
+              novalidate>
 
-      <p><label for="projectName">Project Name</label>
-        <input type="text" id="projectName" name="projectName" required></p>
+            <p><label for="projectName">Project Name</label>
+                <input type="text" id="projectName" name="projectName" required></p>
 
 
-      <p><input id="submit" type="submit" value="Search"></p>
+            <p><input id="submit" type="submit" value="Search"></p>
 
-    </form>
+        </form>
 </main>
 </div>
 <footer> &copy; Webontwikkeling 3, UC Leuven-Limburg</footer>

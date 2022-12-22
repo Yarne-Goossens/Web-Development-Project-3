@@ -5,39 +5,68 @@
         <c:choose>
             <c:when test="${not empty url}">
                 <c:if test="${user.role=='DIRECTOR'||user.role=='TEAMLEADER' }">
-                    <li><a href="Controller?command=Home" ${url.contains("command=Home")?"class='active'":""}>Home</a></li>
-                    <li><a href="Controller?command=UserOverview" ${url.contains("command=UserOverview")?"class='active'":""}>User Overview</a></li>
-                    <li><a href="Controller?command=UserRegister" ${url.contains("command=UserRegister")?"class='active'":""}>Register User</a></li>
-                    <li><a href="Controller?command=ProjectOverview" ${url.contains("command=ProjectOverview")?"class='active'":""}>Project Overview</a></li>
-                    <li><a href="Controller?command=ProjectRegister" ${url.contains("command=ProjectRegister")?"class='active'":""}>Project Register</a></li>
-                    <li><a href="Controller?command=WorkorderOverview" ${url.contains("command=WorkorderOverview")?"class='active'":""}>Workorder Overview</a></li>
-                    <li><a href="Controller?command=WorkorderRegister" ${url.contains("command=WorkorderRegister")?"class='active'":""}>Workorder Register</a></li>
+                    <li><a href="Controller?command=Home" ${url.contains("command=Home")?"class='active'":""}>Home</a>
+                    </li>
+                    <li>
+                        <a href="Controller?command=UserOverview" ${url.contains("command=UserOverview")?"class='active'":""}>User
+                            Overview</a></li>
+                    <li>
+                        <a href="Controller?command=UserRegister" ${url.contains("command=UserRegister")?"class='active'":""}>Register
+                            User</a></li>
+                    <li>
+                        <a href="Controller?command=ProjectOverview" ${url.contains("command=ProjectOverview")?"class='active'":""}>Project
+                            Overview</a></li>
+                    <li>
+                        <a href="Controller?command=ProjectRegister" ${url.contains("command=ProjectRegister")?"class='active'":""}>Project
+                            Register</a></li>
+                    <li>
+                        <a href="Controller?command=WorkorderOverview" ${url.contains("command=WorkorderOverview")?"class='active'":""}>Workorder
+                            Overview</a></li>
+                    <li>
+                        <a href="Controller?command=WorkorderRegister" ${url.contains("command=WorkorderRegister")?"class='active'":""}>Workorder
+                            Register</a></li>
                 </c:if>
                 <c:if test="${user.role=='EMPLOYEE' }">
-                    <li><a href="Controller?command=Home" ${url.contains("command=Home")?"class='active'":""}>Home</a></li>
-                    <li><a href="Controller?command=UserOverview" ${url.contains("command=UserOverview")?"class='active'":""}>User Overview</a></li>
-                    <li><a href="Controller?command=UserRegister" ${url.contains("command=UserRegister")?"class='active'":""}>Register User</a></li>
-                    <li><a href="Controller?command=ProjectOverview" ${url.contains("command=ProjectOverview")?"class='active'":""}>Project Overview</a></li>
-                    <li><a href="Controller?command=WorkorderOverview" ${url.contains("command=WorkorderOverview")?"class='active'":""}>Workorder Overview</a></li>
-                    <li><a href="Controller?command=WorkorderRegister" ${url.contains("command=WorkorderRegister")?"class='active'":""}>Workorder Register</a></li
+                    <li><a href="Controller?command=Home" ${url.contains("command=Home")?"class='active'":""}>Home</a>
+                    </li>
+                    <li>
+                        <a href="Controller?command=UserOverview" ${url.contains("command=UserOverview")?"class='active'":""}>User
+                            Overview</a></li>
+                    <li>
+                        <a href="Controller?command=UserRegister" ${url.contains("command=UserRegister")?"class='active'":""}>Register
+                            User</a></li>
+                    <li>
+                        <a href="Controller?command=ProjectOverview" ${url.contains("command=ProjectOverview")?"class='active'":""}>Project
+                            Overview</a></li>
+                    <li>
+                        <a href="Controller?command=WorkorderOverview" ${url.contains("command=WorkorderOverview")?"class='active'":""}>Workorder
+                            Overview</a></li>
+                    <li>
+                        <a href="Controller?command=WorkorderRegister" ${url.contains("command=WorkorderRegister")?"class='active'":""}>Workorder
+                            Register</a></li
                 </c:if>
-            <c:if test="${empty user.role}">
-                <li><a href="Controller?command=Home" ${url.contains("command=Home")?"class='active'":""}>Home</a></li>
-                <li><a href="Controller?command=UserOverview" ${url.contains("command=UserOverview")?"class='active'":""}>User Overview</a></li>
-                <li><a href="Controller?command=UserRegister" ${url.contains("command=UserRegister")?"class='active'":""}>Register User</a></li>
-            </c:if>
+                <c:if test="${empty user.role}">
+                    <li><a href="Controller?command=Home" ${url.contains("command=Home")?"class='active'":""}>Home</a>
+                    </li>
+                    <li>
+                        <a href="Controller?command=UserOverview" ${url.contains("command=UserOverview")?"class='active'":""}>User
+                            Overview</a></li>
+                    <li>
+                        <a href="Controller?command=UserRegister" ${url.contains("command=UserRegister")?"class='active'":""}>Register
+                            User</a></li>
+                </c:if>
 
             </c:when>
 
             <c:otherwise>
                 <c:if test="${user.role=='DIRECTOR'||user.role=='TEAMLEADER' }">
-                <li><a href="index.jsp" class="active">Home</a></li>
-                <li><a href="Controller?command=UserOverview">User Overview</a></li>
-                <li><a href="Controller?command=UserRegister">Register User</a></li>
-                <li><a href="Controller?command=ProjectOverview">Project Overview</a></li>
-                <li><a href="Controller?command=ProjectRegister">Project Register</a></li>
-                <li><a href="Controller?command=WorkorderOverview">Workorder Overview</a></li>
-                <li><a href="Controller?command=WorkorderRegister">Workorder Register</a></li>
+                    <li><a href="index.jsp" class="active">Home</a></li>
+                    <li><a href="Controller?command=UserOverview">User Overview</a></li>
+                    <li><a href="Controller?command=UserRegister">Register User</a></li>
+                    <li><a href="Controller?command=ProjectOverview">Project Overview</a></li>
+                    <li><a href="Controller?command=ProjectRegister">Project Register</a></li>
+                    <li><a href="Controller?command=WorkorderOverview">Workorder Overview</a></li>
+                    <li><a href="Controller?command=WorkorderRegister">Workorder Register</a></li>
                 </c:if>
                 <c:if test="${user.role=='EMPLOYEE' }">
                     <li><a href="index.jsp" class="active">Home</a></li>

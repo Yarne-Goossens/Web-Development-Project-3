@@ -10,7 +10,7 @@
 
 <c:choose>
     <c:when test="${not empty foundProject}">
-        <ul>
+        <ul id="resList">
             <li>Name: ${foundProject.projectName}</li>
             <li>Team: ${foundProject.team}</li>
             <li>Start date: ${foundProject.start}</li>

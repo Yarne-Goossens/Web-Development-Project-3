@@ -3,7 +3,6 @@ package Controller;
 import domain.model.Role;
 import domain.model.User;
 import domain.service.DbException;
-import okhttp3.internal.Util;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -30,20 +29,17 @@ public class UserEditProcessing extends RequestHandler {
         if (Utility.checkRoleBoolean(request, Role.EMPLOYEE)) {
             edit.setRole(editUser.getRole());
             edit.setTeam(editUser.getTeam());
-        } 
-        else if (Utility.checkRoleBoolean(request, Role.TEAMLEADER)) {
+        } else if (Utility.checkRoleBoolean(request, Role.TEAMLEADER)) {
             if (request.getParameter("role").compareTo("director") == 0) {
                 throw new NotAuthorizedException();
             } else {
                 edit.setRoleRequest(request, errors);
                 edit.setTeamRequest(request, errors);
             }
-        }
-        else if (Utility.getUserLoggedIn(request).getUserid() == editUser.getUserid() && Utility.getUserLoggedIn(request).getRole() == Role.DIRECTOR) {
+        } else if (Utility.getUserLoggedIn(request).getUserid() == editUser.getUserid() && Utility.getUserLoggedIn(request).getRole() == Role.DIRECTOR) {
             edit.setTeamRequest(request, errors);
             edit.setRole(editUser.getRole());
-        }
-        else if (Utility.checkRoleBoolean(request, Role.DIRECTOR)) {
+        } else if (Utility.checkRoleBoolean(request, Role.DIRECTOR)) {
             edit.setRoleRequest(request, errors);
             edit.setTeamRequest(request, errors);
         }

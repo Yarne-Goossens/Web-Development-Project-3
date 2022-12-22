@@ -2,7 +2,6 @@ package Controller;
 
 import domain.model.Project;
 import domain.model.Role;
-import domain.service.DbException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +11,7 @@ import java.util.ArrayList;
 public class ProjectRegisterProcessing extends RequestHandler {
 
     @Override
-    public String handleRequest(HttpServletRequest request, HttpServletResponse response)throws NotAuthorizedException, IOException {
+    public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws NotAuthorizedException, IOException {
         ArrayList<String> errors = new ArrayList<String>();
 
         Project project = new Project();

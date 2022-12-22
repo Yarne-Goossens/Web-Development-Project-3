@@ -1,7 +1,5 @@
 package domain.service;
 
-import domain.model.Team;
-import domain.model.Role;
 import domain.model.User;
 
 import java.util.ArrayList;
@@ -33,9 +31,9 @@ public class UserServiceOld {
             throw new DbException("User already exists");
         }
         for (User u : this.getAll()) {
-            if(u.getEmail().compareTo(user.getEmail())==0){
+            if (u.getEmail().compareTo(user.getEmail()) == 0) {
                 throw new DbException("No duplicate emails");
-            };
+            }
         }
 
         user.setUserid(userid);   // user toevoegen geeft altijd nieuw userid
@@ -43,7 +41,7 @@ public class UserServiceOld {
         userid++;
     }
 
-    public void update(User user,int id) {
+    public void update(User user, int id) {
         if (user == null) {
             throw new DbException("No user given");
         }
@@ -51,7 +49,7 @@ public class UserServiceOld {
             throw new DbException("No user found");
         }
         for (User u : this.getAll()) {
-            if(u.getEmail().compareTo(user.getEmail())==0&&u.getUserid()!=user.getUserid()) {
+            if (u.getEmail().compareTo(user.getEmail()) == 0 && u.getUserid() != user.getUserid()) {
                 throw new DbException("No duplicate emails");
             }
         }
@@ -62,10 +60,10 @@ public class UserServiceOld {
         users.remove(userid);   // userid gaat verloren, maar wordt niet ingenomen door eventuele nieuwe user
     }
 
-    public User checkRealUserAndPassword(String email,String password){
+    public User checkRealUserAndPassword(String email, String password) {
         for (User u : this.getAll()) {
-            if (u.getEmail().compareTo(email)==0){
-                if(u.isCorrectPassword(password)){
+            if (u.getEmail().compareTo(email) == 0) {
+                if (u.isCorrectPassword(password)) {
                     return u;
                 }
             }
