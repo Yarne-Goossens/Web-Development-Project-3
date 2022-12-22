@@ -121,7 +121,7 @@ public class ProjectServiceDBSQL implements ProjectService {
 
     public Project getProjectWithName(String name) {
         for (Project p : getAllProjects()) {
-            if (p.getProjectName().equals(name)) {
+            if (p.getProjectName().equalsIgnoreCase(name.toLowerCase())) {
                 return p;
             }
         }
